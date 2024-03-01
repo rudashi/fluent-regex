@@ -4,6 +4,8 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/rudashi/fluent-regex)
 ![Twitter Follow](https://img.shields.io/twitter/follow/BorysZmuda?style=social)
 
+Jeżeli wydawało Ci się, że odnalezienie igły w stogu siana jest niemożliwe, to znaczy, że te repozytorium jest dla Ciebie.
+
 ## Requirements
 - PHP ^8.0
 - Composer
@@ -16,7 +18,6 @@ composer require rudashi/fluent-regex:dev-master
 ```
 
 ## Usage
-This simple example illustrates the way you would use `flux` and it's fluent interface to build complex patterns.
 
 ```php
 $regex = Regex::build()
@@ -26,10 +27,20 @@ $regex = Regex::build()
   ->ignoreCase();
 
 $regex->dump();
-// ^(http|https)?\:\/\//i
+// ^(http|https)\:\/\//i
 
 $match = Regex::for('https://100commitow.pl/')->find('100commitow')->check();
 // True
 ```
 
 ## Available Methods
+
+| Name          | Description                                    | Regex                |
+|---------------|------------------------------------------------|:--------------------:|
+| startOfLine   | asserts position at start of a line          | ^  |
+| group           | capturing Group                           | ()           |
+| find          | add a string to find                                |           |
+| or           | alternative value to find | \|  |
+| then          | add a string to find                |            |
+| check          | returns true or false when find match                         |  |
+| ignoreCase          | case insensitive match (ignores case of [a-zA-Z])                         | / i |
