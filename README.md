@@ -35,12 +35,12 @@ $match = Regex::for('https://100commitow.pl/')->find('100commitow')->check();
 
 ## Available Methods
 
-| Name          | Description                                    | Regex                |
-|---------------|------------------------------------------------|:--------------------:|
-| startOfLine   | asserts position at start of a line          | ^  |
-| group           | capturing Group                           | ()           |
-| find          | add a string to find                                |           |
-| or           | alternative value to find | \|  |
-| then          | add a string to find                |            |
-| check          | returns true or false when find match                         |  |
-| ignoreCase          | case insensitive match (ignores case of [a-zA-Z])                         | / i |
+| Name        | Description                                       | Regex |
+|-------------|---------------------------------------------------|:-----:|
+| startOfLine | asserts position at start of a line               |   ^   |
+| group       | capturing Group                                   |  ()   |
+| find        | add a string to find                              |       |
+| or          | alternative value to find                         |  \|   |
+| then        | add a string to find                              |       |
+| check       | returns true or false when find match             |       |
+| ignoreCase  | case insensitive match (ignores case of [a-zA-Z]) |  / i  |
