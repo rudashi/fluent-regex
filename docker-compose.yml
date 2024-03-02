@@ -1,0 +1,10 @@
+version: '3'
+services:
+  php:
+    image: php:8.2-fpm
+    volumes:
+      - '.:/var/www/html'
+  composer:
+    image: composer
+    volumes:
+      - '.:/var/www/html'
