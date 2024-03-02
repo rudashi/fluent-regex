@@ -1,0 +1,44 @@
+{
+    "name": "rudashi/fluent-regex",
+    "description": "Elegant way for PHP regex",
+    "license": "MIT",
+    "keywords": [
+        "php",
+        "regex",
+        "preg"
+    ],
+    "authors": [
+        {
+            "name": "Borys Żmuda",
+            "email": "rudashi@gmail.com",
+            "homepage": "https://rudashi.github.io",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.34"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rudashi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "pest": "vendor/bin/pest"
+    }
+}
