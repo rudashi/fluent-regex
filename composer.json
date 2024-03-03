@@ -19,7 +19,9 @@
         "php": ">=8.0"
     },
     "require-dev": {
-        "pestphp/pest": "^2.0"
+        "pestphp/pest": "^2.0",
+        "phpstan/phpstan": "^1.0",
+        "friendsofphp/php-cs-fixer": "^3.0"
     },
     "autoload": {
         "psr-4": {
@@ -39,6 +41,8 @@
     "prefer-stable": true,
     "scripts": {
         "test": "vendor/bin/pest",
-        "pest": "vendor/bin/pest"
+        "pest": "vendor/bin/pest",
+        "analyse": "vendor/bin/phpstan analyse src tests",
+        "pint": "vendor/bin/php-cs-fixer check src"
     }
 }
