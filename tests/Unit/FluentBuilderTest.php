@@ -2,13 +2,6 @@
 
 declare(strict_types=1);
 
-use Rudashi\FluentBuilder;
-
-function fluentBuilder(): FluentBuilder
-{
-    return new FluentBuilder();
-}
-
 it('can add context to the builder', function () {
     $regex = fluentBuilder()->setContext('test');
 
