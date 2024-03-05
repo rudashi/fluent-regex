@@ -8,5 +8,3 @@ parameters:
     -
         message: '#Undefined variable: \$this.*#'
         path: tests/**
-  excludePaths:
-    - "tests/Pest.php"
