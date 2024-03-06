@@ -8,35 +8,35 @@ trait Tokens
 {
     public function exactly(string $value): static
     {
-        $this->pattern[] = $this->sanitize($value);
+        $this->pushToPattern($this->sanitize($value));
 
         return $this;
     }
 
     public function letter(): static
     {
-        $this->pattern[] = '[a-zA-Z]';
+        $this->pushToPattern('[a-zA-Z]');
 
         return $this;
     }
 
     public function letters(): static
     {
-        $this->pattern[] = '[a-zA-Z]+';
+        $this->pushToPattern('[a-zA-Z]+');
 
         return $this;
     }
 
     public function lowerLetter(): static
     {
-        $this->pattern[] = '[a-z]';
+        $this->pushToPattern('[a-z]');
 
         return $this;
     }
 
     public function lowerLetters(): static
     {
-        $this->pattern[] = '[a-z]+';
+        $this->pushToPattern('[a-z]+');
 
         return $this;
     }

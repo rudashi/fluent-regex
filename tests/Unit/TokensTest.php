@@ -2,6 +2,13 @@
 
 declare(strict_types=1);
 
+it('can add to `pattern` value', function () {
+    $regex = fluentBuilder()->pushToPattern('test');
+
+    expect($regex->get())
+        ->toBe('/test/');
+});
+
 it('can add a `exactly` token', function () {
     $regex = fluentBuilder()->exactly('foo bar');
 

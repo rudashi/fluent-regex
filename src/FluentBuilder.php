@@ -40,6 +40,13 @@ class FluentBuilder
         ]);
     }
 
+    public function pushToPattern(string $value): static
+    {
+        $this->pattern[] = $value;
+
+        return $this;
+    }
+
     public function setContext(string $string): static
     {
         $this->context = $string;
