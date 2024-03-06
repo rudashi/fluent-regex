@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace Rudashi;
 
+use Rudashi\Concerns\Tokens;
+
 class FluentBuilder
 {
+    use Tokens;
+
     protected string $context = '';
     /**
      * @var array<int, string>
@@ -34,5 +38,10 @@ class FluentBuilder
         $this->context = $string;
 
         return $this;
+    }
+
+    protected function sanitize(string $value): string
+    {
+        return $value !== '' ? preg_quote($value, '/') : $value;
     }
 }
