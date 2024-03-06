@@ -10,6 +10,8 @@ class FluentBuilder
 {
     use Tokens;
 
+    protected const DELIMITER = '/';
+
     protected string $context = '';
     /**
      * @var array<int, string>
@@ -18,11 +20,11 @@ class FluentBuilder
     /**
      * @var array<int, string>
      */
-    protected array $prefix = ['/'];
+    protected array $prefix = [self::DELIMITER];
     /**
      * @var array<int, string>
      */
-    protected array $suffix = ['/'];
+    protected array $suffix = [self::DELIMITER];
     /**
      * @var array<int, string>
      */
@@ -30,7 +32,12 @@ class FluentBuilder
 
     public function get(): string
     {
-        return implode('', [...$this->prefix, ...$this->pattern, ...$this->suffix, ...$this->modifiers]);
+        return implode('', [
+            ...$this->prefix,
+            ...$this->pattern,
+            ...$this->suffix,
+            ...$this->modifiers,
+        ]);
     }
 
     public function setContext(string $string): static
