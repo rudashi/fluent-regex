@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Rudashi\FluentBuilder;
+use Rudashi\Negate;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,4 +47,9 @@ expect()->extend('toBeOne', function () {
 function fluentBuilder(): FluentBuilder
 {
     return new FluentBuilder();
+}
+
+function negation(): Negate
+{
+    return new Negate(fluentBuilder());
 }
