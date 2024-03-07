@@ -44,6 +44,6 @@
         "test": "vendor/bin/pest",
         "pest": "vendor/bin/pest",
         "analyse": "vendor/bin/phpstan analyse src tests",
-        "pint": "vendor/bin/php-cs-fixer check src"
+        "pint": "vendor/bin/php-cs-fixer check src -vvv"
     }
 }
