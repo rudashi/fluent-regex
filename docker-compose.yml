@@ -1,7 +1,8 @@
 version: '3'
 services:
   php:
-    image: php:8.2-fpm
+    build:
+      dockerfile: Dockerfile
     volumes:
       - '.:/var/www/html'
   composer:
