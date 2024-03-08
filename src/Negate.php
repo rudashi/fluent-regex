@@ -23,6 +23,27 @@ class Negate
         return $this->builder;
     }
 
+    public function letters(): FluentBuilder
+    {
+        $this->builder->pushToPattern('[^a-zA-Z]+');
+
+        return $this->builder;
+    }
+
+    public function lowerLetter(): FluentBuilder
+    {
+        $this->builder->pushToPattern('[^a-z]');
+
+        return $this->builder;
+    }
+
+    public function lowerLetters(): FluentBuilder
+    {
+        $this->builder->pushToPattern('[^a-z]+');
+
+        return $this->builder;
+    }
+
     /**
      * @param  string  $method
      * @param  array<int|string, mixed>  $arguments
@@ -32,7 +53,7 @@ class Negate
     {
         $this->builder->pushToPattern('[^');
 
-        $result = $this->builder->{$method}($arguments);
+        $result = $this->builder->{$method}(...$arguments);
 
         if ($result instanceof FluentBuilder) {
             $this->builder->pushToPattern(']');
