@@ -6,9 +6,9 @@ namespace Rudashi\Concerns;
 
 trait Tokens
 {
-    public function exactly(string $value): static
+    public function exactly(string|int $value): static
     {
-        $this->pushToPattern($this->sanitize($value));
+        $this->pushToPattern($this->sanitize((string) $value));
 
         return $this;
     }

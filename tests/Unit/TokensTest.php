@@ -16,6 +16,13 @@ it('can add a `exactly` token', function () {
         ->toBe('/foo bar/');
 });
 
+it('can add a numeric `exactly` token', function () {
+    $regex = fluentBuilder()->exactly(41);
+
+    expect($regex->get())
+        ->toBe('/41/');
+});
+
 it('can add a `letter` token', function () {
     $regex = fluentBuilder()->letter();
 
