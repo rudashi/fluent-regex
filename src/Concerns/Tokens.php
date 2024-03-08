@@ -40,4 +40,18 @@ trait Tokens
 
         return $this;
     }
+
+    public function whitespace(): static
+    {
+        $this->pushToPattern('\s');
+
+        return $this;
+    }
+
+    public function nonWhitespace(): static
+    {
+        $this->pushToPattern('\S');
+
+        return $this;
+    }
 }

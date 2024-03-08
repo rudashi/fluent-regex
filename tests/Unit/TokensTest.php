@@ -43,3 +43,17 @@ it('can add a `lowerLetters` token', function () {
     expect($regex->get())
         ->toBe('/[a-z]+/');
 });
+
+it('can add a `whitespaces`', function () {
+    $regex = fluentBuilder()->whitespace();
+
+    expect($regex->get())
+        ->toBe('/\s/');
+});
+
+it('can add a `non whitespaces`', function () {
+    $regex = fluentBuilder()->nonWhitespace();
+
+    expect($regex->get())
+        ->toBe('/\S/');
+});
