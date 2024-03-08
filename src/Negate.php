@@ -61,6 +61,11 @@ class Negate
             return $this->builder;
         }
 
+        $this->throwNegationException($method);
+    }
+
+    protected function throwNegationException(string $method): never
+    {
         throw new LogicException(sprintf(
             'Method "%s" is not extendable by "Negation".',
             $method
