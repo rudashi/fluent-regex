@@ -6,6 +6,7 @@ namespace Rudashi;
 
 use BadMethodCallException;
 use LogicException;
+use Rudashi\Concerns\Dumpable;
 use Rudashi\Concerns\Tokens;
 
 /**
@@ -14,6 +15,7 @@ use Rudashi\Concerns\Tokens;
 class FluentBuilder
 {
     use Tokens;
+    use Dumpable;
 
     protected const DELIMITER = '/';
 
