@@ -6,6 +6,7 @@ namespace Rudashi;
 
 use BadMethodCallException;
 use LogicException;
+use Rudashi\Concerns\Anchors;
 use Rudashi\Concerns\Dumpable;
 use Rudashi\Concerns\Tokens;
 
@@ -14,6 +15,7 @@ use Rudashi\Concerns\Tokens;
  */
 class FluentBuilder
 {
+    use Anchors;
     use Tokens;
     use Dumpable;
 
@@ -31,11 +33,11 @@ class FluentBuilder
     /**
      * @var array<int, string>
      */
-    protected array $suffix = [self::DELIMITER];
+    protected array $suffix = [];
     /**
      * @var array<int, string>
      */
-    protected array $modifiers = [];
+    protected array $modifiers = [self::DELIMITER];
 
     public function get(): string
     {
