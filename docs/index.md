@@ -1,3 +1,8 @@
+---
+title:  Installation
+layout: default
+---
+
 # Installation
 
 > **Requirements:** [PHP ^8.1](https://php.net/releases/)
@@ -14,4 +19,4 @@ composer require rudashi/fluent-regex --dev --with-all-dependencies
 
 ---
 
-Once the installation is complete, you can start using [Fluent Regex →](/docs/usage.md).
+Once the installation is complete, you can start using [Fluent Regex →](usage).
