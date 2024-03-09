@@ -16,6 +16,16 @@ class Regex
         return static::build()->setContext($string);
     }
 
+    public static function start(): FluentBuilder
+    {
+        return static::build()->startOfLine();
+    }
+
+    public static function startOfLine(): FluentBuilder
+    {
+        return static::start();
+    }
+
     public function newBuilder(): FluentBuilder
     {
         return new FluentBuilder();

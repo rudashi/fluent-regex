@@ -25,3 +25,19 @@ it('can create Builder', function () {
     expect($data)
         ->toBeInstanceOf(FluentBuilder::class);
 });
+
+it('can create a Builder at the start of the string', function () {
+    $data = Regex::start();
+
+    expect($data)
+        ->toBeInstanceOf(FluentBuilder::class)
+        ->get()->toBe('/^/');
+});
+
+test('call `startOfLine` - `start()` alias ', function () {
+    $data = Regex::startOfLine();
+
+    expect($data)
+        ->toBeInstanceOf(FluentBuilder::class)
+        ->get()->toBe('/^/');
+});
