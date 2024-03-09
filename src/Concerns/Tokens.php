@@ -54,4 +54,18 @@ trait Tokens
 
         return $this;
     }
+
+    public function digit(): static
+    {
+        $this->pushToPattern('\d');
+
+        return $this;
+    }
+
+    public function digits(): static
+    {
+        $this->pushToPattern('\d+');
+
+        return $this;
+    }
 }

@@ -57,3 +57,13 @@ it('returns the negation of non whitespaces')
     ->expect(negation()->nonWhitespace()->get())
     ->toBeString()
     ->toBe('/[^\S]/');
+
+it('returns the negation of digit')
+    ->expect(negation()->digit()->get())
+    ->toBeString()
+    ->toBe('/[^\d]/');
+
+it('returns the negation of non digits')
+    ->expect(negation()->digits()->get())
+    ->toBeString()
+    ->toBe('/[^\d+]/');

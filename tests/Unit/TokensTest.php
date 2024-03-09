@@ -64,3 +64,17 @@ it('can add a `non whitespaces`', function () {
     expect($regex->get())
         ->toBe('/\S/');
 });
+
+it('can add a `digit`', function () {
+    $regex = fluentBuilder()->digit();
+
+    expect($regex->get())
+        ->toBe('/\d/');
+});
+
+it('can add a `digits`', function () {
+    $regex = fluentBuilder()->digits();
+
+    expect($regex->get())
+        ->toBe('/\d+/');
+});
