@@ -8,6 +8,7 @@ use BadMethodCallException;
 use LogicException;
 use Rudashi\Concerns\Anchors;
 use Rudashi\Concerns\Dumpable;
+use Rudashi\Concerns\Flags;
 use Rudashi\Concerns\Tokens;
 
 /**
@@ -17,6 +18,7 @@ class FluentBuilder
 {
     use Anchors;
     use Tokens;
+    use Flags;
     use Dumpable;
 
     protected const DELIMITER = '/';
