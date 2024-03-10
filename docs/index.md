@@ -1,22 +1,39 @@
 ---
-title:  Installation
+title:  Introduction
 layout: default
 ---
 
-# Installation
+# Introduction
 
-> **Requirements:** [PHP ^8.1](https://php.net/releases/)
+This package provides a simple way to create Regex in fluent way. 
 
-Installing *Fluent-Regex* is very simple. Before you start, make sure you have PHP `8.1` or higher.
+Here is a quick example:
 
-**Firstly** run the command in your terminal.
+```php
+Regex::build()
+  ->startOfLine()
+  ->group(fn (Fluent $fluent) => $fluent->find('http')->or('https'))
+  ->then('://')
+  ->ignoreCase()
 
-```shell
-composer require rudashi/fluent-regex --dev --with-all-dependencies
+// ^(http|https)\:\/\//i
 ```
 
-**Secondly**, that's all.
+You can also check if your string is valid to pattern:
 
+```php
+Regex::for('https://100commitow.pl/')->find('100commitow')->check();
+
+// True
+```
+
+
+## 🏅 There are badges 
+
+![GitHub last commit](https://img.shields.io/github/last-commit/rudashi/fluent-regex)  
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/rudashi/fluent-regex/tests.yml?label=tests)  
+![GitHub repo size](https://img.shields.io/github/repo-size/rudashi/fluent-regex)  
+![Packagist Version](https://img.shields.io/packagist/v/rudashi/fluent-regex)  
 ---
 
-Once the installation is complete, you can start using [Fluent Regex →](usage).
+Check this package minimum [Requirements →](requirements).

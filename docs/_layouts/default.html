@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en-US" }}">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,10 +22,30 @@
         <nav class="col-2">
             <ul>
                 <li>
-                    <a href="{{ "/" | absolute_url }}">Installation</a>
+                    <h2>Getting started</h2>
+                    <ul>
+                        <li><a href="{{ "/" | absolute_url }}">Introduction</a></li>
+                        <li><a href="requirements">Requirements</a></li>
+                        <li><a href="installation">Installation</a></li>
+                        <li><a href="changelog">Changelog</a></li>
+                    </ul>
                 </li>
                 <li>
-                    <a href="usage">Usage</a>
+                    <h2>The basics</h2>
+                    <ul>
+                        <li>>Modifier flags</li>
+                        <li>>Prefix anchors</li>
+                        <li>>Suffix anchors</li>
+                        <li>>Returning results</li>
+                    </ul>
+                </li>
+                <li>
+                    <h2>Usage</h2>
+                    <ul>
+                        <li>>Helpers</li>
+                        <li>>Methods</li>
+                        <li>>Patterns</li>
+                    </ul>
                 </li>
             </ul>
         </nav>
