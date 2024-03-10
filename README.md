@@ -1,20 +1,21 @@
 # Fluent Regex
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/rudashi/fluent-regex)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/rudashi/fluent-regex/tests.yml)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rudashi/fluent-regex)
 ![Twitter Follow](https://img.shields.io/twitter/follow/BorysZmuda?style=social)
 
 Jeżeli wydawało Ci się, że odnalezienie igły w stogu siana jest niemożliwe, to znaczy, że te repozytorium jest dla Ciebie.
 
 ## Requirements
-- PHP ^8.0
+- PHP ^8.1
 - Composer
 
 ## Installation
 Install the package via Composer
 
 ```shell
-composer require rudashi/fluent-regex:dev-master
+composer require rudashi/fluent-regex --dev --with-all-dependencies
 ```
 
 ## Usage
