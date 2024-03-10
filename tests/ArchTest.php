@@ -6,11 +6,13 @@ namespace Tests;
 
 use Rudashi\Concerns\Dumpable;
 
-arch('globals')
-    ->expect(['dd', 'dump', 'die', 'var_dump', 'sleep'])
-    ->not->toBeUsed()
-    ->ignoring(Dumpable::class);
+arch('globals', function () {
+    expect(['dd', 'dump', 'die', 'var_dump', 'sleep'])
+        ->not->toBeUsed()
+        ->ignoring(Dumpable::class);
+});
 
-arch('traits')
-    ->expect('Rudashi\Concerns')
-    ->toBeTraits();
+arch('traits', function () {
+    expect('Rudashi\Concerns')
+        ->toBeTraits();
+});
