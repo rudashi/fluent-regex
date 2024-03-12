@@ -5,7 +5,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/rudashi/fluent-regex)
 ![Twitter Follow](https://img.shields.io/twitter/follow/BorysZmuda?style=social)
 
-Jeżeli wydawało Ci się, że odnalezienie igły w stogu siana jest niemożliwe, to znaczy, że te repozytorium jest dla Ciebie.
+If you thought that finding a `needle` in a `haystack` was impossible, this repository is for you.
 
 ## Requirements
 - PHP ^8.1
@@ -34,14 +34,10 @@ $match = Regex::for('https://100commitow.pl/')->find('100commitow')->check();
 // True
 ```
 
-## Available Methods
+## Documentation
 
-| Name        | Description                                       | Regex |
-|-------------|---------------------------------------------------|:-----:|
-| startOfLine | asserts position at start of a line               |   ^   |
-| group       | capturing Group                                   |  ()   |
-| find        | add a string to find                              |       |
-| or          | alternative value to find                         |  \|   |
-| then        | add a string to find                              |       |
-| check       | returns true or false when find match             |       |
-| ignoreCase  | case insensitive match (ignores case of [a-zA-Z]) |  / i  |
+The [FluentRegex documentation](https://rudashi.github.io/fluent-regex/) is extensive and complete, making getting started with regular expression syntax a breeze.
+
+## Changelog
+
+Detailed changes for each release are documented in the [CHANGELOG.md](https://github.com/rudashi/fluent-regex/blob/master/CHANGELOG.md).
