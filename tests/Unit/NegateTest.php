@@ -23,14 +23,8 @@ it('thrown an exception if the property has no method assigned', function () {
 );
 
 /**
- * Higher-Order methods
+ * Built-in methods
  */
-it('returns the negation of exactly', function () {
-    expect(negation()->exactly('foo bar')->get())
-        ->toBeString()
-        ->toBe('/[^foo bar]/');
-});
-
 it('returns the negation of letter', function () {
     expect(negation()->letter()->get())
         ->toBeString()
@@ -55,6 +49,15 @@ it('returns the negation of lowerLetters', function () {
         ->toBe('/[^a-z]+/');
 });
 
+/**
+ * Higher-Order methods
+ */
+it('returns the negation of exactly', function () {
+    expect(negation()->exactly('foo bar')->get())
+        ->toBeString()
+        ->toBe('/[^foo bar]/');
+});
+
 it('returns the negation of whitespaces', function () {
     expect(negation()->whitespace()->get())
         ->toBeString()
@@ -73,7 +76,7 @@ it('returns the negation of digit', function () {
         ->toBe('/[^\d]/');
 });
 
-it('returns the negation of non digits', function () {
+it('returns the negation of digits', function () {
     expect(negation()->digits()->get())
         ->toBeString()
         ->toBe('/[^\d+]/');
