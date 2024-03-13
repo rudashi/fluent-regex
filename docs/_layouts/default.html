@@ -19,10 +19,10 @@
         </div>
     </header>
     <main class="container-lg pt-5 pb-6">
-        <nav class="col-2">
+        <nav class="col-2 mr-5">
             <ul>
                 <li>
-                    <h2>Getting started</h2>
+                    <span class="h2">Getting started</span>
                     <ul>
                         <li><a href="{{ "/" | absolute_url }}">Introduction</a></li>
                         <li><a href="requirements">Requirements</a></li>
@@ -31,17 +31,17 @@
                     </ul>
                 </li>
                 <li>
-                    <h2><a href="usage">Usage</a></h2>
+                    <a class="h2" href="usage">Usage</a>
                     <ul>
                         <li><a href="usage#helpers">Helpers</a></li>
-                        <li><a href="usage#available-tokens">Tokens</a></li>
+                        <li><a href="usage#tokens">Tokens</a></li>
                         <li><a href="usage#quantifiers">Quantifiers</a></li>
                         <li><a href="usage#negation">Negation</a></li>
                         <li><a href="usage#patterns">Patterns</a></li>
                     </ul>
                 </li>
                 <li>
-                    <h2><a href="advance">Advanced</a></h2>
+                    <a class="h2"href="advance">Advanced</a>
                     <ul>
                         <li><a href="advance#modifier-flags">Modifier flags</a></li>
                         <li><a href="advance#prefix-anchors">Prefix anchors</a></li>
@@ -51,7 +51,7 @@
                 </li>
             </ul>
         </nav>
-        <div class="col-10 markdown-body mb-6">
+        <div class="col-9 markdown-body mb-6">
             {{ content }}
         </div>
     </main>

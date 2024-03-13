@@ -14,17 +14,17 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 - [`build`](#build)
 - [`for`](#for)
 - [`start`](#start)
-- [`startOfLine`](#startOfLine)
+- [`startOfLine`](#startofline)
 
 ### Tokens methods
 
 - [`exactly`](#exactly)
 - [`letter`](#letter)
 - [`letters`](#letters)
-- [`lowerLetter`](#lowerLetter)
-- [`lowerLetters`](#lowerLetters)
+- [`lowerLetter`](#lowerletter)
+- [`lowerLetters`](#lowerletters)
 - [`whitespace`](#whitespace)
-- [`nonWhitespace`](#nonWhitespace)
+- [`nonWhitespace`](#nonwhitespace)
 - [`digit`](#digit)
 - [`digits`](#digits)
 
