@@ -11,8 +11,13 @@ use LogicException;
  */
 class Negate
 {
+    /**
+     * @param  \Rudashi\FluentBuilder  $builder
+     * @param  array<int, string>  $excluded
+     */
     public function __construct(
-        private FluentBuilder $builder,
+        private readonly FluentBuilder $builder,
+        private readonly array $excluded = [],
     ) {
     }
 
@@ -51,6 +56,10 @@ class Negate
      */
     public function __call(string $method, array $arguments): FluentBuilder
     {
+        if (in_array($method, $this->excluded, true)) {
+            $this->throwNegationException($method);
+        }
+
         $this->builder->pushToPattern('[^');
 
         $result = $this->builder->{$method}(...$arguments);

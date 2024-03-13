@@ -67,7 +67,20 @@ class FluentBuilder
 
     public function not(): Negate
     {
-        return new Negate($this);
+        return new Negate(
+            builder: $this,
+            excluded: [
+                'start',
+                'startOfLine',
+                'end',
+                'endOfLine',
+                'ignoreCase',
+                'multiline',
+                'matchNewLine',
+                'ignoreWhitespace',
+                'utf8',
+            ]
+        );
     }
 
     protected function sanitize(string $value): string

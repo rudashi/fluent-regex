@@ -36,3 +36,10 @@ it('can add `unicode` flag', function () {
     expect($regex->get())
         ->toBe('//u');
 });
+
+it('thrown an exception when trying to negate the flag', function () {
+    expect(fluentBuilder()->not->ignoreCase());
+})->throws(
+    exception: LogicException::class,
+    exceptionMessage: 'Method "ignoreCase" is not extendable by "Negation".'
+);

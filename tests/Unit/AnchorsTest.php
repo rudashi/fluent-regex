@@ -29,3 +29,10 @@ it('can add alias of `end` anchor', function () {
     expect($regex->get())
         ->toBe('/$/');
 });
+
+it('thrown an exception when trying to negate the anchor', function () {
+    expect(fluentBuilder()->not->endOfLine());
+})->throws(
+    exception: LogicException::class,
+    exceptionMessage: 'Method "endOfLine" is not extendable by "Negation".'
+);
