@@ -3,8 +3,36 @@
 
 @import "{{ site.theme }}";
 
+.position-sticky {
+    position: sticky;
+}
+
 main {
     display: flex;
+}
+
+.navbar {
+    top: 110px;
+    overflow-y: scroll;
+    height: 100vh;
+
+    &:hover {
+        &::-webkit-scrollbar-thumb:hover {
+            background: #d4c6c5;
+        }
+        &:hover::-webkit-scrollbar-thumb {
+            background: #f1e5e4b0;
+        }
+        &:hover::-webkit-scrollbar-thumb {
+            border-radius: 999px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: transparent;
+        }
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+    }
 }
 
 nav ul {
