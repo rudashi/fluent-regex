@@ -78,3 +78,31 @@ it('can add a `digits`', function () {
     expect($regex->get())
         ->toBe('/\d+/');
 });
+
+it('can add a `nonDigit`', function () {
+    $regex = fluentBuilder()->nonDigit();
+
+    expect($regex->get())
+        ->toBe('/\D/');
+});
+
+it('can add a `nonDigits`', function () {
+    $regex = fluentBuilder()->nonDigits();
+
+    expect($regex->get())
+        ->toBe('/\D+/');
+});
+
+it('can add a `word`', function () {
+    $regex = fluentBuilder()->word();
+
+    expect($regex->get())
+        ->toBe('/\w/');
+});
+
+it('can add a `words`', function () {
+    $regex = fluentBuilder()->words();
+
+    expect($regex->get())
+        ->toBe('/\w+/');
+});

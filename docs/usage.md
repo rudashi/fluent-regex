@@ -27,6 +27,10 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 - [`nonWhitespace`](#nonwhitespace)
 - [`digit`](#digit)
 - [`digits`](#digits)
+- [`nonDigit`](#nondigit)
+- [`nonDigits`](#nondigits)
+- [`word`](#word)
+- [`words`](#words)
 
 ### Quantifiers methods
 
@@ -192,6 +196,54 @@ use Rudashi\Regex;
 $pattern = Regex::build()->digits();
  
 // /\d+/
+```
+
+#### `nonDigit`
+
+The `nonDigit` method matches any single character that is not a digit (equivalent to [^0-9]).
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->nonDigit();
+ 
+// /\D/
+```
+
+#### `nonDigits`
+
+The `nonDigits` method matches all non-digit characters.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->nonDigits();
+ 
+// /\D+/
+```
+
+#### `word`
+
+The `word` method matches any word character (equivalent to [a-zA-Z0-9_]).
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->word();
+ 
+// /\w/
+```
+
+#### `words`
+
+The `words` method matches all words characters.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->words();
+ 
+// /\w+/
 ```
 
 ## Quantifiers

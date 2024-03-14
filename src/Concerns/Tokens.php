@@ -68,4 +68,32 @@ trait Tokens
 
         return $this;
     }
+
+    public function nonDigit(): static
+    {
+        $this->pushToPattern('\D');
+
+        return $this;
+    }
+
+    public function nonDigits(): static
+    {
+        $this->pushToPattern('\D+');
+
+        return $this;
+    }
+
+    public function word(): static
+    {
+        $this->pushToPattern('\w');
+
+        return $this;
+    }
+
+    public function words(): static
+    {
+        $this->pushToPattern('\w+');
+
+        return $this;
+    }
 }

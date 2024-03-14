@@ -81,3 +81,27 @@ it('returns the negation of digits', function () {
         ->toBeString()
         ->toBe('/[^\d+]/');
 });
+
+it('returns the negation of non digit', function () {
+    expect(negation()->nonDigit()->get())
+        ->toBeString()
+        ->toBe('/[^\D]/');
+});
+
+it('returns the negation of non digits', function () {
+    expect(negation()->nonDigits()->get())
+        ->toBeString()
+        ->toBe('/[^\D+]/');
+});
+
+it('returns the negation of word', function () {
+    expect(negation()->word()->get())
+        ->toBeString()
+        ->toBe('/[^\w]/');
+});
+
+it('returns the negation of words', function () {
+    expect(negation()->words()->get())
+        ->toBeString()
+        ->toBe('/[^\w+]/');
+});
