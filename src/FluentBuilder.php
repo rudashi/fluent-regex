@@ -41,6 +41,13 @@ class FluentBuilder
      */
     protected array $modifiers = [self::DELIMITER];
 
+    public static function sanitize(string|int $value): string
+    {
+        $value = (string) $value;
+
+        return $value !== '' ? preg_quote($value, '/') : $value;
+    }
+
     public function get(): string
     {
         return implode('', [
@@ -70,11 +77,6 @@ class FluentBuilder
         return new Negate(
             builder: $this,
         );
-    }
-
-    protected function sanitize(string $value): string
-    {
-        return $value !== '' ? preg_quote($value, '/') : $value;
     }
 
     public function __get(string $name): mixed

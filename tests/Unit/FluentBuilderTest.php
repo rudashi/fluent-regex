@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Rudashi\FluentBuilder;
 use Rudashi\Negate;
 
 it('can add context to the builder', function () {
@@ -36,6 +37,17 @@ it('thrown an exception if you assign a value to the property', function () {
     exception: LogicException::class,
     exceptionMessage: 'Setter "foo" is not acceptable.'
 );
+
+it('can sanitize provided string', function (string $value, string $expectation) {
+    expect(FluentBuilder::sanitize($value))
+        ->toBeString()
+        ->toBe($expectation);
+})->with([
+    ['$40', '\\$40'],
+    ['*RRRING* Hello?', '\\*RRRING\\* Hello\\?'],
+    ['\\.+*?[^]$(){}=!<>|:', '\\\\\\.\\+\\*\\?\\[\\^\\]\\$\\(\\)\\{\\}\\=\\!\\<\\>\\|\\:'],
+    ['$40 for a g3/400', '\\$40 for a g3\\/400'],
+]);
 
 /**
  * Returning results

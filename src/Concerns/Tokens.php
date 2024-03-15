@@ -8,7 +8,7 @@ trait Tokens
 {
     public function exactly(string|int $value): static
     {
-        $this->pushToPattern($this->sanitize((string) $value));
+        $this->pushToPattern(static::sanitize($value));
 
         return $this;
     }
