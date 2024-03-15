@@ -69,17 +69,6 @@ class FluentBuilder
     {
         return new Negate(
             builder: $this,
-            excluded: [
-                'start',
-                'startOfLine',
-                'end',
-                'endOfLine',
-                'ignoreCase',
-                'multiline',
-                'matchNewLine',
-                'ignoreWhitespace',
-                'utf8',
-            ]
         );
     }
 

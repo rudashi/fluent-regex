@@ -12,9 +12,23 @@ use LogicException;
 class Negate
 {
     /**
-     * @param  \Rudashi\FluentBuilder  $builder
-     * @param  array<int, string>  $excluded
+     * The methods that cannot be negated.
+     *
+     * @var array<int, string>
      */
+    protected static array $guardedMethods = [
+        'start',
+        'startOfLine',
+        'end',
+        'endOfLine',
+        'oneOf',
+        'ignoreCase',
+        'multiline',
+        'matchNewLine',
+        'ignoreWhitespace',
+        'utf8',
+    ];
+
     public function __construct(
         private readonly FluentBuilder $builder,
         private readonly array $excluded = [],
@@ -56,7 +70,7 @@ class Negate
      */
     public function __call(string $method, array $arguments): FluentBuilder
     {
-        if (in_array($method, $this->excluded, true)) {
+        if (in_array($method, static::$guardedMethods, true)) {
             $this->throwNegationException($method);
         }
 

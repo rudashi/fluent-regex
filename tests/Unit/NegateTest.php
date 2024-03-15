@@ -15,12 +15,25 @@ it('can call builder methods', function () {
         ->toBeInstanceOf(FluentBuilder::class);
 });
 
-it('thrown an exception if the property has no method assigned', function () {
-    expect(negation()->get());
-})->throws(
-    exception: LogicException::class,
-    exceptionMessage: 'Method "get" is not extendable by "Negation".'
-);
+it('thrown an exception if the property has no method assigned', function (string $method) {
+    expect(fn () => negation()->{$method}())
+        ->toThrow(
+            exception: LogicException::class,
+            exceptionMessage: 'Method "' . $method . '" is not extendable by "Negation".'
+        );
+})->with([
+    'get',
+    'start',
+    'startOfLine',
+    'end',
+    'endOfLine',
+    'oneOf',
+    'ignoreCase',
+    'multiline',
+    'matchNewLine',
+    'ignoreWhitespace',
+    'utf8',
+]);
 
 /**
  * Built-in methods
