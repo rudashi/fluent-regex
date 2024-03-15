@@ -31,7 +31,6 @@ class Negate
 
     public function __construct(
         private readonly FluentBuilder $builder,
-        private readonly array $excluded = [],
     ) {
     }
 
