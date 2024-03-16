@@ -34,6 +34,13 @@ class Negate
     ) {
     }
 
+    public function any(string $value): FluentBuilder
+    {
+        $this->builder->pushToPattern('[^' . FluentBuilder::sanitize($value) . ']');
+
+        return $this->builder;
+    }
+
     public function letter(): FluentBuilder
     {
         $this->builder->pushToPattern('[^a-zA-Z]');

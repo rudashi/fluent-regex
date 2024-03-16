@@ -62,6 +62,12 @@ it('returns the negation of lowerLetters', function () {
         ->toBe('/[^a-z]+/');
 });
 
+    it('returns the negation of any', function () {
+        expect(negation()->any('abc')->get())
+            ->toBeString()
+            ->toBe('/[^abc]/');
+    });
+
 /**
  * Higher-Order methods
  */

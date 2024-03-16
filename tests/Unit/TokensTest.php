@@ -106,3 +106,10 @@ it('can add a `words`', function () {
     expect($regex->get())
         ->toBe('/\w+/');
 });
+
+it('can add a `any`', function () {
+    $regex = fluentBuilder()->any('abc');
+
+    expect($regex->get())
+        ->toBe('/[abc]/');
+});

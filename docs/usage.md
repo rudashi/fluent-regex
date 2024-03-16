@@ -31,6 +31,7 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 - [`nonDigits`](#nondigits)
 - [`word`](#word)
 - [`words`](#words)
+- [`any`](#any)
 
 ### Quantifiers methods
 
@@ -244,6 +245,18 @@ use Rudashi\Regex;
 $pattern = Regex::build()->words();
  
 // /\w+/
+```
+
+#### `any`
+
+The `any` method matches any single characters present in the given string.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->any('abc');
+ 
+// /[abc]/
 ```
 
 ## Quantifiers
