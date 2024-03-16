@@ -38,8 +38,9 @@ it('can add `unicode` flag', function () {
 });
 
 it('thrown an exception when trying to negate the flag', function () {
-    expect(fluentBuilder()->not->ignoreCase());
-})->throws(
-    exception: LogicException::class,
-    exceptionMessage: 'Method "ignoreCase" is not extendable by "Negation".'
-);
+    expect(fn () => fluentBuilder()->not->ignoreCase())
+        ->toThrow(
+            exception: LogicException::class,
+            exceptionMessage: 'Method "ignoreCase" is not extendable by "Negation".'
+        );
+});

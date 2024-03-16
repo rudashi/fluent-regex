@@ -24,20 +24,25 @@ it('allows properties to be accessed', function () {
 
 it('thrown an exception if the property has no method assigned', function () {
     // @phpstan-ignore-next-line
-    expect(fluentBuilder()->fooBar);
-})->throws(
-    exception: BadMethodCallException::class,
-    exceptionMessage: 'Method "fooBar" does not exist in Rudashi\FluentBuilder.'
-);
+    expect(fn () => fluentBuilder()->fooBar)
+        ->toThrow(
+            exception: BadMethodCallException::class,
+            exceptionMessage: 'Method "fooBar" does not exist in Rudashi\FluentBuilder.'
+        );
+});
 
 it('thrown an exception if you assign a value to the property', function () {
     // @phpstan-ignore-next-line
-    expect(fluentBuilder()->foo = 'bar');
-})->throws(
-    exception: LogicException::class,
-    exceptionMessage: 'Setter "foo" is not acceptable.'
-);
+    expect(fn () => fluentBuilder()->foo = 'bar')
+        ->toThrow(
+            exception: LogicException::class,
+            exceptionMessage: 'Setter "foo" is not acceptable.'
+        );
+});
 
+/**
+ * Helpers
+ */
 it('can sanitize provided string', function (string $value, string $expectation) {
     expect(FluentBuilder::sanitize($value))
         ->toBeString()

@@ -31,8 +31,9 @@ it('can add alias of `end` anchor', function () {
 });
 
 it('thrown an exception when trying to negate the anchor', function () {
-    expect(fluentBuilder()->not->endOfLine());
-})->throws(
-    exception: LogicException::class,
-    exceptionMessage: 'Method "endOfLine" is not extendable by "Negation".'
-);
+    expect(fn () => fluentBuilder()->not->endOfLine())
+        ->toThrow(
+            exception: LogicException::class,
+            exceptionMessage: 'Method "endOfLine" is not extendable by "Negation".'
+        );
+});
