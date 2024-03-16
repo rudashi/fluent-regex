@@ -93,14 +93,14 @@ $pattern = Regex::startOfLine();
 
 #### `exactly`
 
-The `exactly` method matches a single character present in the given string.
+The `exactly` method literally matches the given string.
 
 ```php
 use Rudashi\Regex;
  
 $pattern = Regex::build()->exactly('foo');
  
-// /[foo]/
+// /foo/
 ```
 
 #### `letter`
