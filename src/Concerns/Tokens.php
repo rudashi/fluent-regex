@@ -97,7 +97,7 @@ trait Tokens
         return $this;
     }
 
-    public function any(string|int $value): static
+    public function anyOf(string|int $value): static
     {
         $this->pushToPattern('[' . static::sanitize($value) . ']');
 

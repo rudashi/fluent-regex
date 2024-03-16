@@ -34,7 +34,7 @@ class Negate
     ) {
     }
 
-    public function any(string $value): FluentBuilder
+    public function anyOf(string $value): FluentBuilder
     {
         $this->builder->pushToPattern('[^' . FluentBuilder::sanitize($value) . ']');
 
