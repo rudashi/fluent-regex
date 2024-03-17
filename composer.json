@@ -42,8 +42,8 @@
     "prefer-stable": true,
     "scripts": {
         "test": "vendor/bin/pest",
-        "pest": "vendor/bin/pest",
+        "coverage": "vendor/bin/pest --coverage --testsuite=unit",
         "analyse": "vendor/bin/phpstan analyse src tests",
-        "pint": "vendor/bin/php-cs-fixer check src -vvv"
+        "pint": "vendor/bin/php-cs-fixer check src --show-progress=dots -vvv"
     }
 }
