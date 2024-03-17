@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rudashi;
 
+use ArgumentCountError;
 use BadMethodCallException;
 use LogicException;
 use Rudashi\Concerns\Anchors;
@@ -89,7 +90,15 @@ class FluentBuilder
             ));
         }
 
-        return $this->{$name}();
+        try {
+            return $this->{$name}();
+        } catch (ArgumentCountError) {
+            throw new BadMethodCallException(sprintf(
+                'Cannot access property "%s". Use the "%s()" method instead.',
+                $name,
+                $name
+            ));
+        }
     }
 
     public function __set(string $name, mixed $value): void
