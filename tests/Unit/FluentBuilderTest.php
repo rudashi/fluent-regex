@@ -17,11 +17,29 @@ it('can add context to the builder', function () {
     }
 });
 
-it('allows properties to be accessed', function () {
+/**
+ * Negation
+ */
+
+it('can use the `not` method as the negation of the next token', function () {
+    expect(fluentBuilder()->not())
+        ->toBeInstanceOf(Negate::class);
+});
+
+it('allows property `not` to be accessed', function () {
     expect(fluentBuilder()->not)
         ->toBeInstanceOf(Negate::class);
 });
 
+it('negates the next token using the `not` property', function () {
+    expect(fluentBuilder()->not->word())
+        ->toBeInstanceOf(FluentBuilder::class)
+        ->get()->toBe('/[^\w]/');
+});
+
+/**
+ * Exceptions
+ */
 it('thrown an exception if the property has no method assigned', function () {
     // @phpstan-ignore-next-line
     expect(fn () => fluentBuilder()->fooBar)
