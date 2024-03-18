@@ -28,6 +28,7 @@ it('thrown an exception if the property has no method assigned', function (strin
     'end',
     'endOfLine',
     'oneOf',
+    'or',
     'ignoreCase',
     'multiline',
     'matchNewLine',

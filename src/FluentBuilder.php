@@ -80,6 +80,22 @@ class FluentBuilder
         );
     }
 
+    public function oneOf(string ...$value): static
+    {
+        $this->pushToPattern(
+            implode('|', array_map([$this, 'sanitize'], $value))
+        );
+
+        return $this;
+    }
+
+    public function or(): static
+    {
+        $this->pushToPattern('|');
+
+        return $this;
+    }
+
     public function __get(string $name): mixed
     {
         if (method_exists($this, $name) === false) {

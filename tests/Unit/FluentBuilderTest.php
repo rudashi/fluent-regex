@@ -41,6 +41,23 @@ it('thrown an exception if you assign a value to the property', function () {
 });
 
 /**
+ * Or
+ */
+it('can add a `oneOf`', function () {
+    $regex = fluentBuilder()->oneOf('a', 'b', '.');
+
+    expect($regex->get())
+        ->toBe('/a|b|\./');
+});
+
+it('can add a `or`', function () {
+    $regex = fluentBuilder()->exactly('a')->or()->exactly('b');
+
+    expect($regex->get())
+        ->toBe('/a|b/');
+});
+
+/**
  * Helpers
  */
 it('can sanitize provided string', function (string $value, string $expectation) {

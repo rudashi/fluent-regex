@@ -22,6 +22,7 @@ class Negate
         'end',
         'endOfLine',
         'oneOf',
+        'or',
         'ignoreCase',
         'multiline',
         'matchNewLine',

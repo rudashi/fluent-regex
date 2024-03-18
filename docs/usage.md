@@ -32,10 +32,13 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 - [`word`](#word)
 - [`words`](#words)
 - [`anyOf`](#anyof)
+- [`oneOf`](#oneof)
 
 ### Quantifiers methods
 
-### Negation methods
+### Other methods
+
+- [`or`](#or)
 
 ### Patterns methods
 
@@ -259,9 +262,33 @@ $pattern = Regex::build()->anyOf('abc');
 // /[abc]/
 ```
 
+#### `oneOf`
+
+The `oneOf` method alternatively matches any of the given characters.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->oneOf('a', 'b', '.');
+ 
+// /a|b|\./
+```
+
 ## Quantifiers
 
-## Negation
+## Others
+
+#### `or`
+
+The `or` method alternatively matches the pattern before and after using the method.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->exactly('a')->or()->exactly('b');;
+ 
+// /a|b/
+```
 
 ## Patterns
 
