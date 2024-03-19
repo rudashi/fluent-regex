@@ -9,3 +9,6 @@ parameters:
     -
         message: '#Undefined variable: \$this.*#'
         path: tests/**
+  earlyTerminatingMethodCalls:
+      Rudashi\FluentBuilder:
+          - throwBadMethodException
