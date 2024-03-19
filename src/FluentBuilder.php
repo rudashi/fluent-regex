@@ -99,26 +99,23 @@ class FluentBuilder
     public function __get(string $name): mixed
     {
         if (method_exists($this, $name) === false) {
-            throw new BadMethodCallException(sprintf(
-                'Method "%s" does not exist in %s.',
-                $name,
-                __CLASS__,
-            ));
+            $this->throwBadMethodException('Method "%s" does not exist in %s.', $name, __CLASS__);
         }
 
         try {
             return $this->{$name}();
         } catch (ArgumentCountError) {
-            throw new BadMethodCallException(sprintf(
-                'Cannot access property "%s". Use the "%s()" method instead.',
-                $name,
-                $name
-            ));
+            $this->throwBadMethodException('Cannot access property "%s". Use the "%s()" method instead.', $name, $name);
         }
     }
 
     public function __set(string $name, mixed $value): void
     {
         throw new LogicException(sprintf('Setter "%s" is not acceptable.', $name));
+    }
+
+    protected function throwBadMethodException(string $format, string|int ...$values): void
+    {
+        throw new BadMethodCallException(sprintf($format, ...$values));
     }
 }
