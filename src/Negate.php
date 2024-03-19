@@ -16,7 +16,7 @@ class Negate
      *
      * @var array<int, string>
      */
-    protected static array $guardedMethods = [
+    public static array $guardedMethods = [
         'start',
         'startOfLine',
         'end',
