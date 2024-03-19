@@ -94,6 +94,9 @@ $pattern = Regex::startOfLine();
 
 ## Tokens
 
+The `FluentBuilder` must be initialized before using tokens. Use one of the above helper methods to do this.
+Tokens can be chained to create increasingly complex regular expressions.
+
 #### `exactly`
 
 The `exactly` method literally matches the given string.
