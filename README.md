@@ -5,13 +5,18 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/rudashi/fluent-regex)
 ![Twitter Follow](https://img.shields.io/twitter/follow/BorysZmuda?style=social)
 
+------
+
+This package provides a simple way to create regular expression in fluent way.
+
 If you thought that finding a `needle` in a `haystack` was impossible, this repository is for you.
 
 ## Requirements
-- PHP ^8.1
-- Composer
+
+- PHP 8.1+
 
 ## Installation
+
 Install the package via Composer
 
 ```shell
