@@ -30,10 +30,15 @@ it('can add alias of `end` anchor', function () {
         ->toBe('/$/');
 });
 
-it('thrown an exception when trying to negate the anchor', function () {
-    expect(fn () => fluentBuilder()->not->endOfLine())
+it('thrown an exception when trying to negate the anchor', function (string $method) {
+    expect(fn () => fluentBuilder()->not->{$method}())
         ->toThrow(
             exception: LogicException::class,
-            exceptionMessage: 'Method "endOfLine" is not extendable by "Negation".'
+            exceptionMessage: 'Method "'.$method.'" is not extendable by "Negation".'
         );
-});
+})->with([
+    'start',
+    'startOfLine',
+    'end',
+    'endOfLine',
+]);
