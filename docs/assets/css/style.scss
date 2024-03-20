@@ -7,6 +7,17 @@
     position: sticky;
 }
 
+.backdrop-blur {
+    backdrop-filter: blur(12px);
+}
+
+.bg-gray-light-30 {
+    background-color: $white-fade-30;
+}
+
+body, .markdown-body {
+    font-family: "Reem Kufi", apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ;
+}
 main {
     display: flex;
 }
