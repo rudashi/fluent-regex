@@ -32,7 +32,6 @@
                 <span class="h2">Getting started</span>
                 <ul class="mt-2 pl-3 ml-3 border-left">
                     <li><a href="{{ "/" | absolute_url }}">Introduction</a></li>
-                    <li><a href="requirements">Requirements</a></li>
                     <li><a href="installation">Installation</a></li>
                     <li><a href="changelog">Changelog</a></li>
                 </ul>
@@ -63,7 +62,14 @@
         {{ content }}
     </div>
 </main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
-<script>anchors.add();</script>
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+    anchors.options = {
+        placement: 'left',
+        visible: 'always',
+        icon: '#'
+    };
+    anchors.add();
+</script>
 </body>
 </html>

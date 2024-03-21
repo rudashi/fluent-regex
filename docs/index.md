@@ -36,4 +36,4 @@ Regex::for('https://100commitow.pl/')->find('100commitow')->check();
 
 ---
 
-Check this package minimum [Requirements →](requirements).
+Now you are ready to perform the [Installation →](installation).
