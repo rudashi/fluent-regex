@@ -7,7 +7,7 @@ namespace Rudashi;
 use ArgumentCountError;
 use BadMethodCallException;
 use LogicException;
-use Rudashi\Concerns\Anchors;
+use Rudashi\Concerns\HasAnchors;
 use Rudashi\Concerns\Dumpable;
 use Rudashi\Concerns\Flags;
 use Rudashi\Concerns\Tokens;
@@ -17,7 +17,7 @@ use Rudashi\Concerns\Tokens;
  */
 class FluentBuilder
 {
-    use Anchors;
+    use HasAnchors;
     use Tokens;
     use Flags;
     use Dumpable;
@@ -29,18 +29,21 @@ class FluentBuilder
      * @var array<int, string>
      */
     protected array $pattern = [];
+
     /**
      * @var array<int, string>
      */
-    protected array $prefix = [self::DELIMITER];
-    /**
-     * @var array<int, string>
-     */
-    protected array $suffix = [];
-    /**
-     * @var array<int, string>
-     */
-    protected array $modifiers = [self::DELIMITER];
+    protected array $modifiers = [];
+
+    protected Anchors $anchors;
+
+    public function __construct()
+    {
+        $this->anchors = new Anchors(
+            builder: $this,
+            delimiter: self::DELIMITER
+        );
+    }
 
     public static function sanitize(string|int $value): string
     {
@@ -52,9 +55,9 @@ class FluentBuilder
     public function get(): string
     {
         return implode('', [
-            ...$this->prefix,
+            ...$this->anchors->getPrefix(),
             ...$this->pattern,
-            ...$this->suffix,
+            ...$this->anchors->getSuffix(),
             ...$this->modifiers,
         ]);
     }
