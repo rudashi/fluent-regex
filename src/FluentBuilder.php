@@ -25,6 +25,7 @@ class FluentBuilder
     protected const DELIMITER = '/';
 
     protected string $context = '';
+
     /**
      * @var array<int, string>
      */
