@@ -8,7 +8,7 @@
 }
 
 .backdrop-blur {
-    backdrop-filter: blur($spacer);
+    backdrop-filter: blur($spacer-3);
 }
 
 .bg-gray-light-30 {
@@ -20,12 +20,12 @@ body, .markdown-body {
 }
 
 .navbar {
-    top: 110px;
+    top: $spacer-6;
     overflow-y: scroll;
     height: 100vh;
 
     &::-webkit-scrollbar {
-        width: $spacer;
+        width: $spacer-2;
     }
     &::-webkit-scrollbar-track, &::-webkit-scrollbar-thumb {
         background: transparent;
@@ -50,25 +50,26 @@ nav ul {
     li {
         display: flex;
         flex-direction: column;
-        font-size: .925rem;
-        font-weight: 400;
+        font-size: $h5-size;
+        font-weight: $font-weight-normal;
 
         a {
             display: flex;
             position: relative;
+            color: $text-gray-dark;
             transition: .5s;
-            padding-top: .685rem;
-            padding-bottom: .685rem;
-            padding-left: 10px;
+            padding-top: $em-spacer-6;
+            padding-bottom: $em-spacer-6;
+            padding-left: $spacer-3;
 
             &:before {
                 content: "";
                 position: absolute;
-                background-color: orange;
+                background-color: $blue-500;
                 left: -5px;
-                border-radius: .125rem;
-                width: .5rem;
-                height: .5rem;
+                border-radius: $em-spacer-2;
+                width: $em-spacer-5;
+                height: $em-spacer-5;
                 transform: rotate(45deg);
                 top: 42%;
                 transition: .3s;
@@ -80,8 +81,8 @@ nav ul {
     &.border-left {
         li:hover a {
             text-decoration: none;
-            color: orange;
-            padding-left: 15px;
+            color: $blue-500;
+            padding-left: $spacer-4;
 
             &:before {
                 opacity: 1;
@@ -91,8 +92,8 @@ nav ul {
     }
     li a.h2:hover {
         text-decoration: none;
-        color: orange;
-        padding-left: 15px;
+        color: $blue-500;
+        padding-left: $spacer-4;
     }
 }
 
