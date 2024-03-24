@@ -10,6 +10,7 @@ use LogicException;
 use Rudashi\Concerns\HasAnchors;
 use Rudashi\Concerns\Dumpable;
 use Rudashi\Concerns\Flags;
+use Rudashi\Concerns\Quantifiers;
 use Rudashi\Concerns\Tokens;
 
 /**
@@ -21,6 +22,7 @@ class FluentBuilder
     use Tokens;
     use Flags;
     use Dumpable;
+    use Quantifiers;
 
     protected const DELIMITER = '/';
 

@@ -28,6 +28,12 @@ class Negate
         'matchNewLine',
         'ignoreWhitespace',
         'utf8',
+        'zeroOrOne',
+        'zeroOrMore',
+        'oneOrMore',
+        'times',
+        'min',
+        'between',
     ];
 
     public function __construct(
