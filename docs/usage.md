@@ -36,6 +36,13 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 
 ### Quantifiers methods
 
+- [`zeroOrOne`](#zeroorone)
+- [`zeroOrMore`](#zeroormore)
+- [`oneOrMore`](#oneormore)
+- [`times`](#times)
+- [`min`](#min)
+- [`between`](#between)
+
 ### Other methods
 
 - [`or`](#or)
@@ -278,6 +285,78 @@ $pattern = Regex::build()->oneOf('a', 'b', '.');
 ```
 
 ## Quantifiers
+
+#### `zeroOrOne`
+
+The `zeroOrOne` method matches the previous token zero or one time.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->exactly('a')->zeroOrOne();;
+ 
+// /a?/
+```
+
+#### `zeroOrMore`
+
+The `zeroOrMore` method matches the previous token between zero and an unlimited number of times.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->exactly('a')->zeroOrMore();;
+ 
+// /a*/
+```
+
+#### `oneOrMore`
+
+The `oneOrMore` method matches the previous token once or an unlimited number of times.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->exactly('a')->oneOrMore();;
+ 
+// /a+/
+```
+
+#### `times`
+
+The `times` method matches the previous token a specified number of times.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->exactly('a')->times(1);;
+ 
+// /a{1}/
+```
+
+#### `min`
+
+The `min` method matches the previous token between a specified number to an unlimited number of times.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->exactly('a')->min(1);;
+ 
+// /a{1,}/
+```
+
+#### `between`
+
+The `between` method matches the previous token between a specified numbers of times.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->exactly('a')->between(1, 3);;
+ 
+// /a{1,3}/
+```
 
 ## Others
 
