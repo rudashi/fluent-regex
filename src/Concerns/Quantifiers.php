@@ -36,12 +36,12 @@ trait Quantifiers
 
     public function min(int $number): static
     {
-        $this->pushToPattern('{' . $number . ',}');
+        $this->between($number);
 
         return $this;
     }
 
-    public function between(int $min, int $max): static
+    public function between(int $min, int $max = null): static
     {
         $this->pushToPattern('{' . $min . ',' . $max . '}');
 

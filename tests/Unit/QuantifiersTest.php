@@ -44,6 +44,13 @@ it('can add `between` quantifier', function () {
         ->toBe('/\w{1,3}/');
 });
 
+it('can add the quantifier `between` to act like `min`', function () {
+    $regex = fluentBuilder()->word()->between(1);
+
+    expect($regex->get())
+        ->toBe('/\w{1,}/');
+});
+
 it('thrown an exception when trying to negate the quantifier', function (string $method) {
     expect(fn () => fluentBuilder()->not->{$method}())
         ->toThrow(
