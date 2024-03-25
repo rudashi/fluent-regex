@@ -122,8 +122,8 @@ it('can add a `words`', function () {
 });
 
 it('can add a `anyOf`', function () {
-    $regex = fluentBuilder()->anyOf('abc');
+    $regex = fluentBuilder()->anyOf('abc.@-_');
 
     expect($regex->get())
-        ->toBe('/[abc]/');
+        ->toBe('/[abc\.@\-_]/');
 });
