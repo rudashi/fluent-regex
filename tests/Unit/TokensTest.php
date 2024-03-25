@@ -51,6 +51,20 @@ it('can add a `lowerLetters` token', function () {
         ->toBe('/[a-z]+/');
 });
 
+it('can add a `number` token', function () {
+    $regex = fluentBuilder()->number();
+
+    expect($regex->get())
+        ->toBe('/[0-9]/');
+});
+
+it('can add a `numbers` token', function () {
+    $regex = fluentBuilder()->numbers();
+
+    expect($regex->get())
+        ->toBe('/[0-9]+/');
+});
+
 it('can add a `whitespaces`', function () {
     $regex = fluentBuilder()->whitespace();
 

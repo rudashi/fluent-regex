@@ -59,6 +59,18 @@ describe('Built-in methods', function () {
             ->toBeString()
             ->toBe('/[^abc]/');
     });
+
+    it('returns the negation of number', function () {
+        expect(negation()->number()->get())
+            ->toBeString()
+            ->toBe('/[^0-9]/');
+    });
+
+    it('returns the negation of numbers', function () {
+        expect(negation()->numbers()->get())
+            ->toBeString()
+            ->toBe('/[^0-9]+/');
+    });
 });
 
 /**

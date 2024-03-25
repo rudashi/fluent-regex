@@ -41,6 +41,18 @@ trait Tokens
         return $this;
     }
 
+    public function number(): static
+    {
+        return $this->addToken()->number();
+    }
+
+    public function numbers(): static
+    {
+        $this->pushToPattern('[0-9]+');
+
+        return $this;
+    }
+
     public function whitespace(): static
     {
         $this->pushToPattern('\s');

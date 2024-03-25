@@ -23,6 +23,8 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 - [`letters`](#letters)
 - [`lowerLetter`](#lowerletter)
 - [`lowerLetters`](#lowerletters)
+- [`number`](#number)
+- [`numbers`](#numbers)
 - [`whitespace`](#whitespace)
 - [`nonWhitespace`](#nonwhitespace)
 - [`digit`](#digit)
@@ -162,6 +164,30 @@ use Rudashi\Regex;
 $pattern = Regex::build()->lowerLetters();
  
 // /[a-z]+/
+```
+
+#### `number`
+
+The `number` method matches any single number (equivalent to `\d`).
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->number();
+ 
+// /[0-9]/
+```
+
+#### `numbers`
+
+The `numbers` method matches all numbers.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->numbers();
+ 
+// /[0-9]+/
 ```
 
 #### `whitespace`

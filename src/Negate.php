@@ -76,6 +76,20 @@ class Negate
         return $this->builder;
     }
 
+    public function number(): FluentBuilder
+    {
+        $this->builder->pushToPattern('[^0-9]');
+
+        return $this->builder;
+    }
+
+    public function numbers(): FluentBuilder
+    {
+        $this->builder->pushToPattern('[^0-9]+');
+
+        return $this->builder;
+    }
+
     /**
      * @param  string  $method
      * @param  array<int|string, mixed>  $arguments
