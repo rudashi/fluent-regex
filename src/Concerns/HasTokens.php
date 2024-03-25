@@ -43,7 +43,9 @@ trait HasTokens
 
     public function number(): static
     {
-        return $this->addToken()->number();
+        $this->pushToPattern('[0-9]');
+
+        return $this;
     }
 
     public function numbers(): static
