@@ -319,7 +319,7 @@ The `zeroOrOne` method matches the previous token zero or one time.
 ```php
 use Rudashi\Regex;
  
-$pattern = Regex::build()->exactly('a')->zeroOrOne();;
+$pattern = Regex::build()->exactly('a')->zeroOrOne();
  
 // /a?/
 ```
@@ -331,7 +331,7 @@ The `zeroOrMore` method matches the previous token between zero and an unlimited
 ```php
 use Rudashi\Regex;
  
-$pattern = Regex::build()->exactly('a')->zeroOrMore();;
+$pattern = Regex::build()->exactly('a')->zeroOrMore();
  
 // /a*/
 ```
@@ -343,7 +343,7 @@ The `oneOrMore` method matches the previous token once or an unlimited number of
 ```php
 use Rudashi\Regex;
  
-$pattern = Regex::build()->exactly('a')->oneOrMore();;
+$pattern = Regex::build()->exactly('a')->oneOrMore();
  
 // /a+/
 ```
@@ -355,7 +355,7 @@ The `times` method matches the previous token a specified number of times.
 ```php
 use Rudashi\Regex;
  
-$pattern = Regex::build()->exactly('a')->times(1);;
+$pattern = Regex::build()->exactly('a')->times(1);
  
 // /a{1}/
 ```
@@ -367,7 +367,7 @@ The `min` method matches the previous token between a specified number to an unl
 ```php
 use Rudashi\Regex;
  
-$pattern = Regex::build()->exactly('a')->min(1);;
+$pattern = Regex::build()->exactly('a')->min(1);
  
 // /a{1,}/
 ```
@@ -379,9 +379,19 @@ The `between` method matches the previous token between a specified numbers of t
 ```php
 use Rudashi\Regex;
  
-$pattern = Regex::build()->exactly('a')->between(1, 3);;
+$pattern = Regex::build()->exactly('a')->between(1, 3);
  
 // /a{1,3}/
+```
+
+Additionally, if you omit the second argument, the method behaves identically to `min`.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->exactly('a')->between(1);
+ 
+// /a{1,}/
 ```
 
 ## Others
@@ -393,7 +403,7 @@ The `or` method alternatively matches the pattern before and after using the met
 ```php
 use Rudashi\Regex;
  
-$pattern = Regex::build()->exactly('a')->or()->exactly('b');;
+$pattern = Regex::build()->exactly('a')->or()->exactly('b');
  
 // /a|b/
 ```
