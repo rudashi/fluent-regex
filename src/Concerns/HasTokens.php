@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rudashi\Concerns;
 
-trait Tokens
+trait HasTokens
 {
     public function exactly(string|int $value): static
     {

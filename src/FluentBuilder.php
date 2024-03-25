@@ -11,7 +11,7 @@ use Rudashi\Concerns\HasAnchors;
 use Rudashi\Concerns\Dumpable;
 use Rudashi\Concerns\Flags;
 use Rudashi\Concerns\Quantifiers;
-use Rudashi\Concerns\Tokens;
+use Rudashi\Concerns\HasTokens;
 
 /**
  * @property Negate $not Creates the negative pattern.
@@ -19,7 +19,7 @@ use Rudashi\Concerns\Tokens;
 class FluentBuilder
 {
     use HasAnchors;
-    use Tokens;
+    use HasTokens;
     use Flags;
     use Dumpable;
     use Quantifiers;
