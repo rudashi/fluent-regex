@@ -5,7 +5,7 @@ layout: default
 
 # Introduction
 
-This package provides a simple way to create Regex in fluent way. 
+This package provides a simple way to create Regex in a fluent way. 
 
 Here is a quick example:
 
