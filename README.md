@@ -7,7 +7,7 @@
 
 ------
 
-This package provides a simple way to create regular expression in fluent way.
+This package provides a simple way to create regular expression in a fluent way.
 
 If you thought that finding a `needle` in a `haystack` was impossible, this repository is for you.
 
