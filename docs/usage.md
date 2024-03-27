@@ -107,6 +107,18 @@ $pattern = Regex::startOfLine();
 The `FluentBuilder` must be initialized before using tokens. Use one of the above helper methods to do this.
 Tokens can be chained to create increasingly complex regular expressions.
 
+#### `character`
+
+The `character` method literally matches the given character.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->character('-');
+ 
+// /-/
+```
+
 #### `exactly`
 
 The `exactly` method literally matches the given string.
