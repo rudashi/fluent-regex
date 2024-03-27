@@ -131,6 +131,16 @@ $pattern = Regex::build()->exactly('foo');
 // /foo/
 ```
 
+Special characters are additionally escaped.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->exactly('._%+-[]');
+ 
+// /\._%\+\-\[\]/
+```
+
 #### `letter`
 
 The `letter` method matches any single letter, regardless of whether it is lowercase or uppercase.

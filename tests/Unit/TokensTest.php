@@ -30,6 +30,13 @@ it('can add a numeric `exactly` token', function () {
         ->toBe('/41/');
 });
 
+it('can add sanitized `exactly` token', function () {
+    $regex = fluentBuilder()->exactly('._%+-[]');
+
+    expect($regex->get())
+        ->toBe('/\._%\+\-\[\]/');
+});
+
 it('can add a `letter` token', function () {
     $regex = fluentBuilder()->letter();
 
