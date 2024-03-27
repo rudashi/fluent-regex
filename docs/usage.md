@@ -18,6 +18,7 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 
 ### Tokens methods
 
+- [`character`](#character)
 - [`exactly`](#exactly)
 - [`letter`](#letter)
 - [`letters`](#letters)

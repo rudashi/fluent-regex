@@ -9,6 +9,13 @@ it('can add to `pattern` value', function () {
         ->toBe('/test/');
 });
 
+it('can add a `character` token', function () {
+    $regex = fluentBuilder()->character('._%+-');
+
+    expect($regex->get())
+        ->toBe('/._%+-/');
+});
+
 it('can add a `exactly` token', function () {
     $regex = fluentBuilder()->exactly('foo bar');
 
