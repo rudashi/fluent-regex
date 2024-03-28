@@ -431,6 +431,16 @@ $pattern = Regex::build()->exactly('a')->or()->exactly('b');
 // /a|b/
 ```
 
+Alternatively, you can use the `or` property, which works identically.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->exactly('a')->or->exactly('b');
+ 
+// /a|b/
+```
+
 ## Patterns
 
 ---
