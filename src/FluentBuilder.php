@@ -14,7 +14,8 @@ use Rudashi\Concerns\Quantifiers;
 use Rudashi\Concerns\HasTokens;
 
 /**
- * @property Negate $not Creates the negative pattern.
+ * @property Negate $not Creates the negative pattern
+ * @property static $or Adds alternative
  */
 class FluentBuilder
 {

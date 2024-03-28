@@ -75,6 +75,13 @@ it('can add a `or`', function () {
         ->toBe('/a|b/');
 });
 
+it('allows property `or` to be accessed', function () {
+    $regex = fluentBuilder()->exactly('a')->or->exactly('b');
+
+    expect($regex->get())
+        ->toBe('/a|b/');
+});
+
 /**
  * Helpers
  */
