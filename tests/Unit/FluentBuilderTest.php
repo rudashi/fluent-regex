@@ -20,7 +20,6 @@ it('can add context to the builder', function () {
 /**
  * Negation
  */
-
 it('can use the `not` method as the negation of the next token', function () {
     expect(fluentBuilder()->not())
         ->toBeInstanceOf(Negate::class);
