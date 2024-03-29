@@ -80,6 +80,17 @@ class FluentBuilder
         return $this;
     }
 
+    public function capture(callable $callback): static
+    {
+        $this->pushToPattern('(');
+
+        $callback($this);
+
+        $this->pushToPattern(')');
+
+        return $this;
+    }
+
     public function not(): Negate
     {
         return new Negate(

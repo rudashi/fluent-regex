@@ -48,6 +48,17 @@ class Negate
         return $this->builder;
     }
 
+    public function capture(callable $callback): FluentBuilder
+    {
+        $this->builder->pushToPattern('(?:');
+
+        $callback($this->builder);
+
+        $this->builder->pushToPattern(')');
+
+        return $this->builder;
+    }
+
     public function letter(): FluentBuilder
     {
         $this->builder->pushToPattern('[^a-zA-Z]');

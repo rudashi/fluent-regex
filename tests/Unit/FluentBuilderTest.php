@@ -39,6 +39,15 @@ it('negates the next token using the `not` property', function () {
 /**
  * Exceptions
  */
+it('thrown an exception if the property is not callable', function () {
+    // @phpstan-ignore-next-line
+    expect(fn () => fluentBuilder()->capture)
+        ->toThrow(
+            exception: BadMethodCallException::class,
+            exceptionMessage: 'Cannot access property "capture". Use the "capture()" method instead.'
+        );
+});
+
 it('thrown an exception if the property has no method assigned', function () {
     // @phpstan-ignore-next-line
     expect(fn () => fluentBuilder()->fooBar)
@@ -55,6 +64,19 @@ it('thrown an exception if you assign a value to the property', function () {
             exception: LogicException::class,
             exceptionMessage: 'Setter "foo" is not acceptable.'
         );
+});
+
+/**
+ * Capture
+ */
+it('can use the `capture` method to group tokens', function () {
+    $regex = fluentBuilder()
+        ->exactly('-')
+        ->capture(fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter())
+        ->end();
+
+    expect($regex->get())
+        ->toBe('/\-(\.[a-zA-Z])$/');
 });
 
 /**

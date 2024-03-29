@@ -71,6 +71,16 @@ describe('Built-in methods', function () {
             ->toBeString()
             ->toBe('/[^0-9]+/');
     });
+
+    it('returns the negation of capture', function () {
+        $regex = fluentBuilder()
+            ->exactly('-')
+            ->not->capture(fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter())
+            ->end();
+
+        expect($regex->get())
+            ->toBe('/\-(?:\.[a-zA-Z])$/');
+    });
 });
 
 /**
