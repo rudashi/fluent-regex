@@ -62,6 +62,10 @@ nav ul {
             padding-bottom: $em-spacer-6;
             padding-left: $spacer-3;
 
+            &:hover {
+                text-decoration: none;
+            }
+
             &:before {
                 content: "";
                 position: absolute;
@@ -75,25 +79,41 @@ nav ul {
                 transition: .3s;
                 opacity: 0;
             }
+
+            &.active-link {
+                color: $blue-500;
+
+                &:hover {
+                    padding-left: $spacer-3;
+                }
+            }
+
+            &.h2:hover {
+                color: $blue-500;
+                padding-left: $spacer-4;
+            }
         }
     }
 
     &.border-left {
-        li:hover a {
-            text-decoration: none;
-            color: $blue-500;
-            padding-left: $spacer-4;
+        li {
+            &:hover a {
+                color: $blue-500;
+                padding-left: $spacer-4;
 
-            &:before {
+                &:before {
+                    opacity: 1;
+                }
+
+                &.active-link {
+                    padding-left: $spacer-3;
+                }
+            }
+
+            a.active-link:before {
                 opacity: 1;
             }
         }
-
-    }
-    li a.h2:hover {
-        text-decoration: none;
-        color: $blue-500;
-        padding-left: $spacer-4;
     }
 }
 
