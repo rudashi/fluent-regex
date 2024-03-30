@@ -135,6 +135,13 @@ it('can add a `words`', function () {
         ->toBe('/\w+/');
 });
 
+it('can add `anything`', function () {
+    $regex = fluentBuilder()->anything();
+
+    expect($regex->get())
+        ->toBe('/.*/');
+});
+
 it('can add a `anyOf`', function () {
     $regex = fluentBuilder()->anyOf('abc.@-_');
 

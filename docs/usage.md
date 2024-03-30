@@ -18,6 +18,7 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 
 ### Tokens methods
 
+- [`anything`](#anything)
 - [`character`](#character)
 - [`exactly`](#exactly)
 - [`letter`](#letter)
@@ -106,6 +107,18 @@ $pattern = Regex::startOfLine();
 
 The `FluentBuilder` must be initialized before using tokens. Use one of the above helper methods to do this.
 Tokens can be chained to create increasingly complex regular expressions.
+
+#### `anything`
+
+The `anything` method matches any characters.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->anything();
+ 
+// /.*/
+```
 
 #### `character`
 

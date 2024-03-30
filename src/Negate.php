@@ -34,6 +34,7 @@ class Negate
         'times',
         'min',
         'between',
+        'anything',
     ];
 
     public function __construct(
