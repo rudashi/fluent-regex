@@ -25,7 +25,7 @@
         </a>
     </div>
 </header>
-<main class="container-lg pb-6 d-flex">
+<main class="container-lg pb-6 d-flex position-relative">
     <nav class="col-3 mr-5 position-relative">
         <ul class="navbar position-sticky pt-6">
             <li class="pb-3">
@@ -61,6 +61,8 @@
     <div class="col-9 markdown-body pt-6">
         {{ content }}
     </div>
+    <div class="position-absolute circle blur-6 w-6 h-6 gradient-blue" style="left: -20px; z-index: -1;"></div>
+    <div class="position-absolute circle blur-6 w-6 h-6 gradient-blue" style="right: -20px; top: 50vh; z-index: -1;"></div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
 <script>

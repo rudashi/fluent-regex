@@ -3,6 +3,21 @@
 
 @import "{{ site.theme }}";
 
+@for $i from 1 through length($spacers) {
+    $size: nth($spacers, $i); // 0, 4px, 8px, 16px, 24px, 32px, 40px
+    $scale: $i - 1; // 0, 1, 2, 3, 4, 5, 6
+
+    .h-#{$scale} {
+        height: $size;
+    }
+    .w-#{$scale} {
+        width: $size;
+    }
+    .blur-#{$scale} {
+        filter: blur($size * 2);
+    }
+}
+
 .position-sticky {
     position: sticky;
 }
@@ -119,4 +134,8 @@ nav ul {
 
 h2 > a {
     margin-left: -1.1em;
+}
+
+.gradient-blue {
+    background-image: linear-gradient(90deg, $blue-500, rgba(0, 0, 0, 0), $blue-500);
 }
