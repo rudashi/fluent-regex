@@ -11,10 +11,10 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 
 ### Helpers methods
 
-- [`build`](#build)
-- [`for`](#for)
-- [`start`](#start)
-- [`startOfLine`](#startofline)
+- [`build`](usage/helpers#build)
+- [`for`](usage/helpers#for)
+- [`start`](usage/helpers#start)
+- [`startOfLine`](usage/helpers#startofline)
 
 ### Tokens methods
 
@@ -36,7 +36,10 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 - [`word`](#word)
 - [`words`](#words)
 - [`anyOf`](#anyof)
-- [`oneOf`](#oneof)
+- [`tab`](#tab)
+- [`carriageReturn`](#carriagereturn)
+- [`newline`](#newline)
+- [`linebreak`](#linebreak)
 
 ### Quantifiers methods
 
@@ -49,59 +52,11 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 
 ### Other methods
 
+- [`capture`](#capture)
 - [`or`](#or)
+- [`oneOf`](#oneof)
 
 ### Patterns methods
-
-## Helpers
-
-#### `build`
-
-The `build` method creates a new `Rudashi\FluentBuilder` instance.
-
-```php
-use Rudashi\Regex;
- 
-$builder = Regex::build();
- 
-// Rudashi\FluentBuilder
-```
-
-#### `for`
-
-The `for` method adds context to `Rudashi\FluentBuilder` instance.
-
-```php
-use Rudashi\Regex;
- 
-$builder = Regex::for('Hello, world!');
- 
-// Rudashi\FluentBuilder
-```
-
-#### `start`
-
-The `start` method adds start flag.
-
-```php
-use Rudashi\Regex;
- 
-$pattern = Regex::start();
- 
-// /^/
-```
-
-#### `startOfLine`
-
-The `startOfLine` method is equivalent to the `Regex::start` method.
-
-```php
-use Rudashi\Regex;
- 
-$pattern = Regex::startOfLine();
- 
-// /^/
-```
 
 ## Tokens
 
@@ -334,16 +289,52 @@ $pattern = Regex::build()->anyOf('abc');
 // /[abc]/
 ```
 
-#### `oneOf`
+#### `tab`
 
-The `oneOf` method alternatively matches any of the given characters.
+The `tab` method matches a tab character.
 
 ```php
 use Rudashi\Regex;
  
-$pattern = Regex::build()->oneOf('a', 'b', '.');
+$pattern = Regex::build()->tab();
  
-// /a|b|\./
+// /\t/
+```
+
+#### `carriageReturn`
+
+The `carriageReturn` method matches a carriage return.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->carriageReturn();
+ 
+// /\r/
+```
+
+#### `newline`
+
+The `newline` method matches a line-feed character (newline).
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->newline();
+ 
+// /\r/
+```
+
+#### `linebreak`
+
+The `linebreak` method matches a carriage return or newline.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->linebreak();
+ 
+// /\r|\n/
 ```
 
 ## Quantifiers
@@ -432,6 +423,18 @@ $pattern = Regex::build()->exactly('a')->between(1);
 
 ## Others
 
+#### `capture`
+
+The `capture` method matches a pattern within a group and remembers the match.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->capture(fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter());
+ 
+// /(\.[a-zA-Z])/
+```
+
 #### `or`
 
 The `or` method alternatively matches the pattern before and after using the method.
@@ -452,6 +455,18 @@ use Rudashi\Regex;
 $pattern = Regex::build()->exactly('a')->or->exactly('b');
  
 // /a|b/
+```
+
+#### `oneOf`
+
+The `oneOf` method alternatively matches any of the given characters.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->oneOf('a', 'b', '.');
+ 
+// /a|b|\./
 ```
 
 ## Patterns
