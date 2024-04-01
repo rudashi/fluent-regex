@@ -29,28 +29,28 @@
                 <span class="h2">Getting started</span>
                 <ul class="mt-2 ml-3 border-left">
                     <li><a href="{{ "/" | absolute_url }}" {% if page.title == "Introduction" %}class="active-link"{% endif %}>Introduction</a></li>
-                    <li><a href="{{ "/" | absolute_url }}installation" {% if page.title == "Installation" %}class="active-link"{% endif %}>Installation</a></li>
+                    <li><a href="{{ site.baseurl }}/installation" {% if page.title == "Installation" %}class="active-link"{% endif %}>Installation</a></li>
                     <li><a href="{{ site.baseurl }}/changelog" {% if page.title == "Changelog" %}class="active-link"{% endif %}>Changelog</a></li>
                 </ul>
             </li>
             <li class="pb-3">
-                <a class="h2 {% if page.title == "Usage" %}active-link{% endif %}" href="usage">Usage</a>
+                <a class="h2 {% if page.title == "Usage" %}active-link{% endif %}" href="{{ site.baseurl }}/usage">Usage</a>
                 <ul class="mt-2 ml-3 border-left">
-                    <li><a href="usage/helpers" {% if page.title == "Helpers" %}class="active-link"{% endif %}>Helpers</a></li>
-                    <li><a href="usage#tokens" {% if page.title == "Usage" %}class="active-link"{% endif %}>Tokens</a></li>
-                    <li><a href="usage#quantifiers" {% if page.title == "Usage" %}class="active-link"{% endif %}>Quantifiers</a></li>
-                    <li><a href="usage#others" {% if page.title == "Usage" %}class="active-link"{% endif %}>Others</a></li>
-                    <li><a href="usage#patterns" {% if page.title == "Usage" %}class="active-link"{% endif %}>Patterns</a></li>
+                    <li><a href="{{ site.baseurl }}/usage/helpers" {% if page.title == "Helpers" %}class="active-link"{% endif %}>Helpers</a></li>
+                    <li><a href="{{ "/" | absolute_url }}usage#tokens" {% if page.title == "Usage" %}class="active-link"{% endif %}>Tokens</a></li>
+                    <li><a href="{{ "/" | absolute_url }}usage#quantifiers" {% if page.title == "Usage" %}class="active-link"{% endif %}>Quantifiers</a></li>
+                    <li><a href="{{ "/" | absolute_url }}usage#others" {% if page.title == "Usage" %}class="active-link"{% endif %}>Others</a></li>
+                    <li><a href="{{ "/" | absolute_url }}usage#patterns" {% if page.title == "Usage" %}class="active-link"{% endif %}>Patterns</a></li>
                 </ul>
             </li>
             <li class="pb-3">
-                <a class="h2 {% if page.title == "Advance" %}active-link{% endif %}" href="advance">Advanced</a>
+                <a class="h2 {% if page.title == "Advance" %}active-link{% endif %}" href="{{ site.baseurl }}/advance">Advanced</a>
                 <ul class="mt-2 ml-3 border-left">
-                    <li><a href="advance#modifier-flags" {% if page.title == "Advance" %}class="active-link"{% endif %}>Modifier flags</a></li>
-                    <li><a href="advance#prefix-anchors" {% if page.title == "Advance" %}class="active-link"{% endif %}>Prefix anchors</a></li>
-                    <li><a href="advance#suffix-anchors" {% if page.title == "Advance" %}class="active-link"{% endif %}>Suffix anchors</a></li>
-                    <li><a href="advance#negation" {% if page.title == "Advance" %}class="active-link"{% endif %}>Negation</a></li>
-                    <li><a href="advance#returning-results" {% if page.title == "Advance" %}class="active-link"{% endif %}>Returning results</a></li>
+                    <li><a href="{{ "/" | absolute_url }}advance#modifier-flags" {% if page.title == "Advance" %}class="active-link"{% endif %}>Modifier flags</a></li>
+                    <li><a href="{{ "/" | absolute_url }}advance#prefix-anchors" {% if page.title == "Advance" %}class="active-link"{% endif %}>Prefix anchors</a></li>
+                    <li><a href="{{ "/" | absolute_url }}advance#suffix-anchors" {% if page.title == "Advance" %}class="active-link"{% endif %}>Suffix anchors</a></li>
+                    <li><a href="{{ "/" | absolute_url }}advance#negation" {% if page.title == "Advance" %}class="active-link"{% endif %}>Negation</a></li>
+                    <li><a href="{{ "/" | absolute_url }}advance#returning-results" {% if page.title == "Advance" %}class="active-link"{% endif %}>Returning results</a></li>
                 </ul>
             </li>
         </ul>
