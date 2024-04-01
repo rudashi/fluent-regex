@@ -13,7 +13,7 @@
     {% include head-custom.html %}
 </head>
 <body>
-<header class="position-sticky top-0 px-5 py-3 backdrop-blur bg-gray-light-30 border-bottom z-10">
+<header class="position-sticky top-0 px-5 py-3 backdrop-blur bg-gray-light-30 border-bottom z-6">
     <div class="d-flex container-lg flex-justify-between flex-items-center">
         <h1><a href="{{ site.url }}/pl">fluentRegex</a></h1>
         <div class="d-flex flex-items-center">
@@ -61,6 +61,7 @@
     </nav>
     <div class="col-9 markdown-body pt-6">
         {{ content }}
+        <div class="position-absolute -z-1 circle blur-5 w-56 h-56 gradient-green" style="top: 50%"></div>
     </div>
     <div class="position-absolute -z-1 circle blur-5 w-56 h-56 gradient-blue" style="left: -20px;"></div>
     <div class="position-absolute -z-1 circle blur-5 w-56 h-56 gradient-blue" style="right: -20px; top: 50vh;"></div>
