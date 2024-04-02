@@ -131,4 +131,32 @@ trait HasTokens
 
         return $this;
     }
+
+    public function tab(): static
+    {
+        $this->pushToPattern('\t');
+
+        return $this;
+    }
+
+    public function carriageReturn(): static
+    {
+        $this->pushToPattern('\r');
+
+        return $this;
+    }
+
+    public function newline(): static
+    {
+        $this->pushToPattern('\n');
+
+        return $this;
+    }
+
+    public function linebreak(): static
+    {
+        $this->carriageReturn()->or->newline();
+
+        return $this;
+    }
 }

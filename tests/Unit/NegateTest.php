@@ -140,4 +140,28 @@ describe('Higher-Order methods', function () {
             ->toBeString()
             ->toBe('/[^\w+]/');
     });
+
+    it('returns the negation of tab', function () {
+        expect(negation()->tab()->get())
+            ->toBeString()
+            ->toBe('/[^\t]/');
+    });
+
+    it('returns the negation of carriageReturn', function () {
+        expect(negation()->carriageReturn()->get())
+            ->toBeString()
+            ->toBe('/[^\r]/');
+    });
+
+    it('returns the negation of newline', function () {
+        expect(negation()->newline()->get())
+            ->toBeString()
+            ->toBe('/[^\n]/');
+    });
+
+    it('returns the negation of linebreak', function () {
+        expect(negation()->linebreak()->get())
+            ->toBeString()
+            ->toBe('/[^\r|\n]/');
+    });
 });

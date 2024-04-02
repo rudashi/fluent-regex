@@ -142,6 +142,34 @@ it('can add `anything`', function () {
         ->toBe('/.*/');
 });
 
+it('can add `tab` character', function () {
+    $regex = fluentBuilder()->tab();
+
+    expect($regex->get())
+        ->toBe('/\t/');
+});
+
+it('can add `carriageReturn`', function () {
+    $regex = fluentBuilder()->carriageReturn();
+
+    expect($regex->get())
+        ->toBe('/\r/');
+});
+
+it('can add `newline`', function () {
+    $regex = fluentBuilder()->newline();
+
+    expect($regex->get())
+        ->toBe('/\n/');
+});
+
+it('can add `linebreak`', function () {
+    $regex = fluentBuilder()->linebreak();
+
+    expect($regex->get())
+        ->toBe('/\r|\n/');
+});
+
 it('can add a `anyOf`', function () {
     $regex = fluentBuilder()->anyOf('abc.@-_');
 
