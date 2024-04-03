@@ -58,4 +58,4 @@ $pattern = Regex::startOfLine();
 
 ---
 
-Continue to next section, for more information on how to use [Tokens →](../usage.md#tokens).
+Continue to next section, for more information on how to use [Tokens →](tokens).
