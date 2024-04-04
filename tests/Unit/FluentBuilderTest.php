@@ -124,3 +124,15 @@ it('can return a string pattern', function () {
     expect(fluentBuilder()->get())
         ->toBe('//');
 });
+
+it('can validate context against pattern', function (string $value, bool $expectation) {
+    $regex = fluentBuilder()->setContext('abc')->find($value);
+
+    expect($regex->check())
+        ->toBe($expectation);
+})->with([
+    ['a', true],
+    ['y', false],
+    ['ab', true],
+    ['', false],
+]);

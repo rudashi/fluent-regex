@@ -66,6 +66,15 @@ class FluentBuilder
         ]);
     }
 
+    public function check(): bool
+    {
+        if (implode('', $this->pattern) === '') {
+            return false;
+        }
+
+        return preg_match($this->get(), $this->context) > 0;
+    }
+
     public function pushToPattern(string $value): static
     {
         $this->pattern[] = $value;
