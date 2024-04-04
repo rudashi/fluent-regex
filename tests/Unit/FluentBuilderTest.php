@@ -126,7 +126,7 @@ it('can return a string pattern', function () {
 });
 
 it('can validate context against pattern', function (string $value, bool $expectation) {
-    $regex = fluentBuilder()->setContext('abc')->find($value);
+    $regex = fluentBuilder()->setContext('abc')->exactly($value);
 
     expect($regex->check())
         ->toBe($expectation);
