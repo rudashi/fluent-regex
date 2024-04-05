@@ -7,16 +7,14 @@ layout: default
 
 You can start creating your regex by using `Regex::build()`. The `build()` method is used every time you want to create a pattern.
 
-## Available Methods
-
-### Helpers methods
+## Helpers methods
 
 - [`build`](usage/helpers#build)
 - [`for`](usage/helpers#for)
 - [`start`](usage/helpers#start)
 - [`startOfLine`](usage/helpers#startofline)
 
-### Tokens methods
+## Tokens methods
 
 - [`anything`](usage/tokens#anything)
 - [`character`](usage/tokens#character)
@@ -41,7 +39,7 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 - [`newline`](usage/tokens#newline)
 - [`linebreak`](usage/tokens#linebreak)
 
-### Quantifiers methods
+## Quantifiers methods
 
 - [`zeroOrOne`](usage/quantifiers#zeroorone)
 - [`zeroOrMore`](usage/quantifiers#zeroormore)
@@ -50,13 +48,13 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 - [`min`](usage/quantifiers#min)
 - [`between`](usage/quantifiers#between)
 
-### Other methods
+## Other methods
 
 - [`capture`](usage/others#capture)
 - [`or`](usage/others#or)
 - [`oneOf`](usage/others#oneof)
 
-### Patterns methods
+## Patterns methods
 
 ---
 

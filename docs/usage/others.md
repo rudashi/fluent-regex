@@ -55,4 +55,4 @@ $pattern = Regex::build()->oneOf('a', 'b', '.');
 
 ---
 
-Continue to next section, for more information on how to use predefined [Patterns →](../usage.md#patterns).
+Continue to next section, for more information on how to use predefined [Patterns →](patterns).
