@@ -20,11 +20,26 @@ trait HasTokens
         return $this;
     }
 
+    public function and(string|int $value): static
+    {
+        return $this->character($value);
+    }
+
     public function exactly(string|int $value): static
     {
         $this->pushToPattern(static::sanitize($value));
 
         return $this;
+    }
+
+    public function find(string|int $value): static
+    {
+        return $this->exactly($value);
+    }
+
+    public function then(string|int $value): static
+    {
+        return $this->exactly($value);
     }
 
     public function letter(): static

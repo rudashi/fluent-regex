@@ -88,8 +88,32 @@ describe('Built-in methods', function () {
  * Higher-Order methods
  */
 describe('Higher-Order methods', function () {
+    it('returns the negation of character', function () {
+        expect(negation()->character('._%+-')->get())
+            ->toBeString()
+            ->toBe('/[^._%+-]/');
+    });
+
+    it('returns the negation of and', function () {
+        expect(negation()->and('._%+-')->get())
+            ->toBeString()
+            ->toBe('/[^._%+-]/');
+    });
+
     it('returns the negation of exactly', function () {
         expect(negation()->exactly('foo bar')->get())
+            ->toBeString()
+            ->toBe('/[^foo bar]/');
+    });
+
+    it('returns the negation of find', function () {
+        expect(negation()->find('foo bar')->get())
+            ->toBeString()
+            ->toBe('/[^foo bar]/');
+    });
+
+    it('returns the negation of then', function () {
+        expect(negation()->then('foo bar')->get())
             ->toBeString()
             ->toBe('/[^foo bar]/');
     });

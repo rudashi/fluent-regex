@@ -16,8 +16,29 @@ it('can add a `character` token', function () {
         ->toBe('/._%+-/');
 });
 
+it('can add a `and` token', function () {
+    $regex = fluentBuilder()->and('._%+-');
+
+    expect($regex->get())
+        ->toBe('/._%+-/');
+});
+
 it('can add a `exactly` token', function () {
     $regex = fluentBuilder()->exactly('foo bar');
+
+    expect($regex->get())
+        ->toBe('/foo bar/');
+});
+
+it('can add a `find` token', function () {
+    $regex = fluentBuilder()->find('foo bar');
+
+    expect($regex->get())
+        ->toBe('/foo bar/');
+});
+
+it('can add a `then` token', function () {
+    $regex = fluentBuilder()->then('foo bar');
 
     expect($regex->get())
         ->toBe('/foo bar/');
