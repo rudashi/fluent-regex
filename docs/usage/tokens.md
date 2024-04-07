@@ -31,6 +31,18 @@ $pattern = Regex::build()->character('-');
 // /-/
 ```
 
+### `and`
+
+The `and` method is an alias for the `character` method.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->and('-');
+ 
+// /-/
+```
+
 ### `exactly`
 
 The `exactly` method literally matches the given string.
@@ -51,6 +63,30 @@ use Rudashi\Regex;
 $pattern = Regex::build()->exactly('._%+-[]');
  
 // /\._%\+\-\[\]/
+```
+
+### `find`
+
+The `find` method is an alias for the `exactly` method.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->find('foo');
+ 
+// /foo/
+```
+
+### `then`
+
+The `then` method is an alias for the `exactly` method.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->then('foo');
+ 
+// /foo/
 ```
 
 ### `letter`

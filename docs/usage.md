@@ -18,7 +18,10 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 
 - [`anything`](usage/tokens#anything)
 - [`character`](usage/tokens#character)
+- [`and`](usage/tokens#and)
 - [`exactly`](usage/tokens#exactly)
+- [`find`](usage/tokens#find)
+- [`then`](usage/tokens#then)
 - [`letter`](usage/tokens#letter)
 - [`letters`](usage/tokens#letters)
 - [`lowerLetter`](usage/tokens#lowerletter)
