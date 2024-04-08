@@ -14,7 +14,9 @@ The `capture` method matches a pattern within a group and remembers the match.
 ```php
 use Rudashi\Regex;
  
-$pattern = Regex::build()->capture(fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter());
+$pattern = Regex::build()->capture(
+    fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter()
+);
  
 // /(\.[a-zA-Z])/
 ```
