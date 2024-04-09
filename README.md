@@ -20,20 +20,20 @@ If you thought that finding a `needle` in a `haystack` was impossible, this repo
 Install the package via Composer
 
 ```shell
-composer require rudashi/fluent-regex --dev --with-all-dependencies
+composer require rudashi/fluent-regex
 ```
 
 ## Usage
 
 ```php
-$regex = Regex::build()
-  ->startOfLine()
-  ->group(fn (Fluent $fluent) => $fluent->find('http')->or('https'))
-  ->then('://')
-  ->ignoreCase();
+$regex = \Rudashi\Regex::build()
+    ->startOfLine()
+    ->capture(fn (FluentBuilder $fluent) => $fluent->find('http')->or->find('https'))
+    ->then('://')
+    ->ignoreCase();
 
 $regex->dump();
-// ^(http|https)\:\/\//i
+// /^(http|https)\:\/\//i
 
 $match = Regex::for('https://100commitow.pl/')->find('100commitow')->check();
 // True
