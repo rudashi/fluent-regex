@@ -3,6 +3,15 @@
 
 @import "{{ site.theme }}";
 
+.markdown-body {
+    p {
+        line-height: 1.75rem;
+    }
+    blockquote {
+        border-left-color: #ec4899;
+    }
+}
+
 @for $i from 1 through length($spacers) {
     $size: nth($spacers, $i); // 0, 4px, 8px, 16px, 24px, 32px, 40px
     $scale: $i - 1; // 0, 1, 2, 3, 4, 5, 6
@@ -142,6 +151,17 @@ nav ul {
 
 h2 > a {
     margin-left: -1.1em;
+}
+
+.bottom-nav {
+    a {
+        transition: .5s;
+
+        &:hover {
+            background-color: $gray-200;
+            text-decoration: none;
+        }
+    }
 }
 
 .gradient-blue {
