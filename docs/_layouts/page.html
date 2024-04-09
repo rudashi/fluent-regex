@@ -6,22 +6,22 @@ layout: pl-default
 <div class="pt-4 bottom-nav">
     <div class="d-flex width-full border-top">
         <div class="d-flex my-4 mr-3 flex-item-equal">
-            {% if previous %}
-                <a href="{{ previous-link }}" style="border-radius: 16px;" class="d-flex flex-items-center p-3 width-full text-gray-light flex-justify-start">
+            {% if page.previous %}
+                <a href="{{ page.previous-link }}" style="border-radius: 16px;" class="d-flex flex-items-center p-3 width-full text-gray-light flex-justify-start">
                     <div class="mr-3">&lt;</div>
                     <div class="d-flex flex-column">
                         <div class="text-small">Prev</div>
-                        <div class="text-bold text-blue">{{ previous }}</div>
+                        <div class="text-bold text-blue">{{ page.previous }}</div>
                     </div>
                 </a>
             {% endif %}
         </div>
         <div class="d-flex my-4 ml-3 flex-item-equal">
-            {% if next %}
-            <a href="{{ next-link }}" style="border-radius: 16px;" class="d-flex flex-items-center p-3 width-full text-gray-light flex-justify-end">
+            {% if page.next %}
+            <a href="{{ page.next-link }}" style="border-radius: 16px;" class="d-flex flex-items-center p-3 width-full text-gray-light flex-justify-end">
                 <div class="d-flex flex-column">
                     <div class="text-small">Next</div>
-                    <div class="text-bold text-blue">{{ next }}</div>
+                    <div class="text-bold text-blue">{{ page.next }}</div>
                 </div>
                 <div class="ml-3">&gt;</div>
             </a>
