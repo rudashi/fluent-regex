@@ -1,6 +1,6 @@
 ---
 title:  Wstęp
-layout: pl-default
+layout: page
 ---
 
 # Wstęp
