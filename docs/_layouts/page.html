@@ -4,23 +4,23 @@ layout: pl-default
 {{ content }}
 
 <div class="pt-4 bottom-nav">
-    <div class="d-flex width-full flex-items-center flex-justify-between border-top">
-        <div class="d-flex my-4 mr-3 flex-item-equal text-left">
-            <a href="" style="border-radius: 16px;" class="d-flex flex-items-center p-3 width-full text-gray-light">
+    <div class="d-flex width-full border-top">
+        <div class="d-flex my-4 mr-3 flex-item-equal">
+            <a href="" style="border-radius: 16px;" class="d-flex flex-items-center p-3 width-full text-gray-light flex-justify-start">
                 <div class="mr-3">&lt;</div>
                 <div class="d-flex flex-column">
                     <div class="text-small">Prev</div>
-                    <div class="text-bold text-blue">{{ page.previous }}</div>
+                    <div class="text-bold text-blue">{{ previous }}</div>
                 </div>
             </a>
         </div>
-        <div class="d-flex my-4 ml-3 flex-item-equal text-right">
-            <a href="" style="border-radius: 16px;" class="d-flex flex-items-center p-3 width-full text-gray-light">
-                <div class="mr-3">&gt;</div>
+        <div class="d-flex my-4 ml-3 flex-item-equal">
+            <a href="" style="border-radius: 16px;" class="d-flex flex-items-center p-3 width-full text-gray-light flex-justify-end">
                 <div class="d-flex flex-column">
                     <div class="text-small">Next</div>
-                    <div class="text-bold text-blue">{{ page.next }}</div>
+                    <div class="text-bold text-blue">{{ next }}</div>
                 </div>
+                <div class="ml-3">&gt;</div>
             </a>
         </div>
     </div>
