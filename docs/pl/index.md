@@ -1,6 +1,10 @@
 ---
 title:  Wstęp
 layout: page
+next: Installation
+next-link: installation
+previous: 
+previous-link: 
 ---
 
 # Wstęp
