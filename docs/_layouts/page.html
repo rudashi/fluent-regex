@@ -7,7 +7,7 @@ layout: default
     <div class="d-flex width-full border-top">
         <div class="d-flex my-4 mr-3 flex-item-equal">
             {% if page.previous %}
-                <a href="{{ page.previous-link }}" style="border-radius: 16px;" class="d-flex flex-items-center p-3 width-full text-gray-light flex-justify-start">
+                <a href="{{ site.baseurl }}/{{ page.previous-link }}" class="d-flex flex-items-center p-3 width-full text-gray-light flex-justify-start" style="border-radius: 16px;">
                     <div class="mr-3">&lt;</div>
                     <div class="d-flex flex-column">
                         <div class="text-small">Prev</div>
@@ -18,7 +18,7 @@ layout: default
         </div>
         <div class="d-flex my-4 ml-3 flex-item-equal">
             {% if page.next %}
-            <a href="{{ page.next-link }}" style="border-radius: 16px;" class="d-flex flex-items-center p-3 width-full text-gray-light flex-justify-end">
+            <a href="{{ site.baseurl }}/{{ page.next-link }}" class="d-flex flex-items-center p-3 width-full text-gray-light flex-justify-end" style="border-radius: 16px;">
                 <div class="d-flex flex-column">
                     <div class="text-small">Next</div>
                     <div class="text-bold text-blue">{{ page.next }}</div>
