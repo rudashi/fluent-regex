@@ -1,6 +1,10 @@
 ---
-title:  Advance
-layout: default
+title: Advance
+layout: page
+next:
+next-link:
+previous: Usage
+previous-link: usage
 ---
 
 # Advance

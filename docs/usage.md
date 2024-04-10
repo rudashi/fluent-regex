@@ -1,6 +1,10 @@
 ---
 title:  Usage
-layout: default
+layout: page
+next: Advance
+next-link: advance
+previous: Installation
+previous-link: installation
 ---
 
 # Usage
@@ -58,7 +62,3 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 - [`oneOf`](usage/others#oneof)
 
 ## Patterns methods
-
----
-
-Once you have learned how to write patterns, the next section is [Advance usage →](advance).

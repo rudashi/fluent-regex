@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: pl-default
 ---
 {{ content }}
 
@@ -10,7 +10,7 @@ layout: default
                 <a href="{{ page.previous-link }}" style="border-radius: 16px;" class="d-flex flex-items-center p-3 width-full text-gray-light flex-justify-start">
                     <div class="mr-3">&lt;</div>
                     <div class="d-flex flex-column">
-                        <div class="text-small">Prev</div>
+                        <div class="text-small">Poprzednie</div>
                         <div class="text-bold text-blue">{{ page.previous }}</div>
                     </div>
                 </a>
@@ -20,7 +20,7 @@ layout: default
             {% if page.next %}
             <a href="{{ page.next-link }}" style="border-radius: 16px;" class="d-flex flex-items-center p-3 width-full text-gray-light flex-justify-end">
                 <div class="d-flex flex-column">
-                    <div class="text-small">Next</div>
+                    <div class="text-small">Następne</div>
                     <div class="text-bold text-blue">{{ page.next }}</div>
                 </div>
                 <div class="ml-3">&gt;</div>

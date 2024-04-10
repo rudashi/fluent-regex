@@ -1,6 +1,10 @@
 ---
-title:  Installation
-layout: default
+title: Installation
+layout: page
+next: Usage
+next-link: usage
+previous: Introduction
+previous-link: index
 ---
 
 # Installation
@@ -17,7 +21,3 @@ composer require rudashi/fluent-regex
 ```
 
 **Secondly**... that's all. You are now ready to work on regular expressions.
-
----
-
-Once the installation is complete, you can start using [Fluent Regex →](usage).

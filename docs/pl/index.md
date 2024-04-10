@@ -1,8 +1,8 @@
 ---
 title:  Wstęp
 layout: page
-next: Installation
-next-link: installation
+next: Instalacja
+next-link: instalacja
 previous: 
 previous-link: 
 ---
