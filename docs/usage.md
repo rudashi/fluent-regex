@@ -1,8 +1,8 @@
 ---
 title:  Usage
 layout: page
-next: Advance
-next-link: advance
+next: Helpers
+next-link: usage/helpers
 previous: Installation
 previous-link: installation
 ---
