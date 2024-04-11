@@ -1,6 +1,10 @@
 ---
 title:  Helpers
-layout: default
+layout: page
+next: Tokens
+next-link: usage/tokens
+previous: Usage
+previous-link: usage
 ---
 
 # Helpers
@@ -55,7 +59,3 @@ $pattern = Regex::startOfLine();
  
 // /^/
 ```
-
----
-
-Continue to next section, for more information on how to use [Tokens →](tokens).

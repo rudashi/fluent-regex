@@ -1,6 +1,10 @@
 ---
 title:  Prefix anchors
-layout: default
+layout: page
+next: Suffix Anchors
+next-link: advance/suffix-anchors
+previous: Modifier flags
+previous-link: advance/modifier-flags
 ---
 
 # Prefix anchors
@@ -29,7 +33,3 @@ $pattern = Regex::build()->startOfLine();
  
 // /^/
 ```
-
----
-
-Continue to next section, for more information on how to use [Suffix Anchors →](suffix-anchors).

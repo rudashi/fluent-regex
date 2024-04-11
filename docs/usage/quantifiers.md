@@ -1,6 +1,10 @@
 ---
 title:  Quantifiers
-layout: default
+layout: page
+next: Others
+next-link: usage/others
+previous: Tokens
+previous-link: usage/tokens
 ---
 
 # Quantifiers
@@ -88,7 +92,3 @@ $pattern = Regex::build()->exactly('a')->between(1);
  
 // /a{1,}/
 ```
-
----
-
-Continue to next section, for more information on how to use [Others →](others).

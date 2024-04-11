@@ -1,6 +1,10 @@
 ---
 title:  Negation
-layout: default
+layout: page
+next: 
+next-link: 
+previous: Returning results
+previous-link: advance/returning-results
 ---
 
 # Negation
@@ -26,7 +30,3 @@ $pattern = Regex::build()->not->word();
  
 // /[^\w]/
 ```
-
----
-
-Continue to next section, for more information on how to use [Suffix Anchors →](suffix-anchors).

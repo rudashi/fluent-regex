@@ -1,6 +1,10 @@
 ---
 title:  Returning results
-layout: default
+layout: page
+next: Negation
+next-link: advance/negation
+previous: Suffix Anchors
+previous-link: advance/suffix-anchors
 ---
 
 # Returning results
@@ -16,7 +20,3 @@ $pattern = Regex::build()->get();
  
 // //
 ```
-
----
-
-Continue to next section, for more information on how to use [Negation →](negation).

@@ -1,6 +1,10 @@
 ---
 title:  Others
-layout: default
+layout: page
+next: Patterns
+next-link: usage/patterns
+previous: Quantifiers
+previous-link: usage/quantifiers
 ---
 
 # Others
@@ -54,7 +58,3 @@ $pattern = Regex::build()->oneOf('a', 'b', '.');
  
 // /a|b|\./
 ```
-
----
-
-Continue to next section, for more information on how to use predefined [Patterns →](patterns).

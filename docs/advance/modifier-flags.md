@@ -1,6 +1,10 @@
 ---
 title:  Modifier flags
-layout: default
+layout: page
+next: Prefix anchors
+next-link: advance/prefix-anchors
+previous: Advance
+previous-link: advance
 ---
 
 # Modifier flags

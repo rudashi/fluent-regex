@@ -1,6 +1,10 @@
 ---
 title:  Suffix anchors
-layout: default
+layout: page
+next: Returning results
+next-link: advance/returning-results
+previous: Prefix anchors
+previous-link: advance/prefix-anchors
 ---
 
 # Suffix anchors
@@ -29,7 +33,3 @@ $pattern = Regex::build()->endOfLine();
  
 // /$/
 ```
-
----
-
-Continue to next section, for more information on how to use [Returning results →](returning-results).

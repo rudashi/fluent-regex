@@ -1,11 +1,10 @@
 ---
 title:  Patterns
-layout: default
+layout: page
+next: Advanced
+next-link: advance
+previous: Others
+previous-link: usage/others
 ---
 
 # Patterns
-
-
----
-
-You already now the basics of FluentRegex. Now dive deeper and let's discover something more [Advanced →](../advance).

@@ -1,10 +1,10 @@
 ---
 title: Advance
 layout: page
-next:
-next-link:
-previous: Usage
-previous-link: usage
+next: Modifier flags
+next-link: advance/modifier-flags
+previous: Patterns
+previous-link: usage/patterns
 ---
 
 # Advance

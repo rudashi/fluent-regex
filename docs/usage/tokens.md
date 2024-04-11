@@ -1,6 +1,10 @@
 ---
 title:  Tokens
-layout: default
+layout: page
+next: Quantifiers
+next-link: usage/quantifiers
+previous: Helpers
+previous-link: usage/helpers
 ---
 
 # Tokens
@@ -316,7 +320,3 @@ $pattern = Regex::build()->linebreak();
  
 // /\r|\n/
 ```
-
----
-
-Continue to next section, for more information on how to use [Quantifiers →](quantifiers).
