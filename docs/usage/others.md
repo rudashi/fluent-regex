@@ -25,6 +25,18 @@ $pattern = Regex::build()->capture(
 // /(\.[a-zA-Z])/
 ```
 
+### `oneOf`
+
+The `oneOf` method alternatively matches any of the given characters.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->oneOf('a', 'b', '.');
+ 
+// /a|b|\./
+```
+
 ### `or`
 
 The `or` method alternatively matches the pattern before and after using the method.
@@ -45,16 +57,4 @@ use Rudashi\Regex;
 $pattern = Regex::build()->exactly('a')->or->exactly('b');
  
 // /a|b/
-```
-
-### `oneOf`
-
-The `oneOf` method alternatively matches any of the given characters.
-
-```php
-use Rudashi\Regex;
- 
-$pattern = Regex::build()->oneOf('a', 'b', '.');
- 
-// /a|b|\./
 ```

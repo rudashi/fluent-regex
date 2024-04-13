@@ -9,7 +9,19 @@ previous-link: advance/suffix-anchors
 
 # Returning results
 
-#### `get`
+### `check`
+
+The `check` method checks whether the pattern matches the context.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::for('hannah')->exactly('a')->check();
+ 
+// true
+```
+
+### `get`
 
 The `get` method returns the entire pattern as a string.
 
