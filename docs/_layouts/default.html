@@ -12,10 +12,14 @@
     {% include head-custom.html %}
 </head>
 <body>
-<header class="position-sticky top-0 py-3 backdrop-blur bg-gray-light-30 border-bottom z-6">
+<header class="position-sticky top-0 py-2 backdrop-blur bg-gray-light-30 border-bottom z-6">
     <div class="d-flex container-lg flex-justify-between flex-items-center px-3">
         <div class="d-flex">
-            <h1 style="line-height: 31px;"><a href="{{ "/" | absolute_url }}">fluentRegex</a></h1>
+            <h1>
+                <a href="{{ "/" | absolute_url }}" class="d-flex">
+                    <img src="{{ site.baseurl }}/assets/logo.svg" alt="fluent regex logo" style="height: 48px;"/>
+                </a>
+            </h1>
         </div>
         <div class="d-flex flex-items-center">
             <a href="" class="d-flex mr-3 d-none" aria-label="Theme" rel="noopener noreferrer">
