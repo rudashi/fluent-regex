@@ -17,23 +17,33 @@ class Negate
      * @var array<int, string>
      */
     public static array $guardedMethods = [
+        // FluentBuilder
+        'check',
+        'oneOf',
+        'or',
+
+        // Anchors
         'start',
         'startOfLine',
         'end',
         'endOfLine',
-        'oneOf',
-        'or',
+
+        // Flags
         'ignoreCase',
         'multiline',
         'matchNewLine',
         'ignoreWhitespace',
         'utf8',
+
+        // Quantifiers
         'zeroOrOne',
         'zeroOrMore',
         'oneOrMore',
         'times',
         'min',
         'between',
+
+        // Tokens
         'anything',
     ];
 
