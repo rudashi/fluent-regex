@@ -37,6 +37,13 @@ it('can add `unicode` flag', function () {
         ->toBe('//u');
 });
 
+it('can add alias to `unicode` flag', function () {
+    $regex = fluentBuilder()->unicode();
+
+    expect($regex->get())
+        ->toBe('//u');
+});
+
 it('thrown an exception when trying to negate the flag', function (string $method) {
     expect(fn () => fluentBuilder()->not->{$method}())
         ->toThrow(

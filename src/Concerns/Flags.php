@@ -33,6 +33,11 @@ trait Flags
         return $this->addFlag(Flag::UNICODE);
     }
 
+    public function unicode(): static
+    {
+        return $this->utf8();
+    }
+
     private function addFlag(Flag $flag): static
     {
         if (in_array($flag->value, $this->modifiers, true) === false) {

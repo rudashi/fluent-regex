@@ -74,6 +74,14 @@ $regex = Regex::build()->utf8();
 // /u
 ```
 
----
+### `unicode`
 
-Continue to next section, for more information on how to use [Prefix Anchors →](prefix-anchors).
+The `unicode` method is an alias for the `utf8` method.
+
+```php
+use Rudashi\Regex;
+ 
+$regex = Regex::build()->unicode();
+ 
+// /u
+```

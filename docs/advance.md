@@ -16,6 +16,7 @@ previous-link: usage/patterns
 - [`matchNewLine`](advance/modifier-flags#matchnewline)
 - [`ignoreWhitespace`](advance/modifier-flags#ignorewhitespace)
 - [`utf8`](advance/modifier-flags#utf8)
+- [`unicode`](advance/modifier-flags#unicode)
 
 ## Prefix anchors
 
