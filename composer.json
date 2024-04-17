@@ -42,6 +42,7 @@
     "prefer-stable": true,
     "scripts": {
         "test": "vendor/bin/pest",
+        "profile": "vendor/bin/pest --profile",
         "coverage": "vendor/bin/pest --coverage --testsuite=unit",
         "analyse": "vendor/bin/phpstan analyse src tests",
         "pint": "vendor/bin/php-cs-fixer check src --show-progress=dots -vvv"
