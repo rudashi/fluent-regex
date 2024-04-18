@@ -6,13 +6,6 @@ namespace Rudashi\Concerns;
 
 trait HasTokens
 {
-    public function anything(): static
-    {
-        $this->pushToPattern('.*');
-
-        return $this;
-    }
-
     public function character(string|int $value): static
     {
         $this->pushToPattern($value);

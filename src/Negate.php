@@ -21,6 +21,7 @@ class Negate
         'check',
         'oneOf',
         'or',
+        'anything',
 
         // Anchors
         'start',
@@ -42,9 +43,6 @@ class Negate
         'times',
         'min',
         'between',
-
-        // Tokens
-        'anything',
     ];
 
     public function __construct(

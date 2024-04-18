@@ -113,6 +113,16 @@ it('allows property `or` to be accessed', function () {
 });
 
 /**
+ * Anything token
+ */
+it('can add an `anything` token', function () {
+    $regex = fluentBuilder()->anything();
+
+    expect($regex->get())
+        ->toBe('/.*/');
+});
+
+/**
  * Helpers
  */
 it('can sanitize provided string', function (string $value, string $expectation) {

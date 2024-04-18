@@ -128,6 +128,13 @@ class FluentBuilder
         return $this;
     }
 
+    public function anything(): static
+    {
+        $this->pushToPattern('.*');
+
+        return $this;
+    }
+
     public function __get(string $name): mixed
     {
         if (method_exists($this, $name) === false) {
