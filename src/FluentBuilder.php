@@ -100,6 +100,11 @@ class FluentBuilder
         return $this;
     }
 
+    public function maybe(callable $callback): static
+    {
+        return $this->capture($callback)->zeroOrOne();
+    }
+
     public function not(): Negate
     {
         return new Negate(

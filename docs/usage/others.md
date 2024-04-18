@@ -25,6 +25,20 @@ $pattern = Regex::build()->capture(
 // /(\.[a-zA-Z])/
 ```
 
+### `maybe`
+
+The `maybe` method matches a pattern within a group zero or one time.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->maybe(
+    fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter()
+);
+ 
+// /(\.[a-zA-Z])?/
+```
+
 ### `oneOf`
 
 The `oneOf` method alternatively matches any of the given characters.

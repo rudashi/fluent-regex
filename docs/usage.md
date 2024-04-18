@@ -58,6 +58,7 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 ## Other methods
 
 - [`capture`](usage/others#capture)
+- [`maybe`](usage/others#maybe)
 - [`oneOf`](usage/others#oneof)
 - [`or`](usage/others#or)
 

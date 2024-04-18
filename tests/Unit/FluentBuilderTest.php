@@ -39,14 +39,13 @@ it('negates the next token using the `not` property', function () {
 /**
  * Exceptions
  */
-it('thrown an exception if the property is not callable', function () {
-    // @phpstan-ignore-next-line
-    expect(fn () => fluentBuilder()->capture)
+it('thrown an exception if the property is not callable', function (string $property) {
+    expect(fn () => fluentBuilder()->$property)
         ->toThrow(
             exception: BadMethodCallException::class,
-            exceptionMessage: 'Cannot access property "capture". Use the "capture()" method instead.'
+            exceptionMessage: 'Cannot access property "'.$property.'". Use the "'.$property.'()" method instead.'
         );
-});
+})->with(['capture', 'maybe']);
 
 it('thrown an exception if the property has no method assigned', function () {
     // @phpstan-ignore-next-line
@@ -77,6 +76,16 @@ it('can use the `capture` method to group tokens', function () {
 
     expect($regex->get())
         ->toBe('/\-(\.[a-zA-Z])$/');
+});
+
+it('can use the `maybe` method to group tokens', function () {
+    $regex = fluentBuilder()
+        ->exactly('-')
+        ->maybe(fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter())
+        ->end();
+
+    expect($regex->get())
+        ->toBe('/\-(\.[a-zA-Z])?$/');
 });
 
 /**
