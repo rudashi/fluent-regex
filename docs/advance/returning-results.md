@@ -32,3 +32,15 @@ $pattern = Regex::build()->get();
  
 // //
 ```
+
+### `match`
+
+The `match` method returns all pattern matches in the context.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::for('hannah')->exactly('a')->match();
+ 
+// ['a', 'a']
+```

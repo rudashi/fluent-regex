@@ -32,6 +32,7 @@ previous-link: usage/patterns
 
 - [`check`](advance/returning-results#check)
 - [`get`](advance/returning-results#get)
+- [`match`](advance/returning-results#match)
 
 ## Negation
 
