@@ -155,3 +155,11 @@ it('can validate context against pattern', function (string $value, bool $expect
     ['ab', true],
     ['', false],
 ]);
+
+it('returns a string matching from the context', function () {
+    $regex = fluentBuilder()->setContext('abca')->exactly('a');
+
+    expect($regex->match())
+        ->toHaveCount(2)
+        ->toMatchArray(['a', 'a']);
+});

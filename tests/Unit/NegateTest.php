@@ -23,7 +23,7 @@ it('thrown an exception if the property has no method assigned', function (strin
         );
 })->with([
     'get',
-    'check',
+    'match',
     ...Negate::$guardedMethods,
 ]);
 

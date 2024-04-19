@@ -75,6 +75,13 @@ class FluentBuilder
         return preg_match($this->get(), $this->context) > 0;
     }
 
+    public function match(): array
+    {
+        preg_match_all($this->get(), $this->context, $matches);
+
+        return $matches[0] ?? [];
+    }
+
     public function pushToPattern(string $value): static
     {
         $this->pattern[] = $value;
