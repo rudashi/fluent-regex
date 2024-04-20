@@ -63,3 +63,12 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 - [`or`](usage/others#or)
 
 ## Patterns methods
+
+- date
+- time
+- IPv4 address
+- IPv6 address
+- mac address
+- email
+- url
+- credit card
