@@ -1,23 +1,24 @@
 ---
-title: Installation
-layout: page
-next: Usage
+title: Instalacja
+layout: pl
+next: Podstawy
 next-link: usage
-previous: Introduction
+previous: Wstęp
 previous-link: index
 ---
 
-# Installation
+# Instalacja
 
-> **Requirements:** [PHP 8.1+](https://php.net/releases/)
+> **Wymagania:** [PHP 8.1+](https://php.net/releases/)
 
-Installing ***fluentRegex*** is very simple, thanks to [Composer](https://getcomposer.org/).  
-Before you start, make sure you have PHP `8.1` or higher on your system.
+Dzięki [Composer](https://getcomposer.org/) instalacja **`Fluent Regex`** jest bardzo prosta.  
 
-**Firstly** run the command in your terminal.
+**`Krok pierwszy`**  
+Wpisz poniższą komendę w terminalu:
 
 ```shell
 composer require rudashi/fluent-regex
 ```
 
-**Secondly**... that's all. You are now ready to work on regular expressions.
+**`Krok drugi`**  
+To wszystko - ciesz się programem!
