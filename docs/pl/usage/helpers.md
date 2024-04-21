@@ -1,6 +1,6 @@
 ---
-title:  Pomocnicze metody
-layout: pl
+title: Pomocnicze metody
+layout: pl-page
 next: Dodatkowe metody
 next-link: usage/tokens
 previous: Podstawy
@@ -11,7 +11,6 @@ previous-link: usage
 
 Budowę wyrażenia regularnego zaczynasz od użycia `Regex::build()`.  
 Pozostałe metody pomocnicze wykorzystują `build()` przy tworzeniu wzorca.
-
 
 ### `build`
 
@@ -27,7 +26,8 @@ $builder = Regex::build();
 
 ### `for`
 
-Metoda `for` dodaje kontekst dla instancji `Rudashi\FluentBuilder`. Będzie to tekst na którym chcesz, żeby wyrażenie regularne zadziałało.
+Metoda `for` dodaje kontekst dla instancji `Rudashi\FluentBuilder`. Będzie to tekst, na którym chcesz, żeby wyrażenie
+regularne zadziałało.
 
 ```php
 use Rudashi\Regex;

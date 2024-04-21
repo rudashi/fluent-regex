@@ -1,6 +1,6 @@
 ---
 title:  Others
-layout: page
+layout: pl-page
 next: Patterns
 next-link: usage/patterns
 previous: Quantifiers

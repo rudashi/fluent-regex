@@ -1,6 +1,6 @@
 ---
-title:  Prefix anchors
-layout: page
+title: Prefix anchors
+layout: pl-page
 next: Suffix Anchors
 next-link: advance/suffix-anchors
 previous: Modifier flags

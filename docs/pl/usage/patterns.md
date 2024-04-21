@@ -1,6 +1,6 @@
 ---
 title:  Patterns
-layout: page
+layout: pl-page
 next: Advanced
 next-link: advance
 previous: Others

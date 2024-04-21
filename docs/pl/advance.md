@@ -1,6 +1,6 @@
 ---
 title: Advance
-layout: page
+layout: pl-page
 next: Modifier flags
 next-link: advance/modifier-flags
 previous: Patterns

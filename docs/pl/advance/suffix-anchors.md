@@ -1,6 +1,6 @@
 ---
-title:  Suffix anchors
-layout: page
+title: Suffix anchors
+layout: pl-page
 next: Returning results
 next-link: advance/returning-results
 previous: Prefix anchors

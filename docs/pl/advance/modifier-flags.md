@@ -1,6 +1,6 @@
 ---
-title:  Modifier flags
-layout: page
+title: Modifier flags
+layout: pl-page
 next: Prefix anchors
 next-link: advance/prefix-anchors
 previous: Advance

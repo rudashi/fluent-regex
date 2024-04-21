@@ -1,25 +1,26 @@
 ---
-title:  Podstawy
-layout: page
-next: Metody pmocnicze
+title: Podstawy
+layout: pl-page
+next: Metody pomocnicze
 next-link: usage/helpers
 previous: Instalacja
 previous-link: installation
 ---
 
-# Podstawy  
-Żeby rozpocząć pracę możesz wykorzystać jedną z metod pomocniczych.      
-Podstawą jest tworzenie swojego wyrażenia regularnego przy użyciu `Regex::build()`.     
-Metoda `build()` jest niezbędna podczas tworzenia wzorca.  
+# Podstawy
 
-## Metody pomocnicze
+Żeby rozpocząć pracę możesz wykorzystać jedną z metod pomocniczych.  
+Podstawą jest tworzenie swojego wyrażenia regularnego przy użyciu `Regex::build()`.  
+Metoda `build()` jest niezbędna podczas tworzenia wzorca.
 
-- [`build`](usage/helpers#build) 
+## Pomocnicze metody
+
+- [`build`](usage/helpers#build)
 - [`for`](usage/helpers#for)
 - [`start`](usage/helpers#start)
 - [`startOfLine`](usage/helpers#startofline)
 
-## Metody dodatkowe
+## Dodatkowe metody
 
 - [`anything`](usage/tokens#anything)
 - [`character`](usage/tokens#character)

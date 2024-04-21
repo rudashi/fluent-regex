@@ -1,6 +1,6 @@
 ---
 title: Instalacja
-layout: pl
+layout: pl-page
 next: Podstawy
 next-link: usage
 previous: Wstęp
@@ -21,4 +21,4 @@ composer require rudashi/fluent-regex
 ```
 
 **`Krok drugi`**  
-To wszystko - ciesz się programem!
+To wszystko — ciesz się programem!

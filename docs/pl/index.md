@@ -1,9 +1,9 @@
 ---
-title:  Wstęp
-layout: page
+title: Wstęp
+layout: pl-page
 next: Instalacja
-next-link: instalacja
-previous: 
+next-link: installation
+previous:
 previous-link: 
 ---
 
@@ -24,8 +24,7 @@ Regex::build()
 // ^(http|https)\:\/\//i
 ```
 
-Poza wyszukiwaniem, zweryfikuje również, czy w danym tekście znajduje się to, czego szukamy.
-
+Poza wyszukiwaniem zweryfikuje również, czy w danym tekście znajduje się to, czego szukamy.
 
 ```php
 Regex::for('https://100commitow.pl/')->find('100commitow')->check();

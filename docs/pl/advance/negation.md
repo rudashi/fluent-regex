@@ -1,8 +1,8 @@
 ---
-title:  Negation
-layout: page
-next: 
-next-link: 
+title: Negation
+layout: pl-page
+next:
+next-link:
 previous: Returning results
 previous-link: advance/returning-results
 ---

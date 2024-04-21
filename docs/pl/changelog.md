@@ -1,6 +1,6 @@
 ---
-title:  Changelog
-layout: default
+title: Changelog
+layout: pl-page
 ---
 
 # Changelog

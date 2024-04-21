@@ -1,6 +1,6 @@
 ---
-title:  Returning results
-layout: page
+title: Returning results
+layout: pl-page
 next: Negation
 next-link: advance/negation
 previous: Suffix Anchors

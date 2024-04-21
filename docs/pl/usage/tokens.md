@@ -1,6 +1,6 @@
 ---
-title:  Tokens
-layout: page
+title: Tokens
+layout: pl-page
 next: Quantifiers
 next-link: usage/quantifiers
 previous: Helpers

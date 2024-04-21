@@ -1,6 +1,6 @@
 ---
 title:  Quantifiers
-layout: page
+layout: pl-page
 next: Others
 next-link: usage/others
 previous: Tokens
