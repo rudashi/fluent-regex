@@ -1,20 +1,21 @@
 ---
-title:  Helpers
-layout: page
-next: Tokens
+title:  Pomocnicze metody
+layout: pl
+next: Dodatkowe metody
 next-link: usage/tokens
-previous: Usage
+previous: Podstawy
 previous-link: usage
 ---
 
-# Helpers
+# Pomocnicze metody
 
-You can start creating your regex by using `Regex::build()`.  
-The `build()` method is used every time you want to create a pattern.
+Budowę wyrażenia regularnego zaczynasz od użycia `Regex::build()`.  
+Pozostałe metody pomocnicze wykorzystują `build()` przy tworzeniu wzorca.
+
 
 ### `build`
 
-The `build` method creates a new `Rudashi\FluentBuilder` instance.
+Metoda `build` rozpoczyna każde tworzenie wyrażenia  `Rudashi\FluentBuilder`.
 
 ```php
 use Rudashi\Regex;
@@ -26,7 +27,7 @@ $builder = Regex::build();
 
 ### `for`
 
-The `for` method adds context to `Rudashi\FluentBuilder` instance.
+Metoda `for` dodaje kontekst dla instancji `Rudashi\FluentBuilder`. Będzie to tekst na którym chcesz, żeby wyrażenie regularne zadziałało.
 
 ```php
 use Rudashi\Regex;
@@ -38,7 +39,7 @@ $builder = Regex::for('Hello, world!');
 
 ### `start`
 
-The `start` method adds start flag.
+Metoda `start` dodaje flagę `start`.
 
 ```php
 use Rudashi\Regex;
@@ -50,7 +51,7 @@ $pattern = Regex::start();
 
 ### `startOfLine`
 
-The `startOfLine` method is equivalent to the `Regex::start` method.
+Metoda `startOfLine` jest odpowiednikiem dla metody `Regex::start`.
 
 ```php
 use Rudashi\Regex;
