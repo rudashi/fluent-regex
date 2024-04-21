@@ -9,9 +9,10 @@ previous-link:
 
 # Wstęp
 
-This package provides a simple way to create Regex in a fluent way. 
+**`Fluent Regex`** to narzędzie, które w prosty sposób pozwala tworzyć wyrażenia regularne.  
+Umożliwia intuicyjne tworzenie wzorców, które wyszukają odpowiedni fragment w tekście.
 
-Here is a quick example:
+Poniżej przykład:
 
 ```php
 Regex::build()
@@ -23,7 +24,8 @@ Regex::build()
 // ^(http|https)\:\/\//i
 ```
 
-You can also check if your string is valid to pattern:
+Poza wyszukiwaniem, zweryfikuje również, czy w danym tekście znajduje się to, czego szukamy.
+
 
 ```php
 Regex::for('https://100commitow.pl/')->find('100commitow')->check();
@@ -31,7 +33,7 @@ Regex::for('https://100commitow.pl/')->find('100commitow')->check();
 // True
 ```
 
-## 🏅 There are badges 
+## 🏅 Odznaki
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/rudashi/fluent-regex)  
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/rudashi/fluent-regex/tests.yml?label=tests)  
