@@ -8,7 +8,7 @@ trait HasTokens
 {
     public function character(string|int $value): static
     {
-        $this->pushToPattern($value);
+        $this->pushToPattern((string) $value);
 
         return $this;
     }
