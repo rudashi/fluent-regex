@@ -19,6 +19,7 @@ class Negate
     public static array $guardedMethods = [
         // FluentBuilder
         'check',
+        'match',
         'setContext',
         'oneOf',
         'or',
