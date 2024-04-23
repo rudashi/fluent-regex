@@ -6,12 +6,14 @@ namespace Rudashi;
 
 use ArgumentCountError;
 use BadMethodCallException;
+use InvalidArgumentException;
 use LogicException;
 use Rudashi\Concerns\HasAnchors;
 use Rudashi\Concerns\Dumpable;
 use Rudashi\Concerns\Flags;
 use Rudashi\Concerns\Quantifiers;
 use Rudashi\Concerns\HasTokens;
+use Rudashi\Contracts\PatternContract;
 
 /**
  * @property Negate $not Creates the negative pattern
@@ -30,6 +32,11 @@ class FluentBuilder
     protected string $context = '';
 
     /**
+     * @var array<int, PatternContract>
+     */
+    protected array $patterns = [];
+
+    /**
      * @var array<int, string>
      */
     protected array $pattern = [];
@@ -41,12 +48,15 @@ class FluentBuilder
 
     protected Anchors $anchors;
 
-    public function __construct()
-    {
+    /**
+     * @param  array<int, class-string<PatternContract>>  $patterns
+     */
+    public function __construct(array $patterns = []) {
         $this->anchors = new Anchors(
             builder: $this,
             delimiter: self::DELIMITER
         );
+        $this->registerPatterns($patterns);
     }
 
     public static function sanitize(string|int $value): string
@@ -155,6 +165,25 @@ class FluentBuilder
         }
     }
 
+    /**
+     * @param  string  $name
+     * @param  array<int, mixed>  $arguments
+     * @return static
+     */
+    public function __call(string $name, array $arguments): static
+    {
+        foreach ($this->patterns as $pattern) {
+            if ($pattern->getName() === $name) {
+
+                $this->pushToPattern($pattern->getPattern());
+
+                return $this;
+            }
+        }
+
+        $this->throwBadMethodException('Method "%s" does not exist in %s.', $name, __CLASS__);
+    }
+
     public function __set(string $name, mixed $value): void
     {
         throw new LogicException(sprintf('Setter "%s" is not acceptable.', $name));
@@ -163,5 +192,24 @@ class FluentBuilder
     protected function throwBadMethodException(string $format, string|int ...$values): void
     {
         throw new BadMethodCallException(sprintf($format, ...$values));
+    }
+
+    /**
+     * @param  array<int, class-string<PatternContract>>  $patterns
+     * @return static
+     */
+    private function registerPatterns(array $patterns): static
+    {
+        foreach ($patterns as $pattern) {
+            if (!is_subclass_of($pattern, PatternContract::class)) {
+                throw new InvalidArgumentException(
+                    sprintf('Class "%s" must implement PatternContract.', $pattern)
+                );
+            }
+
+            $this->patterns[] = new $pattern();
+        }
+
+        return $this;
     }
 }
