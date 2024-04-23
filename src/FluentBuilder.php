@@ -85,6 +85,9 @@ class FluentBuilder
         return preg_match($this->get(), $this->context) > 0;
     }
 
+    /**
+     * @return array<int, string>
+     */
     public function match(): array
     {
         preg_match_all($this->get(), $this->context, $matches);
@@ -174,7 +177,6 @@ class FluentBuilder
     {
         foreach ($this->patterns as $pattern) {
             if ($pattern->getName() === $name) {
-
                 $this->pushToPattern($pattern->getPattern());
 
                 return $this;
