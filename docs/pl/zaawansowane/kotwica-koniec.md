@@ -1,13 +1,13 @@
 ---
-title: Suffix anchors
+title: Kotwica końca
 layout: pl-page
-next: Returning results
-next-link: advance/returning-results
-previous: Prefix anchors
-previous-link: advance/prefix-anchors
+next: Wyniki
+next-link: zaawansowane/wyniki
+previous: Kotwica początku
+previous-link: zaawansowane/kotwica-start
 ---
 
-# Suffix anchors
+# Kotwica końca
 
 ### `end`
 

@@ -1,13 +1,13 @@
 ---
-title: Prefix anchors
+title: Kotwica początku
 layout: pl-page
-next: Suffix Anchors
-next-link: advance/suffix-anchors
-previous: Modifier flags
-previous-link: advance/modifier-flags
+next: Kotwica końca
+next-link: zaawansowane/kotwica-koniec
+previous: Flagi
+previous-link: zaawansowane/flagi
 ---
 
-# Prefix anchors
+# Kotwica początku
 
 ### `start`
 

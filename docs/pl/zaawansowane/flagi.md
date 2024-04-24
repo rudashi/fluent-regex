@@ -1,13 +1,13 @@
 ---
-title: Modifier flags
+title: Flagi
 layout: pl-page
-next: Prefix anchors
-next-link: advance/prefix-anchors
-previous: Advance
-previous-link: advance
+next: Kotwica początku
+next-link: zaawansowane/kotwica-start
+previous: Zaawansowane
+previous-link: zaawansowane
 ---
 
-# Modifier flags
+# Flagi
 
 ### `ignoreCase`
 

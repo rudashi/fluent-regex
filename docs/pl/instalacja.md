@@ -2,7 +2,7 @@
 title: Instalacja
 layout: pl-page
 next: Podstawy
-next-link: usage
+next-link: podstawy
 previous: Wstęp
 previous-link: index
 ---

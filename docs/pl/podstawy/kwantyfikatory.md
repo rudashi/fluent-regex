@@ -1,13 +1,13 @@
 ---
-title:  Quantifiers
+title: Kwantyfikatory
 layout: pl-page
-next: Others
-next-link: usage/others
-previous: Tokens
-previous-link: usage/tokens
+next: Inne
+next-link: podstawy/inne
+previous: Dodatkowe metody
+previous-link: podstawy/dodatkowe-metody
 ---
 
-# Quantifiers
+# Kwantyfikatory
 
 Quantifiers specify how many instances of a character, group or character must be present in the subject for a match to be found.
 

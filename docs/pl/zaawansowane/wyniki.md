@@ -1,13 +1,13 @@
 ---
-title: Returning results
+title: Wyniki
 layout: pl-page
-next: Negation
-next-link: advance/negation
-previous: Suffix Anchors
-previous-link: advance/suffix-anchors
+next: Negacja
+next-link: zaawansowane/negacja
+previous: Kotwica końca
+previous-link: zaawansowane/kotwica-koniec
 ---
 
-# Returning results
+# Wyniki
 
 ### `check`
 

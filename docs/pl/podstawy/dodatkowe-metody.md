@@ -1,15 +1,15 @@
 ---
-title: Tokens
+title: Dodatkowe metody
 layout: pl-page
-next: Quantifiers
-next-link: usage/quantifiers
-previous: Helpers
-previous-link: usage/helpers
+next: Kwantyfikatory
+next-link: podstawy/kwantyfikatory
+previous: Pomocnicze metody
+previous-link: podstawy/pomocnicze-metody
 ---
 
-# Tokens
+# Dodatkowe metody
 
-The `FluentBuilder` must be initialized before using tokens. Use one of the above [helper](helpers.md) methods to do this.  Tokens can be chained to create increasingly complex regular expressions.
+The `FluentBuilder` must be initialized before using tokens. Use one of the above [helper](pomocnicze-metody.md) methods to do this.  Tokens can be chained to create increasingly complex regular expressions.
 
 ### `anything`
 

@@ -1,13 +1,13 @@
 ---
-title: Negation
+title: Negacja
 layout: pl-page
 next:
 next-link:
-previous: Returning results
-previous-link: advance/returning-results
+previous: Wyniki
+previous-link: zaawansowane/wyniki
 ---
 
-# Negation
+# Negacja
 
 ### `not`
 

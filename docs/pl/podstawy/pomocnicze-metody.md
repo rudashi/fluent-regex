@@ -2,9 +2,9 @@
 title: Pomocnicze metody
 layout: pl-page
 next: Dodatkowe metody
-next-link: usage/tokens
+next-link: podstawy/dodatkowe-metody
 previous: Podstawy
-previous-link: usage
+previous-link: podstawy
 ---
 
 # Pomocnicze metody

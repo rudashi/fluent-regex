@@ -1,6 +1,6 @@
 ---
 title:  Changelog
-layout: default
+layout: page
 ---
 
 # Changelog

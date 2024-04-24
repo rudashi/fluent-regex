@@ -1,13 +1,13 @@
 ---
-title:  Others
+title:  Inne
 layout: pl-page
-next: Patterns
-next-link: usage/patterns
-previous: Quantifiers
-previous-link: usage/quantifiers
+next: Gotowe wzorce
+next-link: podstawy/wzorce
+previous: Kwantyfikatory
+previous-link: podstawy/kwantyfikatory
 ---
 
-# Others
+# Inne
 
 Each method described in this section allows for unique manipulation of the pattern.
 

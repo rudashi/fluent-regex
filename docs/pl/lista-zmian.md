@@ -1,9 +1,9 @@
 ---
-title: Changelog
+title: Lista zmian
 layout: pl-page
 ---
 
-# Changelog
+# Lista zmian
 
 All changes to `fluent-regex` are available in the changelog file in the main repository.
 
