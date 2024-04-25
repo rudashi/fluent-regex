@@ -20,72 +20,88 @@ it('can add context to the builder', function () {
 /**
  * Negation
  */
-it('can use the `not` method as the negation of the next token', function () {
-    expect(fluentBuilder()->not())
-        ->toBeInstanceOf(Negate::class);
-});
+describe('negation', function () {
+    it('can use the `not` method as the negation of the next token', function () {
+        expect(fluentBuilder()->not())
+            ->toBeInstanceOf(Negate::class);
+    });
 
-it('allows property `not` to be accessed', function () {
-    expect(fluentBuilder()->not)
-        ->toBeInstanceOf(Negate::class);
-});
+    it('allows property `not` to be accessed', function () {
+        expect(fluentBuilder()->not)
+            ->toBeInstanceOf(Negate::class);
+    });
 
-it('negates the next token using the `not` property', function () {
-    expect(fluentBuilder()->not->word())
-        ->toBeInstanceOf(FluentBuilder::class)
-        ->get()->toBe('/[^\w]/');
+    it('negates the next token using the `not` property', function () {
+        expect(fluentBuilder()->not->word())
+            ->toBeInstanceOf(FluentBuilder::class)
+            ->get()->toBe('/[^\w]/');
+    });
 });
 
 /**
  * Exceptions
  */
-it('thrown an exception if the property is not callable', function (string $property) {
-    expect(fn () => fluentBuilder()->$property)
-        ->toThrow(
-            exception: BadMethodCallException::class,
-            exceptionMessage: 'Cannot access property "'.$property.'". Use the "'.$property.'()" method instead.'
-        );
-})->with(['capture', 'maybe']);
+describe('exceptions', function () {
+    it('thrown an exception if the property is not callable', function (string $property) {
+        expect(fn () => fluentBuilder()->$property)
+            ->toThrow(
+                exception: BadMethodCallException::class,
+                exceptionMessage: 'Cannot access property "' . $property . '". Use the "' . $property . '()" method instead.'
+            );
+    })->with(['capture', 'maybe']);
 
-it('thrown an exception if the property has no method assigned', function () {
-    // @phpstan-ignore-next-line
-    expect(fn () => fluentBuilder()->fooBar)
-        ->toThrow(
-            exception: BadMethodCallException::class,
-            exceptionMessage: 'Method "fooBar" does not exist in Rudashi\FluentBuilder.'
-        );
-});
+    it('thrown an exception if the property has no method assigned', function () {
+        // @phpstan-ignore-next-line
+        expect(fn () => fluentBuilder()->fooBar)
+            ->toThrow(
+                exception: BadMethodCallException::class,
+                exceptionMessage: 'Method "fooBar" does not exist in Rudashi\FluentBuilder.'
+            );
+    });
 
-it('thrown an exception if you assign a value to the property', function () {
-    // @phpstan-ignore-next-line
-    expect(fn () => fluentBuilder()->foo = 'bar')
-        ->toThrow(
-            exception: LogicException::class,
-            exceptionMessage: 'Setter "foo" is not acceptable.'
-        );
+    it('thrown an exception if you assign a value to the property', function () {
+        // @phpstan-ignore-next-line
+        expect(fn () => fluentBuilder()->foo = 'bar')
+            ->toThrow(
+                exception: LogicException::class,
+                exceptionMessage: 'Setter "foo" is not acceptable.'
+            );
+    });
 });
 
 /**
  * Capture
  */
-it('can use the `capture` method to group tokens', function () {
-    $regex = fluentBuilder()
-        ->exactly('-')
-        ->capture(fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter())
-        ->end();
+describe('capture', function () {
+    it('can use the `capture` method to group tokens', function () {
+        $regex = fluentBuilder()
+            ->exactly('-')
+            ->capture(fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter())
+            ->end();
 
-    expect($regex->get())
-        ->toBe('/\-(\.[a-zA-Z])$/');
-});
+        expect($regex->get())
+            ->toBe('/\-(\.[a-zA-Z])$/');
+    });
 
-it('can use the `maybe` method to group tokens', function () {
-    $regex = fluentBuilder()
-        ->exactly('-')
-        ->maybe(fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter())
-        ->end();
+    it('can use `capture` alias method - `group`', function () {
+        $regex = fluentBuilder()
+            ->exactly('-')
+            ->group(fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter())
+            ->end();
 
-    expect($regex->get())
-        ->toBe('/\-(\.[a-zA-Z])?$/');
+        expect($regex->get())
+            ->toBe('/\-(\.[a-zA-Z])$/');
+    });
+
+    it('can use the `maybe` method to group tokens', function () {
+        $regex = fluentBuilder()
+            ->exactly('-')
+            ->maybe(fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter())
+            ->end();
+
+        expect($regex->get())
+            ->toBe('/\-(\.[a-zA-Z])?$/');
+    });
 });
 
 /**
@@ -139,27 +155,29 @@ it('can sanitize provided string', function (string $value, string $expectation)
 /**
  * Returning results
  */
-it('can return a string pattern', function () {
-    expect(fluentBuilder()->get())
-        ->toBe('//');
-});
+describe('returning results', function () {
+    it('can return a string pattern', function () {
+        expect(fluentBuilder()->get())
+            ->toBe('//');
+    });
 
-it('can validate context against pattern', function (string $value, bool $expectation) {
-    $regex = fluentBuilder()->setContext('abc')->exactly($value);
+    it('can validate context against pattern', function (string $value, bool $expectation) {
+        $regex = fluentBuilder()->setContext('abc')->exactly($value);
 
-    expect($regex->check())
-        ->toBe($expectation);
-})->with([
-    ['a', true],
-    ['y', false],
-    ['ab', true],
-    ['', false],
-]);
+        expect($regex->check())
+            ->toBe($expectation);
+    })->with([
+        ['a', true],
+        ['y', false],
+        ['ab', true],
+        ['', false],
+    ]);
 
-it('returns a string matching from the context', function () {
-    $regex = fluentBuilder()->setContext('abca')->exactly('a');
+    it('returns a string matching from the context', function () {
+        $regex = fluentBuilder()->setContext('abca')->exactly('a');
 
-    expect($regex->match())
-        ->toHaveCount(2)
-        ->toMatchArray(['a', 'a']);
+        expect($regex->match())
+            ->toHaveCount(2)
+            ->toMatchArray(['a', 'a']);
+    });
 });
