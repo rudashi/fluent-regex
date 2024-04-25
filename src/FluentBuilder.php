@@ -120,6 +120,11 @@ class FluentBuilder
         return $this;
     }
 
+    public function group(callable $callback): static
+    {
+        return $this->capture($callback);
+    }
+
     public function maybe(callable $callback): static
     {
         return $this->capture($callback)->zeroOrOne();
