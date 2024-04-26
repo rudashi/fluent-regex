@@ -27,25 +27,46 @@ class FluentBuilder
     use Dumpable;
     use Quantifiers;
 
+    /**
+     * Regex delimiter value
+     *
+     * @var string
+     */
     protected const DELIMITER = '/';
 
+    /**
+     * The underlying string value.
+     *
+     * @var string
+     */
     protected string $context = '';
 
     /**
+     * The registered patterns.
+     *
      * @var array<int, PatternContract>
      */
     protected array $patterns = [];
 
     /**
+     * The pattern stack.
+     *
      * @var array<int, string>
      */
     protected array $pattern = [];
 
     /**
+     * All assigned modifiers.
+     *
      * @var array<int, string>
      */
     protected array $modifiers = [];
 
+    /**
+     * The Anchors instance.
+     *
+     * @var \Rudashi\Anchors
+     */
     protected Anchors $anchors;
 
     /**
@@ -59,6 +80,12 @@ class FluentBuilder
         $this->registerPatterns($patterns);
     }
 
+    /**
+     * Sanitize the given expression value.
+     *
+     * @param  string|int  $value
+     * @return string
+     */
     public static function sanitize(string|int $value): string
     {
         $value = (string) $value;
