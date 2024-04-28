@@ -69,6 +69,6 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 - IPv4 address
 - IPv6 address
 - mac address
-- email
+- [`email`](usage/patterns#email)
 - url
 - credit card
