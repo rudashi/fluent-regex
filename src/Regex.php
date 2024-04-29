@@ -6,9 +6,13 @@ namespace Rudashi;
 
 class Regex
 {
-    public static function build(): FluentBuilder
+    /**
+     * @param  array<int, class-string<\Rudashi\Contracts\PatternContract>>  $patterns
+     * @return \Rudashi\FluentBuilder
+     */
+    public static function build(array $patterns = []): FluentBuilder
     {
-        return (new static())->newBuilder();
+        return (new static())->newBuilder($patterns);
     }
 
     public static function for(string $string): FluentBuilder
@@ -26,8 +30,12 @@ class Regex
         return static::start();
     }
 
-    public function newBuilder(): FluentBuilder
+    /**
+     * @param  array<int, class-string<\Rudashi\Contracts\PatternContract>>  $patterns
+     * @return \Rudashi\FluentBuilder
+     */
+    public function newBuilder(array $patterns = []): FluentBuilder
     {
-        return new FluentBuilder();
+        return new FluentBuilder($patterns);
     }
 }

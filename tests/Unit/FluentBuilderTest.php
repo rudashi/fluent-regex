@@ -138,6 +138,43 @@ it('can add an `anything` token', function () {
         ->toBe('/.*/');
 });
 
+describe('patterns call', function () {
+    it('can use `pattern`', function () {
+        $regex = fluentPattern(EmailPattern::class);
+
+        // @phpstan-ignore-next-line
+        expect($regex->email())
+            ->toBeInstanceOf(FluentBuilder::class)
+            ->get()->toBe('/\w+(?:\.\w+)*@(?:[\w-]+\.)+[\w-]{2,}/');
+    });
+
+    it('can call `pattern`', function () {
+        $regex = fluentPattern(EmailPattern::class);
+
+        expect($regex->pattern(EmailPattern::$name))
+            ->toBeInstanceOf(FluentBuilder::class)
+            ->get()->toBe('/\w+(?:\.\w+)*@(?:[\w-]+\.)+[\w-]{2,}/');
+    });
+
+    it('threw an exception when a non-existent `pattern` call is used', function () {
+        // @phpstan-ignore-next-line
+        expect(fn () => fluentBuilder()->email())
+            ->toThrow(
+                exception: BadMethodCallException::class,
+                exceptionMessage: 'Method "email" does not exist in Rudashi\FluentBuilder.'
+            );
+    });
+
+    it('threw an exception when use incorrect pattern', function () {
+        // @phpstan-ignore-next-line
+        expect(fn () => fluentPattern('className'))
+            ->toThrow(
+                exception: InvalidArgumentException::class,
+                exceptionMessage: 'Class "className" must implement PatternContract.',
+            );
+    });
+});
+
 /**
  * Helpers
  */

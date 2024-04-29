@@ -49,3 +49,12 @@ function negation(): Negate
 {
     return new Negate(fluentBuilder());
 }
+
+/**
+ * @param  class-string<Rudashi\Contracts\PatternContract>  $pattern
+ * @return \Rudashi\FluentBuilder
+ */
+function fluentPattern(string $pattern): FluentBuilder
+{
+    return new FluentBuilder(patterns: [$pattern]);
+}
