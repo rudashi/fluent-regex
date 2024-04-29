@@ -187,6 +187,11 @@ class FluentBuilder
         return $this;
     }
 
+    public function pattern(string $string): static
+    {
+        return $this->__call($string, []);
+    }
+
     public function __get(string $name): mixed
     {
         if (method_exists($this, $name) === false) {
