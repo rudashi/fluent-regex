@@ -24,6 +24,16 @@ $builder = Regex::build();
 // Rudashi\FluentBuilder
 ```
 
+You may also pass an array of predefined patterns to use in a given context string:
+
+```php
+use Rudashi\Regex;
+ 
+$builder = Regex::build([
+    \Rudashi\Patterns\EmailPattern::class,
+]);
+```
+
 ### `for`
 
 The `for` method adds context to `Rudashi\FluentBuilder` instance.
