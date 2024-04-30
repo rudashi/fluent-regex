@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Rudashi\FluentBuilder;
 use Rudashi\Negate;
+use Rudashi\Patterns\EmailPattern;
 
 it('can add context to the builder', function () {
     $regex = fluentBuilder()->setContext('test');
@@ -107,25 +108,34 @@ describe('capture', function () {
 /**
  * Or
  */
-it('can add a `oneOf`', function () {
-    $regex = fluentBuilder()->oneOf('a', 'b', '.');
+describe('or', function () {
+    it('can add an `oneOf`', function () {
+        $regex = fluentBuilder()->oneOf('a', 'b', '.');
 
-    expect($regex->get())
-        ->toBe('/a|b|\./');
-});
+        expect($regex->get())
+            ->toBe('/a|b|\./');
+    });
 
-it('can add a `or`', function () {
-    $regex = fluentBuilder()->exactly('a')->or()->exactly('b');
+    it('can add empty values to `oneOf`', function () {
+        $regex = fluentBuilder()->oneOf();
 
-    expect($regex->get())
-        ->toBe('/a|b/');
-});
+        expect($regex->get())
+            ->toBe('//');
+    });
 
-it('allows property `or` to be accessed', function () {
-    $regex = fluentBuilder()->exactly('a')->or->exactly('b');
+    it('can add an `or`', function () {
+        $regex = fluentBuilder()->exactly('a')->or()->exactly('b');
 
-    expect($regex->get())
-        ->toBe('/a|b/');
+        expect($regex->get())
+            ->toBe('/a|b/');
+    });
+
+    it('allows property `or` to be accessed', function () {
+        $regex = fluentBuilder()->exactly('a')->or->exactly('b');
+
+        expect($regex->get())
+            ->toBe('/a|b/');
+    });
 });
 
 /**

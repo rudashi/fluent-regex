@@ -213,7 +213,7 @@ class FluentBuilder
     public function __call(string $name, array $arguments): static
     {
         foreach ($this->patterns as $pattern) {
-            if ($pattern->getName() === $name) {
+            if ($pattern->getName() === $name || $pattern->alias() === $name) {
                 $this->pushToPattern($pattern->getPattern());
 
                 return $this;
@@ -234,7 +234,7 @@ class FluentBuilder
     }
 
     /**
-     * @param  array<int, class-string<PatternContract>>  $patterns
+     * @param  array<int, class-string<\Rudashi\Contracts\PatternContract>>  $patterns
      * @return static
      */
     private function registerPatterns(array $patterns): static
