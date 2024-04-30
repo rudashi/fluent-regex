@@ -71,4 +71,4 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 - mac address
 - [`email`](usage/patterns#email)
 - url
-- credit card
+- [`credit card`](usage/patterns#credit-card)
