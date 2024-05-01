@@ -40,9 +40,9 @@ uses(Tests\TestCase::class)->in('Feature');
 |
 */
 
-function fluentBuilder(): FluentBuilder
+function fluentBuilder(bool $asSub = false): FluentBuilder
 {
-    return new FluentBuilder();
+    return new FluentBuilder(isSub: $asSub);
 }
 
 function negation(): Negate

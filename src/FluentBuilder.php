@@ -70,9 +70,15 @@ class FluentBuilder
     protected Anchors $anchors;
 
     /**
-     * @param  array<int, class-string<PatternContract>>  $patterns
+     * Create a new instance of the class.
+     *
+     * @param  array<int, class-string<\Rudashi\Contracts\PatternContract>>  $patterns
+     * @param  bool  $isSub
      */
-    public function __construct(array $patterns = []) {
+    public function __construct(
+        array $patterns = [],
+        private readonly bool $isSub = false,
+    ) {
         $this->anchors = new Anchors(
             builder: $this,
             delimiter: self::DELIMITER
@@ -95,6 +101,10 @@ class FluentBuilder
 
     public function get(): string
     {
+        if ($this->isSub) {
+            return implode('', $this->pattern);
+        }
+
         return implode('', [
             ...$this->anchors->getPrefix(),
             ...$this->pattern,
@@ -131,6 +141,12 @@ class FluentBuilder
 
     public function setContext(string $string): static
     {
+        if ($this->isSub) {
+            throw new LogicException(
+                sprintf('Method "%s" is not acceptable in sub patterns.', __FUNCTION__)
+            );
+        }
+
         $this->context = $string;
 
         return $this;

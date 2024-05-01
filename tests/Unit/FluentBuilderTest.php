@@ -18,6 +18,14 @@ it('can add context to the builder', function () {
     }
 });
 
+it('threw an exception when use `context` on sub pattern', function () {
+    expect(fn () => fluentBuilder(true)->setContext('test'))
+        ->toThrow(
+            exception: LogicException::class,
+            exceptionMessage: 'Method "setContext" is not acceptable in sub patterns.'
+        );
+});
+
 /**
  * Negation
  */
