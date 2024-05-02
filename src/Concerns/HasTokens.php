@@ -133,8 +133,14 @@ trait HasTokens
         return $this;
     }
 
-    public function anyOf(string|int $value): static
+    public function anyOf(string|int|callable $value): static
     {
+        if (is_callable($value)) {
+            $this->pushToPattern('[' . $value(new static(patterns: [], isSub: true))->get() . ']');
+
+            return $this;
+        }
+
         $this->pushToPattern('[' . static::sanitize($value) . ']');
 
         return $this;
