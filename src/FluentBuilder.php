@@ -99,6 +99,11 @@ class FluentBuilder
         return $value !== '' ? preg_quote($value, '/') : $value;
     }
 
+    /**
+     * Get the full regular expression pattern.
+     *
+     * @return string
+     */
     public function get(): string
     {
         if ($this->isSub) {
@@ -113,6 +118,11 @@ class FluentBuilder
         ]);
     }
 
+    /**
+     * Determines whether the context matches a given pattern..
+     *
+     * @return bool
+     */
     public function check(): bool
     {
         if (implode('', $this->pattern) === '') {
@@ -123,6 +133,8 @@ class FluentBuilder
     }
 
     /**
+     * Returns an array of strings matching the given pattern.
+     *
      * @return array<int, string>
      */
     public function match(): array
@@ -132,6 +144,12 @@ class FluentBuilder
         return $matches[0] ?? [];
     }
 
+    /**
+     * Adds a new value to the pattern array.
+     *
+     * @param  string  $value
+     * @return $this
+     */
     public function pushToPattern(string $value): static
     {
         $this->pattern[] = $value;
@@ -139,6 +157,12 @@ class FluentBuilder
         return $this;
     }
 
+    /**
+     * Sets the context to the builder instance.
+     *
+     * @param  string  $string
+     * @return $this
+     */
     public function setContext(string $string): static
     {
         if ($this->isSub) {
@@ -152,6 +176,12 @@ class FluentBuilder
         return $this;
     }
 
+    /**
+     * Adds a capture to the pattern array.
+     *
+     * @param  callable  $callback
+     * @return $this
+     */
     public function capture(callable $callback): static
     {
         $this->pushToPattern('(');
@@ -163,11 +193,23 @@ class FluentBuilder
         return $this;
     }
 
+    /**
+     * Adds a capture alternative to the pattern array.
+     *
+     * @param  callable  $callback
+     * @return $this
+     */
     public function group(callable $callback): static
     {
         return $this->capture($callback);
     }
 
+    /**
+     * Adds optional captures to the pattern array.
+     *
+     * @param  callable  $callback
+     * @return $this
+     */
     public function maybe(callable $callback): static
     {
         return $this->capture($callback)->zeroOrOne();
