@@ -288,7 +288,15 @@ class FluentBuilder
         throw new LogicException(sprintf('Setter "%s" is not acceptable.', $name));
     }
 
-    protected function throwBadMethodException(string $format, string|int ...$values): void
+    /**
+     * Throw a bad method call exception for the given method
+     *
+     * @param  string  $method
+     * @return void
+     *
+     * @throws \BadMethodCallException
+     */
+    protected function throwBadMethodException(string $method): void
     {
         throw new BadMethodCallException(sprintf(
             'Method "%s" does not exist in %s.', $method, __CLASS__
