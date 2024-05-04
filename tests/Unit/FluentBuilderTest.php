@@ -54,7 +54,7 @@ describe('exceptions', function () {
     it('thrown an exception if the property is not callable', function (string $property) {
         expect(fn () => fluentBuilder()->$property)
             ->toThrow(
-                exception: BadMethodCallException::class,
+                exception: LogicException::class,
                 exceptionMessage: 'Cannot access property "' . $property . '". Use the "' . $property . '()" method instead.'
             );
     })->with(['capture', 'maybe']);
@@ -63,7 +63,7 @@ describe('exceptions', function () {
         // @phpstan-ignore-next-line
         expect(fn () => fluentBuilder()->fooBar)
             ->toThrow(
-                exception: BadMethodCallException::class,
+                exception: LogicException::class,
                 exceptionMessage: 'Method "fooBar" does not exist in Rudashi\FluentBuilder.'
             );
     });

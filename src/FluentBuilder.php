@@ -253,13 +253,15 @@ class FluentBuilder
     public function __get(string $name): mixed
     {
         if (method_exists($this, $name) === false) {
-            $this->throwBadMethodException('Method "%s" does not exist in %s.', $name, __CLASS__);
+            $this->throwBadMethodException($name);
         }
 
         try {
             return $this->{$name}();
         } catch (ArgumentCountError) {
-            $this->throwBadMethodException('Cannot access property "%s". Use the "%s()" method instead.', $name, $name);
+            throw new LogicException(sprintf(
+                'Cannot access property "%s". Use the "%s()" method instead.', $name, $name
+            ));
         }
     }
 
@@ -278,7 +280,7 @@ class FluentBuilder
             }
         }
 
-        $this->throwBadMethodException('Method "%s" does not exist in %s.', $name, __CLASS__);
+        $this->throwBadMethodException($name);
     }
 
     public function __set(string $name, mixed $value): void
@@ -288,7 +290,9 @@ class FluentBuilder
 
     protected function throwBadMethodException(string $format, string|int ...$values): void
     {
-        throw new BadMethodCallException(sprintf($format, ...$values));
+        throw new BadMethodCallException(sprintf(
+            'Method "%s" does not exist in %s.', $method, __CLASS__
+        ));
     }
 
     /**
