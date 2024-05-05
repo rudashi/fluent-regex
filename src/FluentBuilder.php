@@ -119,7 +119,7 @@ class FluentBuilder
     }
 
     /**
-     * Determines whether the context matches a given pattern..
+     * Determines whether the context matches a given pattern.
      *
      * @return bool
      */
@@ -215,6 +215,11 @@ class FluentBuilder
         return $this->capture($callback)->zeroOrOne();
     }
 
+    /**
+     * Creates negation to next token.
+     *
+     * @return \Rudashi\Negate
+     */
     public function not(): Negate
     {
         return new Negate(
@@ -245,11 +250,26 @@ class FluentBuilder
         return $this;
     }
 
+    /**
+     * Dynamically call the registered pattern.
+     *
+     * @param  string  $string
+     * @return $this
+     */
     public function pattern(string $string): static
     {
         return $this->__call($string, []);
     }
 
+    /**
+     * Dynamically access builder proxies.
+     *
+     * @param  string  $name
+     * @return mixed
+     *
+     * @throws \LogicException
+     * @throws \BadMethodCallException
+     */
     public function __get(string $name): mixed
     {
         if (method_exists($this, $name) === false) {
@@ -266,9 +286,13 @@ class FluentBuilder
     }
 
     /**
+     * Dynamically handle call into builder instance.
+     *
      * @param  string  $name
      * @param  array<int, mixed>  $arguments
      * @return static
+     *
+     * @throws \BadMethodCallException
      */
     public function __call(string $name, array $arguments): static
     {
@@ -283,6 +307,15 @@ class FluentBuilder
         $this->throwBadMethodException($name);
     }
 
+    /**
+     * Throw a logical exception when assigning a property.
+     *
+     * @param  string  $name
+     * @param  mixed  $value
+     * @return void
+     *
+     * @throws \LogicException
+     */
     public function __set(string $name, mixed $value): void
     {
         throw new LogicException(sprintf('Setter "%s" is not acceptable.', $name));
@@ -304,6 +337,8 @@ class FluentBuilder
     }
 
     /**
+     * Register the given Patterns with the builder.
+     *
      * @param  array<int, class-string<\Rudashi\Contracts\PatternContract>>  $patterns
      * @return static
      */
