@@ -208,7 +208,7 @@ class FluentBuilder
      * Adds optional captures to the pattern array.
      *
      * @param  callable  $callback
-     * @return $this
+     * @return static
      */
     public function maybe(callable $callback): static
     {
@@ -227,6 +227,12 @@ class FluentBuilder
         );
     }
 
+    /**
+     * Adds a match to what comes before or after.
+     *
+     * @param  string  ...$value
+     * @return static
+     */
     public function oneOf(string ...$value): static
     {
         $this->pushToPattern(
@@ -236,6 +242,11 @@ class FluentBuilder
         return $this;
     }
 
+    /**
+     * Adds an alternative to the pattern.
+     *
+     * @return $this
+     */
     public function or(): static
     {
         $this->pushToPattern('|');
@@ -243,6 +254,11 @@ class FluentBuilder
         return $this;
     }
 
+    /**
+     * Adds a match of any character to the pattern.
+     *
+     * @return $this
+     */
     public function anything(): static
     {
         $this->pushToPattern('.*');
@@ -254,7 +270,7 @@ class FluentBuilder
      * Dynamically call the registered pattern.
      *
      * @param  string  $string
-     * @return $this
+     * @return static
      */
     public function pattern(string $string): static
     {
@@ -279,9 +295,9 @@ class FluentBuilder
         try {
             return $this->{$name}();
         } catch (ArgumentCountError) {
-            throw new LogicException(sprintf(
-                'Cannot access property "%s". Use the "%s()" method instead.', $name, $name
-            ));
+            throw new LogicException(
+                sprintf('Cannot access property "%s". Use the "%s()" method instead.', $name, $name)
+            );
         }
     }
 
@@ -331,9 +347,7 @@ class FluentBuilder
      */
     protected function throwBadMethodException(string $method): void
     {
-        throw new BadMethodCallException(sprintf(
-            'Method "%s" does not exist in %s.', $method, __CLASS__
-        ));
+        throw new BadMethodCallException(sprintf('Method "%s" does not exist in %s.', $method, __CLASS__));
     }
 
     /**
