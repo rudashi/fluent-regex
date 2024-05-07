@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 use Rudashi\Contracts\PatternContract;
-use Rudashi\Patterns\Pattern;
+use Rudashi\Pattern;
 
-function fakePattern(): PatternContract {
+function fakePattern(): Pattern {
     return new class() extends Pattern implements PatternContract {
         public static string $name = 'fake-pattern';
 
@@ -23,8 +23,8 @@ it('can return static name', function () {
 
 it('can return pattern name', function () {
     expect(fakePattern()->getName())
-        ->toBe('diff-name')
-        ->not->toBe(fakePattern()::$name);
+        ->not->toBe(fakePattern()::$name)
+        ->toBe('diff-name');
 });
 
 it('can use alias', function () {
