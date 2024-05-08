@@ -28,7 +28,7 @@ class FluentBuilder
     use Quantifiers;
 
     /**
-     * Regex delimiter value
+     * Regex delimiter value.
      *
      * @var string
      */
@@ -324,7 +324,7 @@ class FluentBuilder
     }
 
     /**
-     * Throw a logical exception when assigning a property.
+     * Throws a logical exception when assigning a property.
      *
      * @param  string  $name
      * @param  mixed  $value
@@ -338,7 +338,7 @@ class FluentBuilder
     }
 
     /**
-     * Throw a bad method call exception for the given method
+     * Throws a bad method call exception for the given method.
      *
      * @param  string  $method
      * @return void
