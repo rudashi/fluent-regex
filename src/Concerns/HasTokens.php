@@ -61,7 +61,7 @@ trait HasTokens
         return $this;
     }
 
-    public function number(): static
+    public function number(int $min = 0, int $max = 9): static
     {
         return $this->addToken()->number($min, $max);
     }
