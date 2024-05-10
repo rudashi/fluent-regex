@@ -39,9 +39,7 @@ trait HasTokens
 
     public function letter(): static
     {
-        $this->pushToPattern('[a-zA-Z]');
-
-        return $this;
+        return $this->addToken()->letter();
     }
 
     public function letters(): static
@@ -53,9 +51,7 @@ trait HasTokens
 
     public function lowerLetter(): static
     {
-        $this->pushToPattern('[a-z]');
-
-        return $this;
+        return $this->addToken()->lowerLetter();
     }
 
     public function lowerLetters(): static
@@ -67,9 +63,7 @@ trait HasTokens
 
     public function number(): static
     {
-        $this->pushToPattern('[0-9]');
-
-        return $this;
+        return $this->addToken()->number($min, $max);
     }
 
     public function numbers(): static
