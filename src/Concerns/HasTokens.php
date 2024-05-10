@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Rudashi\Concerns;
 
+use Rudashi\Tokens;
+
 trait HasTokens
 {
     public function character(string|int $value): static
@@ -172,5 +174,15 @@ trait HasTokens
         $this->carriageReturn()->or->newline();
 
         return $this;
+    }
+
+    /**
+     * Adds a token to the pattern.
+     *
+     * @return \Rudashi\Tokens
+     */
+    private function addToken(): Tokens
+    {
+        return new Tokens($this, $this->isSub);
     }
 }
