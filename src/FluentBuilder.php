@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rudashi;
 
 use ArgumentCountError;
+use BackedEnum;
 use BadMethodCallException;
 use InvalidArgumentException;
 use LogicException;
@@ -147,12 +148,12 @@ class FluentBuilder
     /**
      * Adds a new value to the pattern array.
      *
-     * @param  string  $value
+     * @param  string|\BackedEnum  $value
      * @return $this
      */
-    public function pushToPattern(string $value): static
+    public function pushToPattern(string|BackedEnum $value): static
     {
-        $this->pattern[] = $value;
+        $this->pattern[] = $value instanceof BackedEnum ? $value->value : $value;
 
         return $this;
     }

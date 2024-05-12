@@ -5,26 +5,27 @@ declare(strict_types=1);
 namespace Rudashi\Concerns;
 
 use LogicException;
+use Rudashi\Quantifier;
 
 trait Quantifiers
 {
     public function zeroOrOne(): static
     {
-        $this->pushToPattern('?');
+        $this->pushToPattern(Quantifier::ZERO_OR_ONE);
 
         return $this;
     }
 
     public function zeroOrMore(): static
     {
-        $this->pushToPattern('*');
+        $this->pushToPattern(Quantifier::ZERO_OR_MORE);
 
         return $this;
     }
 
     public function oneOrMore(): static
     {
-        $this->pushToPattern('+');
+        $this->pushToPattern(Quantifier::ONE_OR_MORE);
 
         return $this;
     }
