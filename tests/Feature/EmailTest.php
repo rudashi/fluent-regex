@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Rudashi\FluentBuilder;
 use Rudashi\Patterns\EmailPattern;
+use Rudashi\Regex;
 
 dataset('emails', [
     ['corsec@kimiafarma.co.id', true],
@@ -22,6 +23,29 @@ dataset('emails', [
     ['vorys@zfo', false],
     ['1bory@zfo', false],
 ]);
+
+it('validate email', function (string $context, bool $expectation) {
+    $regex = Regex::for($context)
+        ->start()
+        ->words()
+        ->not->capture(fn (FluentBuilder $fluent) => $fluent->find('.')->words())
+        ->zeroOrMore()
+        ->then('@')
+        ->capture(
+            fn (FluentBuilder $fluent) => $fluent->anyOf(
+                fn (FluentBuilder $fluent) => $fluent->word()->and('-')
+            )->oneOrMore()->then('.')
+        )
+        ->oneOrMore()
+        ->anyOf(fn (FluentBuilder $fluent) => $fluent->word()->and('-'))
+        ->between(2)
+        ->end();
+
+    expect($regex)
+        ->toBeInstanceOf(FluentBuilder::class)
+        ->get()->toBe('/^\w+(?:\.\w+)*@([\w-]+\.)+[\w-]{2,}$/')
+        ->check()->toBe($expectation);
+})->with('emails');
 
 describe('predefined EMAIL pattern', function () {
     beforeEach(function () {
