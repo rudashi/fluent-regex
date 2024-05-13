@@ -14,6 +14,7 @@ dataset('emails', [
     ['john@doe.pl', true],
     ['frist1991@gmail.com', true],
     ['john.doe@tot.com', true],
+    ['john-doe@tot.com', true],
     ['john.doe@tot.com.pl', true],
     ['firstname.@gmail.com', false],
     ['firstname..lastname@gmail.com', false],
@@ -28,7 +29,7 @@ it('validate email', function (string $context, bool $expectation) {
     $regex = Regex::for($context)
         ->start()
         ->words()
-        ->not->capture(fn (FluentBuilder $fluent) => $fluent->find('.')->words())
+        ->not->capture(fn (FluentBuilder $fluent) => $fluent->anyOf('.-')->words())
         ->zeroOrMore()
         ->then('@')
         ->capture(
@@ -43,7 +44,7 @@ it('validate email', function (string $context, bool $expectation) {
 
     expect($regex)
         ->toBeInstanceOf(FluentBuilder::class)
-        ->get()->toBe('/^\w+(?:\.\w+)*@([\w-]+\.)+[\w-]{2,}$/')
+        ->get()->toBe('/^\w+(?:[\.\-]\w+)*@([\w-]+\.)+[\w-]{2,}$/')
         ->check()->toBe($expectation);
 })->with('emails');
 

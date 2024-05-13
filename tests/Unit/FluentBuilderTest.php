@@ -163,7 +163,7 @@ describe('patterns call', function () {
         // @phpstan-ignore-next-line
         expect($regex->email())
             ->toBeInstanceOf(FluentBuilder::class)
-            ->get()->toBe('/\w+(?:\.\w+)*@(?:[\w-]+\.)+[\w-]{2,}/');
+            ->get()->toBe('/\w+(?:[\.\-]\w+)*@([\w-]+\.)+[\w-]{2,}/');
     });
 
     it('can call `pattern`', function () {
@@ -171,7 +171,7 @@ describe('patterns call', function () {
 
         expect($regex->pattern(EmailPattern::$name))
             ->toBeInstanceOf(FluentBuilder::class)
-            ->get()->toBe('/\w+(?:\.\w+)*@(?:[\w-]+\.)+[\w-]{2,}/');
+            ->get()->toBe('/\w+(?:[\.\-]\w+)*@([\w-]+\.)+[\w-]{2,}/');
     });
 
     it('threw an exception when a non-existent `pattern` call is used', function () {
