@@ -46,5 +46,20 @@ $pattern = Regex::build([\Rudashi\Patterns\EmailPattern::class])
     ->email()
     ->end();
  
-// /^\w+(?:\.\w+)*@(?:[\w-]+\.)+[\w-]{2,}$/
+// /^\w+(?:[\.\-]\w+)*@([\w-]+\.)+[\w-]{2,}$/
+```
+
+### Credit card
+
+To find if there is any credit card number in a given text, you can use the predefined `CreditCardPattern` pattern. The pattern identifies **Visa** and **MasterCard** cards.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build([\Rudashi\Patterns\CreditCardPattern::class])
+    ->start()
+    ->creditCard()
+    ->end();
+ 
+// /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$/
 ```
