@@ -171,6 +171,30 @@ trait HasTokens
     }
 
     /**
+     * Adds a word boundary token.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
+    public function boundary(): FluentBuilder
+    {
+        $this->pushToPattern('\b');
+
+        return $this;
+    }
+
+    /**
+     * Adds a non-word boundary token.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
+    public function nonBoundary(): FluentBuilder
+    {
+        $this->pushToPattern('\B');
+
+        return $this;
+    }
+
+    /**
      * Adds a token to the pattern.
      *
      * @return \Rudashi\Tokens

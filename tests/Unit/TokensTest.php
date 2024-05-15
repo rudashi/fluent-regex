@@ -205,6 +205,20 @@ describe('FluentBuilder', function () {
         expect($regex->get())
             ->toBe('/^[a-zA-Z0-9._%+-]$/');
     });
+
+    it('can add a `boundary`', function () {
+        $regex = fluentBuilder()->boundary();
+
+        expect($regex->get())
+            ->toBe('/\b/');
+    });
+
+    it('can add a `nonBoundary`', function () {
+        $regex = fluentBuilder()->nonBoundary();
+
+        expect($regex->get())
+            ->toBe('/\B/');
+    });
 });
 
 /**
