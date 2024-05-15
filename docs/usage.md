@@ -40,6 +40,8 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 - [`nonDigits`](usage/tokens#nondigits)
 - [`word`](usage/tokens#word)
 - [`words`](usage/tokens#words)
+- [`boundary`](usage/tokens#boundary)
+- [`nonBoundary`](usage/tokens#nonboundary)
 - [`anyOf`](usage/tokens#anyof)
 - [`tab`](usage/tokens#tab)
 - [`carriageReturn`](usage/tokens#carriagereturn)

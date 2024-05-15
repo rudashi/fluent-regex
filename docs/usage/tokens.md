@@ -261,6 +261,30 @@ $pattern = Regex::build()->words();
 // /\w+/
 ```
 
+### `boundary`
+
+The `boundary` method allows you to match only whole words without consuming any character (equivalent to (^\w|\w$|\W\w|\w\W)).
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->boundary();
+ 
+// /\b/
+```
+
+### `nonBoundary`
+
+The `nonBoundary` method matches at every position where `boundary` does not.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->nonBoundary();
+ 
+// /\B/
+```
+
 ### `anyOf`
 
 The `anyOf` method matches any single characters present in the given string.
