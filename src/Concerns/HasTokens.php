@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rudashi\Concerns;
 
+use Rudashi\FluentBuilder;
 use Rudashi\Tokens;
 
 trait HasTokens
