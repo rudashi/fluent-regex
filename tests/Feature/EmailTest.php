@@ -70,6 +70,11 @@ describe('predefined EMAIL pattern', function () {
         $regex = $this->builder->setContext($context)->email();
 
         expect($regex->match())
-            ->toHaveCount(3);
+            ->toHaveCount(3)
+            ->toMatchArray([
+                'support@company.com',
+                'business@company.com',
+                'marketing@company.com',
+            ]);
     });
 });

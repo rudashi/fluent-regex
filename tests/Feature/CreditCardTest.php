@@ -78,6 +78,10 @@ describe('predefined CARDS pattern', function () {
         $regex = $this->builder->setContext($context)->creditCard();
 
         expect($regex->match())
-            ->toHaveCount(2);
+            ->toHaveCount(2)
+            ->toMatchArray([
+                '4482483806051485',
+                '5306940803297966',
+            ]);
     });
 });
