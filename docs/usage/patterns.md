@@ -49,7 +49,7 @@ $pattern = Regex::build([\Rudashi\Patterns\EmailPattern::class])
 // /^\w+(?:[\.\-]\w+)*@([\w-]+\.)+[\w-]{2,}$/
 ```
 
-### Credit card
+### `Credit card`
 
 To find if there is any credit card number in a given text, you can use the predefined `CreditCardPattern` pattern. The pattern identifies **Visa** and **MasterCard** cards.
 
