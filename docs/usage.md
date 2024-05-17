@@ -72,5 +72,5 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 - IPv6 address
 - mac address
 - [`email`](usage/patterns#email)
-- url
+- [`url`](usage/patterns#url)
 - [`credit card`](usage/patterns#credit-card)
