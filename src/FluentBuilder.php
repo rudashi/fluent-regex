@@ -153,7 +153,7 @@ class FluentBuilder
      */
     public function pushToPattern(string|BackedEnum $value): static
     {
-        $this->pattern[] = $value instanceof BackedEnum ? $value->value : $value;
+        $this->pattern[] = $value instanceof BackedEnum ? (string) $value->value : $value;
 
         return $this;
     }
@@ -209,9 +209,9 @@ class FluentBuilder
      * Adds optional captures to the pattern array.
      *
      * @param  callable  $callback
-     * @return static
+     * @return \Rudashi\FluentBuilder
      */
-    public function maybe(callable $callback): static
+    public function maybe(callable $callback): self
     {
         return $this->capture($callback)->zeroOrOne();
     }
