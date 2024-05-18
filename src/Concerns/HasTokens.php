@@ -9,31 +9,61 @@ use Rudashi\Tokens;
 
 trait HasTokens
 {
-    public function character(string|int $value): static
+    /**
+     * Adds a character.
+     *
+     * @param  string|int  $value
+     * @return \Rudashi\FluentBuilder
+     */
+    public function character(string|int $value): FluentBuilder
     {
         $this->pushToPattern((string) $value);
 
         return $this;
     }
 
-    public function and(string|int $value): static
+    /**
+     * Alias for the `character` method.
+     *
+     * @param  string|int  $value
+     * @return \Rudashi\FluentBuilder
+     */
+    public function and(string|int $value): FluentBuilder
     {
         return $this->character($value);
     }
 
-    public function exactly(string|int $value): static
+    /**
+     * Adds sanitized string to the pattern.
+     *
+     * @param  string|int  $value
+     * @return \Rudashi\FluentBuilder
+     */
+    public function exactly(string|int $value): FluentBuilder
     {
         $this->pushToPattern(static::sanitize($value));
 
         return $this;
     }
 
-    public function find(string|int $value): static
+    /**
+     * Alias for the safety `exactly` method.
+     *
+     * @param  string|int  $value
+     * @return \Rudashi\FluentBuilder
+     */
+    public function find(string|int $value): FluentBuilder
     {
         return $this->exactly($value);
     }
 
-    public function then(string|int $value): static
+    /**
+     * Alias for the safety `exactly` method.
+     *
+     * @param  string|int  $value
+     * @return \Rudashi\FluentBuilder
+     */
+    public function then(string|int $value): FluentBuilder
     {
         return $this->exactly($value);
     }
@@ -62,75 +92,140 @@ trait HasTokens
         return $this;
     }
 
-    public function number(int $min = 0, int $max = 9): static
+    /**
+     * Adds a numbers.
+     * Matches any character between 0 and 9.
+     *
+     * @param  int  $min
+     * @param  int  $max
+     * @return \Rudashi\FluentBuilder
+     */
+    public function number(int $min = 0, int $max = 9): FluentBuilder
     {
         return $this->addToken()->number($min, $max);
     }
 
-    public function numbers(): static
+    /**
+     * Adds a numbers.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
+    public function numbers(): FluentBuilder
     {
         $this->pushToPattern('[0-9]+');
 
         return $this;
     }
 
-    public function whitespace(): static
+    /**
+     * Adds a whitespace token.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
+    public function whitespace(): FluentBuilder
     {
         $this->pushToPattern('\s');
 
         return $this;
     }
 
-    public function nonWhitespace(): static
+    /**
+     * Adds a non-whitespace token.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
+    public function nonWhitespace(): FluentBuilder
     {
         $this->pushToPattern('\S');
 
         return $this;
     }
 
-    public function digit(): static
+    /**
+     * Adds a digit token.
+     * Equivalent to `[0-9]`.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
+    public function digit(): FluentBuilder
     {
         $this->pushToPattern('\d');
 
         return $this;
     }
 
-    public function digits(): static
+    /**
+     * Adds a digits token.
+     * Equivalent to `[0-9]+`.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
+    public function digits(): FluentBuilder
     {
         $this->pushToPattern('\d+');
 
         return $this;
     }
 
-    public function nonDigit(): static
+    /**
+     * Adds a non-digit token.
+     * Matches anything other than a digit.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
+    public function nonDigit(): FluentBuilder
     {
         $this->pushToPattern('\D');
 
         return $this;
     }
 
-    public function nonDigits(): static
+    /**
+     * Adds a non-digits token.
+     * Matches anything other than a digits.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
+    public function nonDigits(): FluentBuilder
     {
         $this->pushToPattern('\D+');
 
         return $this;
     }
 
-    public function word(): static
+    /**
+     * Adds a word character token.
+     * Equivalent to `[a-zA-Z0-9_]`.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
+    public function word(): FluentBuilder
     {
         $this->pushToPattern('\w');
 
         return $this;
     }
 
-    public function words(): static
+    /**
+     * Adds a word characters token.
+     * Equivalent to `[a-zA-Z0-9_]+`.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
+    public function words(): FluentBuilder
     {
         $this->pushToPattern('\w+');
 
         return $this;
     }
 
-    public function anyOf(string|int|callable $value): static
+    /**
+     * Match any of the listed characters or tokens.
+     *
+     * @param  string|int|callable  $value
+     * @return \Rudashi\FluentBuilder
+     */
+    public function anyOf(string|int|callable $value): FluentBuilder
     {
         if (is_callable($value)) {
             $this->pushToPattern('[' . $value(new static(patterns: [], isSub: true))->get() . ']');
@@ -143,28 +238,48 @@ trait HasTokens
         return $this;
     }
 
-    public function tab(): static
+    /**
+     * Adds a tab token.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
+    public function tab(): FluentBuilder
     {
         $this->pushToPattern('\t');
 
         return $this;
     }
 
-    public function carriageReturn(): static
+    /**
+     * Adds a carriage return token.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
+    public function carriageReturn(): FluentBuilder
     {
         $this->pushToPattern('\r');
 
         return $this;
     }
 
-    public function newline(): static
+    /**
+     * Adds a newline token.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
+    public function newline(): FluentBuilder
     {
         $this->pushToPattern('\n');
 
         return $this;
     }
 
-    public function linebreak(): static
+    /**
+     * Adds a line break token.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
+    public function linebreak(): FluentBuilder
     {
         $this->carriageReturn()->or->newline();
 
