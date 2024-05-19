@@ -60,6 +60,15 @@ describe('Built-in methods', function () {
             ->toBe('/[^abc]/');
     });
 
+    it('return the negation of chained `anyOf method', function () {
+        $regex = negation()->anyOf(
+            fn (FluentBuilder $builder) => $builder->letter()->number()->character('._%+-')
+        );
+
+        expect($regex->get())
+            ->toBe('/[^a-zA-Z0-9._%+-]/');
+    });
+
     it('returns the negation of number', function () {
         expect(negation()->number()->get())
             ->toBeString()

@@ -54,6 +54,12 @@ class Negate
 
     public function anyOf(string $value): FluentBuilder
     {
+        if (is_callable($value)) {
+            $this->pushToPattern($value(new FluentBuilder(patterns: [], isSub: true))->get());
+
+            return $this->builder;
+        }
+
         $this->builder->pushToPattern('[^' . FluentBuilder::sanitize($value) . ']');
 
         return $this->builder;
