@@ -52,7 +52,13 @@ class Negate
     ) {
     }
 
-    public function anyOf(string $value): FluentBuilder
+    /**
+     * Match anything other than the listed characters or tokens.
+     *
+     * @param  string|int|callable  $value
+     * @return \Rudashi\FluentBuilder
+     */
+    public function anyOf(string|int|callable $value): FluentBuilder
     {
         if (is_callable($value)) {
             $this->pushToPattern($value(new FluentBuilder(patterns: [], isSub: true))->get());
