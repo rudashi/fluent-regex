@@ -225,32 +225,96 @@ describe('FluentBuilder', function () {
  * Delegate methods
  */
 describe('Tokens', function () {
-    it('can add a `letter` token', function () {
-        $regex = token()->letter();
+    describe('letter', function () {
+        it('can add a `letter` token', function () {
+            $regex = token()->letter();
 
-        expect($regex->get())
-            ->toBe('/[a-zA-Z]/');
+            expect($regex->get())
+                ->toBe('/[a-zA-Z]/');
+        });
+
+        it('can add a pure `letter` token', function () {
+            $regex = token(true)->letter();
+
+            expect($regex->get())
+                ->toBe('/a-zA-Z/');
+        });
+
+        it('can change the first `letter` token', function () {
+            $regex = token()->letter(first: 'b');
+
+            expect($regex->get())
+                ->toBe('/[b-zB-Z]/');
+        });
+
+        it('can change the last `letter` token', function () {
+            $regex = token()->letter(last: 'f');
+
+            expect($regex->get())
+                ->toBe('/[a-fA-F]/');
+        });
+
+        it('threw an exception when `first` letter is not between [a-y] for token `letter`', function () {
+            expect(fn () => token()->letter(first: 'z'))
+                ->toThrow(
+                    exception: LogicException::class,
+                    exceptionMessage: 'The first letter must be between [a-y].'
+                );
+        });
+
+        it('threw an exception when `last` letter is not between [b-z] for token `letter`', function () {
+            expect(fn () => token()->letter(last: 'a'))
+                ->toThrow(
+                    exception: LogicException::class,
+                    exceptionMessage: 'The last letter must be between [b-z].'
+                );
+        });
     });
 
-    it('can add a pure `letter` token', function () {
-        $regex = token(true)->letter();
+    describe('lowerLetter', function () {
+        it('can add a `lowerLetter` token', function () {
+            $regex = token()->lowerLetter();
 
-        expect($regex->get())
-            ->toBe('/a-zA-Z/');
-    });
+            expect($regex->get())
+                ->toBe('/[a-z]/');
+        });
 
-    it('can add a `lowerLetter` token', function () {
-        $regex = token()->lowerLetter();
+        it('can add a pure `lowerLetter` token', function () {
+            $regex = token(true)->lowerLetter();
 
-        expect($regex->get())
-            ->toBe('/[a-z]/');
-    });
+            expect($regex->get())
+                ->toBe('/a-z/');
+        });
 
-    it('can add a pure `lowerLetter` token', function () {
-        $regex = token(true)->lowerLetter();
+        it('can change the first `lowerLetter` token', function () {
+            $regex = token()->lowerLetter(first: 'b');
 
-        expect($regex->get())
-            ->toBe('/a-z/');
+            expect($regex->get())
+                ->toBe('/[b-z]/');
+        });
+
+        it('can change the last `lowerLetter` token', function () {
+            $regex = token()->lowerLetter(last: 'f');
+
+            expect($regex->get())
+                ->toBe('/[a-f]/');
+        });
+
+        it('threw an exception when `first` letter is not between [a-y] for token `letter`', function () {
+            expect(fn () => token()->lowerLetter(first: 'z'))
+                ->toThrow(
+                    exception: LogicException::class,
+                    exceptionMessage: 'The first letter must be between [a-y].'
+                );
+        });
+
+        it('threw an exception when `last` letter is not between [b-z] for token `letter`', function () {
+            expect(fn () => token()->lowerLetter(last: 'a'))
+                ->toThrow(
+                    exception: LogicException::class,
+                    exceptionMessage: 'The last letter must be between [b-z].'
+                );
+        });
     });
 
     it('can add a `number` token', function () {
