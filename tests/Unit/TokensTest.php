@@ -317,47 +317,49 @@ describe('Tokens', function () {
         });
     });
 
-    it('can add a `number` token', function () {
-        $regex = token()->number();
+    describe('number', function () {
+        it('can add a `number` token', function () {
+            $regex = token()->number();
 
-        expect($regex->get())
-            ->toBe('/[0-9]/');
-    });
+            expect($regex->get())
+                ->toBe('/[0-9]/');
+        });
 
-    it('can add a pure `number` token', function () {
-        $regex = token(true)->number();
+        it('can add a pure `number` token', function () {
+            $regex = token(true)->number();
 
-        expect($regex->get())
-            ->toBe('/0-9/');
-    });
+            expect($regex->get())
+                ->toBe('/0-9/');
+        });
 
-    it('can change the minimum `number` token', function () {
-        $regex = token()->number(min: 3);
+        it('can change the minimum `number` token', function () {
+            $regex = token()->number(min: 3);
 
-        expect($regex->get())
-            ->toBe('/[3-9]/');
-    });
+            expect($regex->get())
+                ->toBe('/[3-9]/');
+        });
 
-    it('can change the maximum `number` token', function () {
-        $regex = token()->number(max: 3);
+        it('can change the maximum `number` token', function () {
+            $regex = token()->number(max: 3);
 
-        expect($regex->get())
-            ->toBe('/[0-3]/');
-    });
+            expect($regex->get())
+                ->toBe('/[0-3]/');
+        });
 
-    it('threw an exception when `minimum` is less than 0 for token `number`', function () {
-        expect(fn () => token()->number(min: -1))
-            ->toThrow(
-                exception: LogicException::class,
-                exceptionMessage: 'The number range must be between [0-9].'
-            );
-    });
+        it('threw an exception when `minimum` is less than 0 for token `number`', function () {
+            expect(fn () => token()->number(min: -1))
+                ->toThrow(
+                    exception: LogicException::class,
+                    exceptionMessage: 'The number range must be between [0-9].'
+                );
+        });
 
-    it('threw an exception when `maximum` is greater than 9 for token `number`', function () {
-        expect(fn () => token()->number(max: 10))
-            ->toThrow(
-                exception: LogicException::class,
-                exceptionMessage: 'The number range must be between [0-9].'
-            );
+        it('threw an exception when `maximum` is greater than 9 for token `number`', function () {
+            expect(fn () => token()->number(max: 10))
+                ->toThrow(
+                    exception: LogicException::class,
+                    exceptionMessage: 'The number range must be between [0-9].'
+                );
+        });
     });
 });
