@@ -36,22 +36,10 @@ describe('Built-in methods', function () {
             ->toBe('/[^a-zA-Z]/');
     });
 
-    it('returns the negation of letters', function () {
-        expect(negation()->letters()->get())
-            ->toBeString()
-            ->toBe('/[^a-zA-Z]+/');
-    });
-
     it('returns the negation of lowerLetter', function () {
         expect(negation()->lowerLetter()->get())
             ->toBeString()
             ->toBe('/[^a-z]/');
-    });
-
-    it('returns the negation of lowerLetters', function () {
-        expect(negation()->lowerLetters()->get())
-            ->toBeString()
-            ->toBe('/[^a-z]+/');
     });
 
     it('returns the negation of any', function () {

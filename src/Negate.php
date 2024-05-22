@@ -47,6 +47,11 @@ class Negate
         'between',
     ];
 
+    /**
+     * Creates a new negation of the token.
+     *
+     * @param  \Rudashi\FluentBuilder  $builder
+     */
     public function __construct(
         private readonly FluentBuilder $builder,
     ) {
@@ -89,13 +94,11 @@ class Negate
         return $this->builder;
     }
 
-    public function letters(): FluentBuilder
-    {
-        $this->builder->pushToPattern('[^a-zA-Z]+');
-
-        return $this->builder;
-    }
-
+    /**
+     * Adds a match to anything other than lower letter.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
     public function lowerLetter(): FluentBuilder
     {
         $this->builder->pushToPattern('[^a-z]');
@@ -103,13 +106,11 @@ class Negate
         return $this->builder;
     }
 
-    public function lowerLetters(): FluentBuilder
-    {
-        $this->builder->pushToPattern('[^a-z]+');
-
-        return $this->builder;
-    }
-
+    /**
+     * Adds a match to anything other than number.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
     public function number(): FluentBuilder
     {
         $this->builder->pushToPattern('[^0-9]');
@@ -117,6 +118,11 @@ class Negate
         return $this->builder;
     }
 
+    /**
+     * Adds a match to anything other than numbers.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
     public function numbers(): FluentBuilder
     {
         $this->builder->pushToPattern('[^0-9]+');
@@ -125,6 +131,8 @@ class Negate
     }
 
     /**
+     * Dynamically calls methods on the class or creates a new higher order fluent builder.
+     *
      * @param  string  $method
      * @param  array<int|string, mixed>  $arguments
      * @return \Rudashi\FluentBuilder
@@ -148,6 +156,14 @@ class Negate
         $this->throwNegationException($method);
     }
 
+    /**
+     * Throws a logical exception when a method is unavailable.
+     *
+     * @param  string  $method
+     * @return never
+     *
+     * @throws \BadMethodCallException
+     */
     protected function throwNegationException(string $method): never
     {
         throw new LogicException(sprintf(
