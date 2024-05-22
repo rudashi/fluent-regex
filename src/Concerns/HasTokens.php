@@ -68,28 +68,30 @@ trait HasTokens
         return $this->exactly($value);
     }
 
-    public function letter(): static
+    /**
+     * Adds a letter.
+     * Matches any character, ignoring case, between a and z.
+     *
+     * @param  string  $first
+     * @param  string  $last
+     * @return \Rudashi\FluentBuilder
+     */
+    public function letter(string $first = 'a', string $last = 'z'): FluentBuilder
     {
-        return $this->addToken()->letter();
+        return $this->addToken()->letter($first, $last);
     }
 
-    public function letters(): static
+    /**
+     * Adds a lowercase letter.
+     * Matches any character between a and z.
+     *
+     * @param  string  $first
+     * @param  string  $last
+     * @return \Rudashi\FluentBuilder
+     */
+    public function lowerLetter(string $first = 'a', string $last = 'z'): FluentBuilder
     {
-        $this->pushToPattern('[a-zA-Z]+');
-
-        return $this;
-    }
-
-    public function lowerLetter(): static
-    {
-        return $this->addToken()->lowerLetter();
-    }
-
-    public function lowerLetters(): static
-    {
-        $this->pushToPattern('[a-z]+');
-
-        return $this;
+        return $this->addToken()->lowerLetter($first, $last);
     }
 
     /**
