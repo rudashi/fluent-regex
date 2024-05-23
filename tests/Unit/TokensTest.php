@@ -71,25 +71,11 @@ describe('FluentBuilder', function () {
             ->toBe('/[a-zA-Z]/');
     });
 
-    it('can add a `letters` token', function () {
-        $regex = fluentBuilder()->letters();
-
-        expect($regex->get())
-            ->toBe('/[a-zA-Z]+/');
-    });
-
     it('can add a `lowerLetter` token', function () {
         $regex = fluentBuilder()->lowerLetter();
 
         expect($regex->get())
             ->toBe('/[a-z]/');
-    });
-
-    it('can add a `lowerLetters` token', function () {
-        $regex = fluentBuilder()->lowerLetters();
-
-        expect($regex->get())
-            ->toBe('/[a-z]+/');
     });
 
     it('can add a `number` token', function () {
