@@ -105,18 +105,6 @@ $pattern = Regex::build()->letter();
 // /[a-zA-Z]/
 ```
 
-### `letters`
-
-The `letters` method matches all letters, regardless of whether it is lowercase or uppercase.
-
-```php
-use Rudashi\Regex;
- 
-$pattern = Regex::build()->letters();
- 
-// /[a-zA-Z]+/
-```
-
 ### `lowerLetter`
 
 The `lowerLetter` method matches any single lowercase letter.
@@ -127,18 +115,6 @@ use Rudashi\Regex;
 $pattern = Regex::build()->lowerLetter();
  
 // /[a-z]/
-```
-
-### `lowerLetters`
-
-The `lowerLetters` method matches all lowercase letters.
-
-```php
-use Rudashi\Regex;
- 
-$pattern = Regex::build()->lowerLetters();
- 
-// /[a-z]+/
 ```
 
 ### `number`
