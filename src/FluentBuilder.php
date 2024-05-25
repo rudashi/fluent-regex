@@ -181,11 +181,20 @@ class FluentBuilder
      * Adds a capture to the pattern array.
      *
      * @param  callable  $callback
+     * @param  bool  $lookbehind
+     * @param  bool  $lookahead
      * @return $this
      */
-    public function capture(callable $callback): static
+    public function capture(callable $callback, bool $lookbehind = false, bool $lookahead = false): static
     {
-        $this->pushToPattern('(');
+        if ($lookbehind && $lookahead) {
+            throw new LogicException('Unable to look behind and ahead at the same time.');
+        }
+
+        $behind = $lookbehind ? '?<=' : '';
+        $ahead = $lookahead ? '?=' : '';
+
+        $this->pushToPattern('(' . $behind . $ahead);
 
         $callback($this);
 
