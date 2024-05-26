@@ -11,7 +11,7 @@ previous-link: podstawy/kwantyfikatory
 
 Each method described in this section allows for unique manipulation of the pattern.
 
-### `capture`
+## `capture`
 
 The `capture` method matches a pattern within a group and remembers the match.
 
@@ -25,7 +25,7 @@ $pattern = Regex::build()->capture(
 // /(\.[a-zA-Z])/
 ```
 
-### `maybe`
+## `maybe`
 
 The `maybe` method matches a pattern within a group zero or one time.
 
@@ -39,7 +39,7 @@ $pattern = Regex::build()->maybe(
 // /(\.[a-zA-Z])?/
 ```
 
-### `oneOf`
+## `oneOf`
 
 The `oneOf` method alternatively matches any of the given characters.
 
@@ -51,7 +51,7 @@ $pattern = Regex::build()->oneOf('a', 'b', '.');
 // /a|b|\./
 ```
 
-### `or`
+## `or`
 
 The `or` method alternatively matches the pattern before and after using the method.
 

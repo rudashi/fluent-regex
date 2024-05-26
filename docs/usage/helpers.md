@@ -12,7 +12,7 @@ previous-link: usage
 You can start creating your regex by using `Regex::build()`.  
 The `build()` method is used every time you want to create a pattern.
 
-### `build`
+## `build`
 
 The `build` method creates a new `Rudashi\FluentBuilder` instance.
 
@@ -34,7 +34,7 @@ $builder = Regex::build([
 ]);
 ```
 
-### `for`
+## `for`
 
 The `for` method adds context to `Rudashi\FluentBuilder` instance.
 
@@ -46,7 +46,7 @@ $builder = Regex::for('Hello, world!');
 // Rudashi\FluentBuilder
 ```
 
-### `start`
+## `start`
 
 The `start` method adds start flag.
 
@@ -58,7 +58,7 @@ $pattern = Regex::start();
 // /^/
 ```
 
-### `startOfLine`
+## `startOfLine`
 
 The `startOfLine` method is equivalent to the `Regex::start` method.
 

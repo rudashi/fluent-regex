@@ -9,7 +9,7 @@ previous-link: zaawansowane/wyniki
 
 # Negacja
 
-### `not`
+## `not`
 
 The `not` method negates the next expression.
 

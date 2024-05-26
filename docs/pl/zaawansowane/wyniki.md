@@ -9,7 +9,7 @@ previous-link: zaawansowane/kotwica-koniec
 
 # Wyniki
 
-### `check`
+## `check`
 
 The `check` method checks whether the pattern matches the context.
 
@@ -21,7 +21,7 @@ $pattern = Regex::for('hannah')->exactly('a')->check();
 // true
 ```
 
-### `get`
+## `get`
 
 The `get` method returns the entire pattern as a string.
 
@@ -33,7 +33,7 @@ $pattern = Regex::build()->get();
 // //
 ```
 
-### `match`
+## `match`
 
 The `match` method returns all pattern matches in the context.
 

@@ -11,7 +11,7 @@ previous-link: usage/helpers
 
 The `FluentBuilder` must be initialized before using tokens. Use one of the above [helper](helpers.md) methods to do this.  Tokens can be chained to create increasingly complex regular expressions.
 
-### `anything`
+## `anything`
 
 The `anything` method matches any characters.
 
@@ -23,7 +23,7 @@ $pattern = Regex::build()->anything();
 // /.*/
 ```
 
-### `character`
+## `character`
 
 The `character` method literally matches the given character.
 
@@ -35,7 +35,7 @@ $pattern = Regex::build()->character('-');
 // /-/
 ```
 
-### `and`
+## `and`
 
 The `and` method is an alias for the `character` method.
 
@@ -47,7 +47,7 @@ $pattern = Regex::build()->and('-');
 // /-/
 ```
 
-### `exactly`
+## `exactly`
 
 The `exactly` method literally matches the given string.
 
@@ -69,7 +69,7 @@ $pattern = Regex::build()->exactly('._%+-[]');
 // /\._%\+\-\[\]/
 ```
 
-### `find`
+## `find`
 
 The `find` method is an alias for the `exactly` method.
 
@@ -81,7 +81,7 @@ $pattern = Regex::build()->find('foo');
 // /foo/
 ```
 
-### `then`
+## `then`
 
 The `then` method is an alias for the `exactly` method.
 
@@ -93,7 +93,7 @@ $pattern = Regex::build()->then('foo');
 // /foo/
 ```
 
-### `letter`
+## `letter`
 
 The `letter` method matches any single letter, regardless of whether it is lowercase or uppercase.
 
@@ -105,7 +105,7 @@ $pattern = Regex::build()->letter();
 // /[a-zA-Z]/
 ```
 
-### `lowerLetter`
+## `lowerLetter`
 
 The `lowerLetter` method matches any single lowercase letter.
 
@@ -117,7 +117,7 @@ $pattern = Regex::build()->lowerLetter();
 // /[a-z]/
 ```
 
-### `number`
+## `number`
 
 The `number` method matches any single number (equivalent to `\d`).
 
@@ -129,7 +129,7 @@ $pattern = Regex::build()->number();
 // /[0-9]/
 ```
 
-### `numbers`
+## `numbers`
 
 The `numbers` method matches all numbers.
 
@@ -141,7 +141,7 @@ $pattern = Regex::build()->numbers();
 // /[0-9]+/
 ```
 
-### `whitespace`
+## `whitespace`
 
 The `whitespace` method matches any whitespace character (equivalent to [\r\n\t\f\v ]).
 
@@ -153,7 +153,7 @@ $pattern = Regex::build()->whitespace();
 // /\s/
 ```
 
-### `nonWhitespace`
+## `nonWhitespace`
 
 The `nonWhitespace` method matches any non-whitespace character.
 
@@ -165,7 +165,7 @@ $pattern = Regex::build()->nonWhitespace();
 // /\S/
 ```
 
-### `digit`
+## `digit`
 
 The `digit` method matches any single digit (equivalent to [0-9]).
 
@@ -177,7 +177,7 @@ $pattern = Regex::build()->digit();
 // /\d/
 ```
 
-### `digits`
+## `digits`
 
 The `digits` method matches all digits.
 
@@ -189,7 +189,7 @@ $pattern = Regex::build()->digits();
 // /\d+/
 ```
 
-### `nonDigit`
+## `nonDigit`
 
 The `nonDigit` method matches any single character that is not a digit (equivalent to [^0-9]).
 
@@ -201,7 +201,7 @@ $pattern = Regex::build()->nonDigit();
 // /\D/
 ```
 
-### `nonDigits`
+## `nonDigits`
 
 The `nonDigits` method matches all non-digit characters.
 
@@ -213,7 +213,7 @@ $pattern = Regex::build()->nonDigits();
 // /\D+/
 ```
 
-### `word`
+## `word`
 
 The `word` method matches any word character (equivalent to [a-zA-Z0-9_]).
 
@@ -225,7 +225,7 @@ $pattern = Regex::build()->word();
 // /\w/
 ```
 
-### `words`
+## `words`
 
 The `words` method matches all words characters.
 
@@ -237,7 +237,7 @@ $pattern = Regex::build()->words();
 // /\w+/
 ```
 
-### `boundary`
+## `boundary`
 
 The `boundary` method allows you to match only whole words without consuming any character (equivalent to (^\w|\w$|\W\w|\w\W)).
 
@@ -249,7 +249,7 @@ $pattern = Regex::build()->boundary();
 // /\b/
 ```
 
-### `nonBoundary`
+## `nonBoundary`
 
 The `nonBoundary` method matches at every position where `boundary` does not.
 
@@ -261,7 +261,7 @@ $pattern = Regex::build()->nonBoundary();
 // /\B/
 ```
 
-### `anyOf`
+## `anyOf`
 
 The `anyOf` method matches any single characters present in the given string.
 
@@ -273,7 +273,7 @@ $pattern = Regex::build()->anyOf('abc');
 // /[abc]/
 ```
 
-### `tab`
+## `tab`
 
 The `tab` method matches a tab character.
 
@@ -285,7 +285,7 @@ $pattern = Regex::build()->tab();
 // /\t/
 ```
 
-### `carriageReturn`
+## `carriageReturn`
 
 The `carriageReturn` method matches a carriage return.
 
@@ -297,7 +297,7 @@ $pattern = Regex::build()->carriageReturn();
 // /\r/
 ```
 
-### `newline`
+## `newline`
 
 The `newline` method matches a line-feed character (newline).
 
@@ -309,7 +309,7 @@ $pattern = Regex::build()->newline();
 // /\r/
 ```
 
-### `linebreak`
+## `linebreak`
 
 The `linebreak` method matches a carriage return or newline.
 

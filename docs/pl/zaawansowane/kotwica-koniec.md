@@ -9,7 +9,7 @@ previous-link: zaawansowane/kotwica-start
 
 # Kotwica końca
 
-### `end`
+## `end`
 
 The `end` method adds an end anchor. Matches the position immediately after the last character in the context.
 Ensures that the specified pattern occurs just before the end of the line.
@@ -22,7 +22,7 @@ $pattern = Regex::build()->end();
 // /$/
 ```
 
-### `endOfLine`
+## `endOfLine`
 
 The `endOfLine` method is equivalent to the `end` method.
 

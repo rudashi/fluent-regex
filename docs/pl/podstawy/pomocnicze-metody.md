@@ -12,7 +12,7 @@ previous-link: podstawy
 Budowę wyrażenia regularnego zaczynasz od użycia `Regex::build()`.  
 Pozostałe metody pomocnicze wykorzystują `build()` przy tworzeniu wzorca.
 
-### `build`
+## `build`
 
 Metoda `build` rozpoczyna każde tworzenie wyrażenia  `Rudashi\FluentBuilder`.
 
@@ -24,7 +24,7 @@ $builder = Regex::build();
 // Rudashi\FluentBuilder
 ```
 
-### `for`
+## `for`
 
 Metoda `for` dodaje kontekst dla instancji `Rudashi\FluentBuilder`. Będzie to tekst, na którym chcesz, żeby wyrażenie
 regularne zadziałało.
@@ -37,7 +37,7 @@ $builder = Regex::for('Hello, world!');
 // Rudashi\FluentBuilder
 ```
 
-### `start`
+## `start`
 
 Metoda `start` dodaje flagę `start`.
 
@@ -49,7 +49,7 @@ $pattern = Regex::start();
 // /^/
 ```
 
-### `startOfLine`
+## `startOfLine`
 
 Metoda `startOfLine` jest odpowiednikiem dla metody `Regex::start`.
 
