@@ -73,7 +73,10 @@ class Anchors
      */
     public function getPrefix(): array
     {
-        return [$this->delimiter, ...$this->prefix];
+        return [
+            $this->delimiter,
+            ...$this->prefix,
+        ];
     }
 
     /**
@@ -83,7 +86,10 @@ class Anchors
      */
     public function getSuffix(): array
     {
-        return [...$this->suffix, $this->delimiter];
+        return [
+            ...$this->suffix,
+            $this->delimiter,
+        ];
     }
 
     /**
