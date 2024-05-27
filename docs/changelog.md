@@ -3,7 +3,7 @@ title:  Changelog
 layout: page
 ---
 
-# Changelog
+## Changelog
 
 All changes to `fluent-regex` are available in the changelog file in the main repository.
 

@@ -7,9 +7,9 @@ previous: Patterns
 previous-link: usage/patterns
 ---
 
-# Advance
+## Advance
 
-## Modifier flags
+### Modifier flags
 
 - [`ignoreCase`](advance/modifier-flags#ignorecase)
 - [`multiline`](advance/modifier-flags#multiline)
@@ -18,22 +18,22 @@ previous-link: usage/patterns
 - [`utf8`](advance/modifier-flags#utf8)
 - [`unicode`](advance/modifier-flags#unicode)
 
-## Prefix anchors
+### Prefix anchors
 
 - [`start`](advance/prefix-anchors#start)
 - [`startOfLine`](advance/prefix-anchors#startofline)
 
-## Suffix anchors
+### Suffix anchors
 
 - [`end`](advance/suffix-anchors#end)
 - [`endOfLine`](advance/suffix-anchors#endofline)
 
-## Returning results
+### Returning results
 
 - [`check`](advance/returning-results#check)
 - [`get`](advance/returning-results#get)
 - [`match`](advance/returning-results#match)
 
-## Negation
+### Negation
 
 - [`not`](advance/negation#not)

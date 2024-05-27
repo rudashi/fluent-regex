@@ -7,9 +7,9 @@ previous: Gotowe wzorce
 previous-link: podstawy/wzorce
 ---
 
-# Zaawansowane
+## Zaawansowane
 
-## Flagi
+### Flagi
 
 - [`ignoreCase`](zaawansowane/flagi#ignorecase)
 - [`multiline`](zaawansowane/flagi#multiline)
@@ -18,22 +18,22 @@ previous-link: podstawy/wzorce
 - [`utf8`](zaawansowane/flagi#utf8)
 - [`unicode`](zaawansowane/flagi#unicode)
 
-## Kotwica początku
+### Kotwica początku
 
 - [`start`](zaawansowane/kotwica-start#start)
 - [`startOfLine`](zaawansowane/kotwica-start#startofline)
 
-## Kotwica końca
+### Kotwica końca
 
 - [`end`](zaawansowane/kotwica-koniec#end)
 - [`endOfLine`](zaawansowane/kotwica-koniec#endofline)
 
-## Wyniki
+### Wyniki
 
 - [`check`](zaawansowane/wyniki#check)
 - [`get`](zaawansowane/wyniki#get)
 - [`match`](zaawansowane/wyniki#match)
 
-## Negacja
+### Negacja
 
 - [`not`](zaawansowane/negacja#not)

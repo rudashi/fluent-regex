@@ -7,20 +7,20 @@ previous: Instalacja
 previous-link: instalacja
 ---
 
-# Podstawy
+## Podstawy
 
 Żeby rozpocząć pracę, możesz wykorzystać jedną z metod pomocniczych.  
 Podstawą jest tworzenie swojego wyrażenia regularnego przy użyciu `Regex::build()`.  
 Metoda `build()` jest niezbędna podczas tworzenia wzorca.
 
-## Pomocnicze metody
+### Pomocnicze metody
 
 - [`build`](podstawy/pomocnicze-metody#build)
 - [`for`](podstawy/pomocnicze-metody#for)
 - [`start`](podstawy/pomocnicze-metody#start)
 - [`startOfLine`](podstawy/pomocnicze-metody#startofline)
 
-## Dodatkowe metody
+### Dodatkowe metody
 
 - [`anything`](podstawy/dodatkowe-metody#anything)
 - [`character`](podstawy/dodatkowe-metody#character)
@@ -48,7 +48,7 @@ Metoda `build()` jest niezbędna podczas tworzenia wzorca.
 - [`newline`](podstawy/dodatkowe-metody#newline)
 - [`linebreak`](podstawy/dodatkowe-metody#linebreak)
 
-## Kwantyfikatory
+### Kwantyfikatory
 
 - [`zeroOrOne`](podstawy/kwantyfikatory#zeroorone)
 - [`zeroOrMore`](podstawy/kwantyfikatory#zeroormore)
@@ -57,14 +57,14 @@ Metoda `build()` jest niezbędna podczas tworzenia wzorca.
 - [`min`](podstawy/kwantyfikatory#min)
 - [`between`](podstawy/kwantyfikatory#between)
 
-## Inne
+### Inne
 
 - [`capture`](podstawy/inne#capture)
 - [`maybe`](podstawy/inne#maybe)
 - [`oneOf`](podstawy/inne#oneof)
 - [`or`](podstawy/inne#or)
 
-## Gotowe wzorce
+### Gotowe wzorce
 
 - date
 - time

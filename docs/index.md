@@ -7,7 +7,7 @@ previous:
 previous-link: 
 ---
 
-# Introduction
+## Introduction
 
 This package provides a simple way to create Regex in a fluent way. 
 

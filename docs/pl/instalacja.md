@@ -7,7 +7,7 @@ previous: Wstęp
 previous-link: index
 ---
 
-# Instalacja
+## Instalacja
 
 > **Wymagania:** [PHP 8.1+](https://php.net/releases/)
 

@@ -7,7 +7,7 @@ previous:
 previous-link: 
 ---
 
-# Wstęp
+## Wstęp
 
 **`Fluent Regex`** to narzędzie, które w prosty sposób pozwala tworzyć wyrażenia regularne.  
 Umożliwia intuicyjne tworzenie wzorców, które wyszukają odpowiedni fragment w tekście.
