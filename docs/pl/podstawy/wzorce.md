@@ -7,4 +7,4 @@ previous: Inne
 previous-link: podstawy/inne
 ---
 
-# Gotowe wzorce
+## Gotowe wzorce

@@ -7,14 +7,14 @@ previous: Others
 previous-link: usage/others
 ---
 
-# Patterns
+## Patterns
 
 **`Fluent Regex`** contains a set of predefined patterns for standard validation tasks. These patterns are designed to be simple and easy to use, just use them.  
 Ready-to-use patterns can be invoked by calling the appropriate method in the FluentBuilder class.
 
 > **Remember:** Before using ready-made patterns, they must be registered.
 
-## Register patterns
+### Register patterns
 
 Each pattern must be registered before use. There are several ways to do this.
 
@@ -34,7 +34,22 @@ new \Rudashi\FluentBuilder([
 ]);
 ```
 
-## `Email`
+### `IPv4 address`
+
+To identify whether a given text contains IP version 4 addresses, you can use the predefined `IPAddressPattern` pattern. The pattern only identifies **IPv4**-compliant addresses
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build([\Rudashi\Patterns\IPAddressPattern::class])
+    ->start()
+    ->ipAddress()
+    ->end();
+ 
+// /^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$/
+```
+
+### `Email`
 
 To verify whether an e-mail address is included in a given text, you can use the predefined `EmailPattern` pattern. It will allow you not only to check whether the e-mail is correct but also to isolate it.
 
@@ -49,7 +64,7 @@ $pattern = Regex::build([\Rudashi\Patterns\EmailPattern::class])
 // /^\w+(?:[\.\-]\w+)*@([\w-]+\.)+[\w-]{2,}$/
 ```
 
-## `Url`
+### `Url`
 
 To check whether a given text contains a website, you can use the predefined `UrlPattern` pattern. It only accepts addresses with the **http** or https **protocol** entered.
 
@@ -64,7 +79,7 @@ $pattern = Regex::build([\Rudashi\Patterns\UrlPattern::class])
 // /^https?\:\/\/[^-][a-z\d.-]+[^-]\.[a-z]{2,}(\/[a-z\d\/-]*)?$/
 ```
 
-## `Credit card`
+### `Credit card`
 
 To find if there is any credit card number in a given text, you can use the predefined `CreditCardPattern` pattern. The pattern identifies **Visa** and **MasterCard** cards.
 

@@ -7,11 +7,11 @@ previous: Dodatkowe metody
 previous-link: podstawy/dodatkowe-metody
 ---
 
-# Kwantyfikatory
+## Kwantyfikatory
 
 Quantifiers specify how many instances of a character, group or character must be present in the subject for a match to be found.
 
-## `zeroOrOne`
+### `zeroOrOne`
 
 The `zeroOrOne` method matches the previous token zero or one time.
 
@@ -23,7 +23,7 @@ $pattern = Regex::build()->exactly('a')->zeroOrOne();
 // /a?/
 ```
 
-## `zeroOrMore`
+### `zeroOrMore`
 
 The `zeroOrMore` method matches the previous token between zero and an unlimited number of times.
 
@@ -35,7 +35,7 @@ $pattern = Regex::build()->exactly('a')->zeroOrMore();
 // /a*/
 ```
 
-## `oneOrMore`
+### `oneOrMore`
 
 The `oneOrMore` method matches the previous token once or an unlimited number of times.
 
@@ -47,7 +47,7 @@ $pattern = Regex::build()->exactly('a')->oneOrMore();
 // /a+/
 ```
 
-## `times`
+### `times`
 
 The `times` method matches the previous token a specified number of times.
 
@@ -59,7 +59,7 @@ $pattern = Regex::build()->exactly('a')->times(1);
 // /a{1}/
 ```
 
-## `min`
+### `min`
 
 The `min` method matches the previous token between a specified number to an unlimited number of times.
 
@@ -71,7 +71,7 @@ $pattern = Regex::build()->exactly('a')->min(1);
 // /a{1,}/
 ```
 
-## `between`
+### `between`
 
 The `between` method matches the previous token between a specified numbers of times.
 

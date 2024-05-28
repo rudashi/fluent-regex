@@ -7,9 +7,9 @@ previous: Modifier flags
 previous-link: advance/modifier-flags
 ---
 
-# Prefix anchors
+## Prefix anchors
 
-## `start`
+### `start`
 
 The `start` method adds start anchor. Matches the position before the first character in a context.
 It ensures that the specified pattern occurs right at the start of a line.
@@ -22,7 +22,7 @@ $pattern = Regex::build()->start();
 // /^/
 ```
 
-## `startOfLine`
+### `startOfLine`
 
 The `startOfLine` method is equivalent to the `start` method.
 
