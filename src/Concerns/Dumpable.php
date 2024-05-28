@@ -14,11 +14,7 @@ trait Dumpable
      */
     public function dump(mixed ...$arguments): static
     {
-        if (function_exists('dump')) {
-            dump($this, ...$arguments);
-        } else {
-            var_dump($this);
-        }
+        function_exists('dump') ? dump($this, ...$arguments) : var_dump($this);
 
         return $this;
     }
