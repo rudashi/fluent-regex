@@ -1,0 +1,37 @@
+name: Codacy Coverage Report
+
+on:
+  push:
+    branches: [ "dev" ]
+  schedule:
+    - cron: '32 5 * * 0'
+
+permissions:
+  contents: read
+
+jobs:
+  build-test:
+   runs-on: ubuntu-latest
+
+   steps:
+     - name: Checkout Code
+       uses: actions/checkout@v2
+
+     - name: Install composer and dependencies
+       uses: php-actions/composer@v6
+
+     - name: PHPUnit Tests
+       uses: php-actions/phpunit@v3
+       env:
+         XDEBUG_MODE: coverage
+       with:
+         bootstrap: vendor/autoload.php
+         configuration: phpunit.xml
+         php_extensions: xdebug
+         args: tests --coverage-clover ./coverage.xml
+         
+     - name: Codacy Coverage Reporter
+       uses: codacy/codacy-coverage-reporter-action@v1.3.0
+       with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: ./coverage.xml
