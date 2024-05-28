@@ -1,5 +1,7 @@
 # Fluent Regex
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/22244e4fd3034f9483beac920f601c55)](https://app.codacy.com/gh/rudashi/fluent-regex?utm_source=github.com&utm_medium=referral&utm_content=rudashi/fluent-regex&utm_campaign=Badge_Grade)
+
 ![GitHub last commit](https://img.shields.io/github/last-commit/rudashi/fluent-regex)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/rudashi/fluent-regex/tests.yml)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rudashi/fluent-regex)
