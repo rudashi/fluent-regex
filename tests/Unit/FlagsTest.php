@@ -48,7 +48,7 @@ it('thrown an exception when trying to negate the flag', function (string $metho
     expect(fn () => fluentBuilder()->not->{$method}())
         ->toThrow(
             exception: LogicException::class,
-            exceptionMessage: 'Method "'.$method.'" is not extendable by "Negation".'
+            exceptionMessage: 'Method "' . $method . '" is not extendable by "Negation".'
         );
 })->with([
     'ignoreCase',

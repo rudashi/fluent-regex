@@ -95,7 +95,7 @@ it('thrown an exception when trying to negate the quantifier', function (string 
     expect(fn () => fluentBuilder()->not->{$method}())
         ->toThrow(
             exception: LogicException::class,
-            exceptionMessage: 'Method "'.$method.'" is not extendable by "Negation".'
+            exceptionMessage: 'Method "' . $method . '" is not extendable by "Negation".'
         );
 })->with([
     'zeroOrOne',

@@ -5,7 +5,8 @@ declare(strict_types=1);
 use Rudashi\Contracts\PatternContract;
 use Rudashi\Pattern;
 
-function fakePattern(): Pattern {
+function fakePattern(): Pattern
+{
     return new class() extends Pattern implements PatternContract {
         public static string $name = 'fake-pattern';
 
