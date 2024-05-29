@@ -17,5 +17,8 @@
         <include>
             <directory>./src</directory>
         </include>
+        <exclude>
+            <file>./src/Concerns/Dumpable.php</file>
+        </exclude>
     </source>
 </phpunit>
