@@ -29,6 +29,13 @@ describe('FluentBuilder', function () {
             ->toBe('/._%+-/');
     });
 
+    it('can add a `raw` token', function () {
+        $regex = fluentBuilder()->raw('._%+-');
+
+        expect($regex->get())
+            ->toBe('/._%+-/');
+    });
+
     it('can add a `exactly` token', function () {
         $regex = fluentBuilder()->exactly('foo bar');
 

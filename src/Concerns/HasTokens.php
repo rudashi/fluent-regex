@@ -34,6 +34,17 @@ trait HasTokens
     }
 
     /**
+     * Alias for the `character` method.
+     *
+     * @param  string|int  $value
+     * @return \Rudashi\FluentBuilder
+     */
+    public function raw(string|int $value): FluentBuilder
+    {
+        return $this->character($value);
+    }
+
+    /**
      * Adds sanitized string to the pattern.
      *
      * @param  string|int  $value

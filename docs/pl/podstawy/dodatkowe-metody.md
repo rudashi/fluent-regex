@@ -47,6 +47,18 @@ $pattern = Regex::build()->and('-');
 // /-/
 ```
 
+### `raw`
+
+The `raw` method is an alias for the `character` method.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->raw('-');
+ 
+// /-/
+```
+
 ### `exactly`
 
 The `exactly` method literally matches the given string.
