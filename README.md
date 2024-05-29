@@ -1,9 +1,11 @@
 # Fluent Regex
 
-![GitHub last commit](https://img.shields.io/github/last-commit/rudashi/fluent-regex)
+![Codacy Badge](https://app.codacy.com/project/badge/Grade/f54e6ee0b3a64876b466cc46b93fac33)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/rudashi/fluent-regex/tests.yml)
+![GitHub last commit](https://img.shields.io/github/last-commit/rudashi/fluent-regex)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rudashi/fluent-regex)
 ![Total Downloads](https://img.shields.io/packagist/dt/rudashi/fluent-regex)
+![GitHub License](https://img.shields.io/github/license/rudashi/fluent-regex)
 ![Twitter Follow](https://img.shields.io/twitter/follow/BorysZmuda?style=social)
 
 ------
