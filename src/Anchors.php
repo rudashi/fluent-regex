@@ -27,7 +27,6 @@ class Anchors
      *
      * @param  \Rudashi\FluentBuilder  $builder
      * @param  string  $delimiter
-     * @return void
      */
     public function __construct(
         private readonly FluentBuilder $builder,
