@@ -2,7 +2,7 @@ name: Codacy Coverage Report
 
 on:
   push:
-    branches: [ "dev" ]
+    branches: [ "dev", "main" ]
   schedule:
     - cron: '32 5 * * 0'
 
