@@ -9,6 +9,7 @@ use BackedEnum;
 use BadMethodCallException;
 use InvalidArgumentException;
 use LogicException;
+use Rudashi\Concerns\Group;
 use Rudashi\Concerns\HasAnchors;
 use Rudashi\Concerns\Dumpable;
 use Rudashi\Concerns\Flags;
@@ -27,6 +28,7 @@ class FluentBuilder
     use Flags;
     use Dumpable;
     use Quantifiers;
+    use Group;
 
     /**
      * Regex delimiter value.
@@ -175,54 +177,6 @@ class FluentBuilder
         $this->context = $string;
 
         return $this;
-    }
-
-    /**
-     * Adds a capture to the pattern array.
-     *
-     * @param  callable  $callback
-     * @param  bool  $lookbehind
-     * @param  bool  $lookahead
-     * @return $this
-     */
-    public function capture(callable $callback, bool $lookbehind = false, bool $lookahead = false): static
-    {
-        if ($lookbehind && $lookahead) {
-            throw new LogicException('Unable to look behind and ahead at the same time.');
-        }
-
-        $behind = $lookbehind ? '?<=' : '';
-        $ahead = $lookahead ? '?=' : '';
-
-        $this->pushToPattern('(' . $behind . $ahead);
-
-        $callback($this);
-
-        $this->pushToPattern(')');
-
-        return $this;
-    }
-
-    /**
-     * Adds a capture alternative to the pattern array.
-     *
-     * @param  callable  $callback
-     * @return $this
-     */
-    public function group(callable $callback): static
-    {
-        return $this->capture($callback);
-    }
-
-    /**
-     * Adds optional captures to the pattern array.
-     *
-     * @param  callable  $callback
-     * @return \Rudashi\FluentBuilder
-     */
-    public function maybe(callable $callback): self
-    {
-        return $this->capture($callback)->zeroOrOne();
     }
 
     /**
