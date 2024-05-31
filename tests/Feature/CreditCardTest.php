@@ -85,3 +85,11 @@ describe('predefined CARDS pattern', function () {
             ]);
     });
 });
+
+it('check CreditCardPattern', function () {
+    $pattern = new CreditCardPattern();
+
+    expect($pattern)
+        ->getName()->toBe('credit-card')
+        ->getPattern()->toBe('(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})');
+});

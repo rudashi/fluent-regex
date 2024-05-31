@@ -78,3 +78,11 @@ describe('predefined EMAIL pattern', function () {
             ]);
     });
 });
+
+it('check EmailPattern', function () {
+    $pattern = new EmailPattern();
+
+    expect($pattern)
+        ->getName()->toBe('email')
+        ->getPattern()->toBe('\w+(?:[\.\-]\w+)*@([\w-]+\.)+[\w-]{2,}');
+});

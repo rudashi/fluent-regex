@@ -83,3 +83,11 @@ describe('predefined URL pattern', function () {
             ]);
     });
 });
+
+it('check UrlPattern', function () {
+    $pattern = new UrlPattern();
+
+    expect($pattern)
+        ->getName()->toBe('url')
+        ->getPattern()->toBe('https?\:\/\/[^-][a-z\d.-]+[^-]\.[a-z]{2,}(\/[a-z\d\/-]*)?');
+});
