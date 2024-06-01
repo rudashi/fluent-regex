@@ -78,6 +78,38 @@ describe('Built-in methods', function () {
         expect($regex->get())
             ->toBe('/\-(?:\.[a-zA-Z])$/');
     });
+
+    it('returns the negation of capture alias - `group', function () {
+        $regex = fluentBuilder()
+            ->exactly('-')
+            ->not->group(fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter())
+            ->end();
+
+        expect($regex->get())
+            ->toBe('/\-(?:\.[a-zA-Z])$/');
+    });
+
+    it('can use the lookbehind parameter in the `capture` method', function () {
+        $regex = negation()->capture(fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter(), true);
+
+        expect($regex->get())
+            ->toBe('/(?<!\.[a-zA-Z])/');
+    });
+
+    it('can use the lookahead parameter in the `capture` method', function () {
+        $regex = negation()->capture(fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter(), lookahead: true);
+
+        expect($regex->get())
+            ->toBe('/(?!\.[a-zA-Z])/');
+    });
+
+    it('threw an exception when use lookahead and lookbehind at the same time', function () {
+        expect(fn () => negation()->capture(fn (FluentBuilder $fluent) => $fluent->letter(), true, true))
+            ->toThrow(
+                exception: LogicException::class,
+                exceptionMessage: 'Unable to look behind and ahead at the same time.',
+            );
+    });
 });
 
 /**

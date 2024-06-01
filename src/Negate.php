@@ -76,9 +76,24 @@ class Negate
         return $this->builder;
     }
 
-    public function capture(callable $callback): FluentBuilder
+    /**
+     * Adds a non-capturing group to the pattern array
+     *
+     * @param  callable  $callback
+     * @param  bool  $lookbehind
+     * @param  bool  $lookahead
+     * @return \Rudashi\FluentBuilder
+     */
+    public function capture(callable $callback, bool $lookbehind = false, bool $lookahead = false): FluentBuilder
     {
-        $this->builder->pushToPattern('(?:');
+        if ($lookbehind && $lookahead) {
+            throw new LogicException('Unable to look behind and ahead at the same time.');
+        }
+
+        $behind = $lookbehind ? '?<!' : '';
+        $ahead = $lookahead ? '?!' : '';
+
+        $this->builder->pushToPattern('(' . (!$behind && !$ahead ? '?:' : '') . $behind . $ahead);
 
         $callback($this->builder);
 
@@ -87,6 +102,24 @@ class Negate
         return $this->builder;
     }
 
+    /**
+     * Adds a non-capture alternative to the pattern array.
+     *
+     * @param  callable  $callback
+     * @param  bool  $lookbehind
+     * @param  bool  $lookahead
+     * @return \Rudashi\FluentBuilder
+     */
+    public function group(callable $callback, bool $lookbehind = false, bool $lookahead = false): FluentBuilder
+    {
+        return $this->capture($callback, $lookbehind, $lookahead);
+    }
+
+    /**
+     * Adds a match to anything other than letter.
+     *
+     * @return \Rudashi\FluentBuilder
+     */
     public function letter(): FluentBuilder
     {
         $this->builder->pushToPattern('[^a-zA-Z]');
