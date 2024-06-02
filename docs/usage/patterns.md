@@ -49,6 +49,22 @@ $pattern = Regex::build([\Rudashi\Patterns\IPAddressPattern::class])
 // /^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$/
 ```
 
+### `MAC address`
+
+To find whether a given text contains MAC addresses, you can use the predefined `MACAddressPattern` pattern. 
+The pattern can distinguish addresses that use not only the default colon `:`, but also dot `.` and dash `-`.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build([\Rudashi\Patterns\MACAddressPattern::class])
+    ->start()
+    ->macAddress()
+    ->end();
+ 
+// /^(?<![0-9A-Fa-f.:-])(?:[0-9A-Fa-f]{2}[:.-]){5}(?:[0-9A-Fa-f]{2})(?![0-9A-Fa-f:-])$/
+```
+
 ### `Email`
 
 To verify whether an e-mail address is included in a given text, you can use the predefined `EmailPattern` pattern. It will allow you not only to check whether the e-mail is correct but also to isolate it.
