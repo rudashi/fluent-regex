@@ -61,7 +61,7 @@ describe('predefined IP ADDRESS pattern', function () {
             ->toBe($expectation);
     })->with('ips');
 
-    it('finds a credit cards in text', function () {
+    it('finds an ip address in text', function () {
         $context = "Yesterday, I noticed suspicious activities on the address 203.0.113.50. Additionally, the network 
         traffic from 198.51.100.23 was unusual. Our firewall recorded an attempt to connect to the address 192.0.2.16. 
         Finally, the device with the address 172.20.10.5 exhibited unknown behavior!";
@@ -83,6 +83,7 @@ it('check IPAddressPattern', function () {
     $pattern = new IPAddressPattern();
 
     expect($pattern)
+        ->toBeInstanceOf(IPAddressPattern::class)
         ->getName()->toBe('ipAddress')
         ->getPattern()->toBe('((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}');
 });

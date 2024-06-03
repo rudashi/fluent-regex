@@ -83,6 +83,7 @@ it('check EmailPattern', function () {
     $pattern = new EmailPattern();
 
     expect($pattern)
+        ->toBeInstanceOf(EmailPattern::class)
         ->getName()->toBe('email')
         ->getPattern()->toBe('\w+(?:[\.\-]\w+)*@([\w-]+\.)+[\w-]{2,}');
 });
