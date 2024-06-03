@@ -33,27 +33,26 @@ dataset('macs', [
 
 it('validate macs', function (string $context, bool $expectation) {
     $regex = Regex::for($context)
-        ->not->group(fn (FluentBuilder $fluent) => $fluent->anyOf(
-            fn (FluentBuilder $fluent) => $fluent->number()->letter(last: 'f')->character('.:-')
+        ->not->group(static fn (FluentBuilder $fluent) => $fluent->anyOf(
+            static fn (FluentBuilder $fluent) => $fluent->number()->letter(last: 'f')->character('.:-')
         ), lookbehind: true)
-        ->not->group(fn (FluentBuilder $fluent) => $fluent
-            ->anyOf(fn (FluentBuilder $fluent) => $fluent->number()->letter(last: 'f'))
+        ->not->group(static fn (FluentBuilder $fluent) => $fluent
+            ->anyOf(static fn (FluentBuilder $fluent) => $fluent->number()->letter(last: 'f'))
             ->times(2)
-            ->anyOf(fn (FluentBuilder $fluent) => $fluent->character(':.-'))
+            ->anyOf(static fn (FluentBuilder $fluent) => $fluent->character(':.-'))
         )->times(5)
-        ->not->group(fn (FluentBuilder $fluent) => $fluent->anyOf(
-            fn (FluentBuilder $fluent) => $fluent->number()->letter(last: 'f')->times(2)
-        ))
-        ->not->group(fn (FluentBuilder $fluent) => $fluent->anyOf(
-            fn (FluentBuilder $fluent) => $fluent->number()->letter(last: 'f')->character(':-')
+        ->not->group(static fn (FluentBuilder $fluent) => $fluent->anyOf(
+            static fn (FluentBuilder $fluent) => $fluent->number()->letter(last: 'f')
+        )->times(2))
+        ->not->group(static fn (FluentBuilder $fluent) => $fluent->anyOf(
+            static fn (FluentBuilder $fluent) => $fluent->number()->letter(last: 'f')->character(':-')
         ), lookahead: true);
 
     expect($regex)
         ->toBeInstanceOf(FluentBuilder::class)
         ->get()->toBe('/(?<![0-9a-fA-F.:-])(?:[0-9a-fA-F]{2}[:.-]){5}(?:[0-9a-fA-F]{2})(?![0-9a-fA-F:-])/')
         ->check()->toBe($expectation);
-})->with('macs')
-->todo();
+})->with('macs');
 
 describe('predefined MAC ADDRESS pattern', function () {
     beforeEach(function () {
