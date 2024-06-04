@@ -1,0 +1,29 @@
+name: Codecov Coverage Report
+
+on:
+  push:
+    branches: [ "dev", "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build-coverage:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install composer and dependencies
+        uses: php-actions/composer@v6
+
+      - name: Execute tests (Unit and Feature tests) via PestPHP
+        env:
+          XDEBUG_MODE: coverage
+        run: ./vendor/bin/pest --coverage-clover ./clover.xml
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
