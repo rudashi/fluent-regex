@@ -50,6 +50,7 @@ trait Quantifiers
      * Adds a quantifier that matches the given value times.
      *
      * @param  int  $number
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function times(int $number): FluentBuilder
@@ -67,6 +68,7 @@ trait Quantifiers
      * Adds a quantifier that matches a minimum of times.
      *
      * @param  int  $number
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function min(int $number): FluentBuilder
@@ -85,9 +87,10 @@ trait Quantifiers
      *
      * @param  int  $min
      * @param  int|null  $max
+     *
      * @return \Rudashi\FluentBuilder
      */
-    public function between(int $min, int $max = null): FluentBuilder
+    public function between(int $min, int|null $max = null): FluentBuilder
     {
         if ($min < 0) {
             $this->throwNegativeIntegerException('min');
@@ -106,6 +109,7 @@ trait Quantifiers
      * Throws a logical exception when used negative integer.
      *
      * @param  string  $parameter
+     *
      * @return void
      *
      * @throws \LogicException

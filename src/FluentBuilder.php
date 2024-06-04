@@ -9,12 +9,12 @@ use BackedEnum;
 use BadMethodCallException;
 use InvalidArgumentException;
 use LogicException;
-use Rudashi\Concerns\Group;
-use Rudashi\Concerns\HasAnchors;
 use Rudashi\Concerns\Dumpable;
 use Rudashi\Concerns\Flags;
-use Rudashi\Concerns\Quantifiers;
+use Rudashi\Concerns\Group;
+use Rudashi\Concerns\HasAnchors;
 use Rudashi\Concerns\HasTokens;
+use Rudashi\Concerns\Quantifiers;
 use Rudashi\Contracts\PatternContract;
 
 /**
@@ -32,8 +32,6 @@ class FluentBuilder
 
     /**
      * Regex delimiter value.
-     *
-     * @var string
      */
     protected const DELIMITER = '/';
 
@@ -67,8 +65,6 @@ class FluentBuilder
 
     /**
      * The Anchors instance.
-     *
-     * @var \Rudashi\Anchors
      */
     protected Anchors $anchors;
 
@@ -90,9 +86,73 @@ class FluentBuilder
     }
 
     /**
+     * Dynamically access builder proxies.
+     *
+     * @param  string  $name
+     *
+     * @return mixed
+     *
+     * @throws \LogicException
+     * @throws \BadMethodCallException
+     */
+    public function __get(string $name)
+    {
+        if (method_exists($this, $name) === false) {
+            $this->throwBadMethodException($name);
+        }
+
+        try {
+            return $this->{$name}();
+        } catch (ArgumentCountError) {
+            throw new LogicException(
+                sprintf('Cannot access property "%s". Use the "%s()" method instead.', $name, $name)
+            );
+        }
+    }
+
+    /**
+     * Dynamically handle call into builder instance.
+     *
+     * @param  string  $name
+     * @param  array<int, mixed>  $arguments
+     *
+     * @return static
+     *
+     * @throws \BadMethodCallException
+     */
+    public function __call(string $name, array $arguments): static
+    {
+        foreach ($this->patterns as $pattern) {
+            if ($pattern->getName() === $name || $pattern->alias() === $name) {
+                $this->pushToPattern($pattern->getPattern());
+
+                return $this;
+            }
+        }
+
+        $this->throwBadMethodException($name);
+    }
+
+    /**
+     * Throws a logical exception when assigning a property.
+     *
+     * @param  string  $name
+     * @param  mixed  $value
+     *
+     * @return void
+     *
+     * @throws \LogicException
+     */
+    public function __set(string $name, mixed $value): void
+    {
+        throw new LogicException(sprintf('Setter "%s" is not acceptable.', $name));
+    }
+
+    /**
      * Sanitize the given expression value.
      *
      * @param  string|int  $value
+     *
      * @return string
      */
     public static function sanitize(string|int $value): string
@@ -151,6 +211,7 @@ class FluentBuilder
      * Adds a new value to the pattern array.
      *
      * @param  string|\BackedEnum  $value
+     *
      * @return $this
      */
     public function pushToPattern(string|BackedEnum $value): static
@@ -164,6 +225,7 @@ class FluentBuilder
      * Sets the context to the builder instance.
      *
      * @param  string  $string
+     *
      * @return $this
      */
     public function setContext(string $string): static
@@ -195,6 +257,7 @@ class FluentBuilder
      * Adds a match to what comes before or after.
      *
      * @param  string  ...$value
+     *
      * @return static
      */
     public function oneOf(string ...$value): static
@@ -234,6 +297,7 @@ class FluentBuilder
      * Dynamically call the registered pattern.
      *
      * @param  string  $string
+     *
      * @return static
      */
     public function pattern(string $string): static
@@ -242,88 +306,30 @@ class FluentBuilder
     }
 
     /**
-     * Dynamically access builder proxies.
-     *
-     * @param  string  $name
-     * @return mixed
-     *
-     * @throws \LogicException
-     * @throws \BadMethodCallException
-     */
-    public function __get(string $name): mixed
-    {
-        if (method_exists($this, $name) === false) {
-            $this->throwBadMethodException($name);
-        }
-
-        try {
-            return $this->{$name}();
-        } catch (ArgumentCountError) {
-            throw new LogicException(
-                sprintf('Cannot access property "%s". Use the "%s()" method instead.', $name, $name)
-            );
-        }
-    }
-
-    /**
-     * Dynamically handle call into builder instance.
-     *
-     * @param  string  $name
-     * @param  array<int, mixed>  $arguments
-     * @return static
-     *
-     * @throws \BadMethodCallException
-     */
-    public function __call(string $name, array $arguments): static
-    {
-        foreach ($this->patterns as $pattern) {
-            if ($pattern->getName() === $name || $pattern->alias() === $name) {
-                $this->pushToPattern($pattern->getPattern());
-
-                return $this;
-            }
-        }
-
-        $this->throwBadMethodException($name);
-    }
-
-    /**
-     * Throws a logical exception when assigning a property.
-     *
-     * @param  string  $name
-     * @param  mixed  $value
-     * @return void
-     *
-     * @throws \LogicException
-     */
-    public function __set(string $name, mixed $value): void
-    {
-        throw new LogicException(sprintf('Setter "%s" is not acceptable.', $name));
-    }
-
-    /**
      * Throws a bad method call exception for the given method.
      *
      * @param  string  $method
+     *
      * @return void
      *
      * @throws \BadMethodCallException
      */
     protected function throwBadMethodException(string $method): void
     {
-        throw new BadMethodCallException(sprintf('Method "%s" does not exist in %s.', $method, __CLASS__));
+        throw new BadMethodCallException(sprintf('Method "%s" does not exist in %s.', $method, self::class));
     }
 
     /**
      * Register the given Patterns with the builder.
      *
      * @param  array<int, class-string<\Rudashi\Contracts\PatternContract>>  $patterns
+     *
      * @return static
      */
     private function registerPatterns(array $patterns): static
     {
         foreach ($patterns as $pattern) {
-            if (!is_subclass_of($pattern, PatternContract::class)) {
+            if (! is_subclass_of($pattern, PatternContract::class)) {
                 throw new InvalidArgumentException(
                     sprintf('Class "%s" must implement PatternContract.', $pattern)
                 );

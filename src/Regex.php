@@ -8,6 +8,7 @@ class Regex
 {
     /**
      * @param  array<int, class-string<\Rudashi\Contracts\PatternContract>>  $patterns
+     *
      * @return \Rudashi\FluentBuilder
      */
     public static function build(array $patterns = []): FluentBuilder
@@ -32,6 +33,7 @@ class Regex
 
     /**
      * @param  array<int, class-string<\Rudashi\Contracts\PatternContract>>  $patterns
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function newBuilder(array $patterns = []): FluentBuilder

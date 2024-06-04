@@ -10,6 +10,7 @@ trait Dumpable
      * Dump the given arguments.
      *
      * @param  mixed  ...$arguments
+     *
      * @return $this
      */
     public function dump(mixed ...$arguments): static
@@ -23,6 +24,7 @@ trait Dumpable
      * Dump the given arguments and terminate execution.
      *
      * @param  mixed  ...$arguments
+     *
      * @return void
      */
     public function dd(mixed ...$arguments): void

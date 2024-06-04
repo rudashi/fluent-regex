@@ -15,6 +15,7 @@ trait Group
      * @param  callable  $callback
      * @param  bool  $lookbehind
      * @param  bool  $lookahead
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function capture(callable $callback, bool $lookbehind = false, bool $lookahead = false): FluentBuilder
@@ -39,6 +40,7 @@ trait Group
      * Adds a capture alternative to the pattern array.
      *
      * @param  callable  $callback
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function group(callable $callback): FluentBuilder

@@ -96,6 +96,7 @@ class Anchors
      * Throws a logical exception when the same flag is reused.
      *
      * @param  string  $method
+     *
      * @return never
      *
      * @throws \LogicException

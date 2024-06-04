@@ -13,6 +13,7 @@ trait HasTokens
      * Adds a character.
      *
      * @param  string|int  $value
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function character(string|int $value): FluentBuilder
@@ -26,6 +27,7 @@ trait HasTokens
      * Alias for the `character` method.
      *
      * @param  string|int  $value
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function and(string|int $value): FluentBuilder
@@ -37,6 +39,7 @@ trait HasTokens
      * Alias for the `character` method.
      *
      * @param  string|int  $value
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function raw(string|int $value): FluentBuilder
@@ -48,6 +51,7 @@ trait HasTokens
      * Adds sanitized string to the pattern.
      *
      * @param  string|int  $value
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function exactly(string|int $value): FluentBuilder
@@ -61,6 +65,7 @@ trait HasTokens
      * Alias for the safety `exactly` method.
      *
      * @param  string|int  $value
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function find(string|int $value): FluentBuilder
@@ -72,6 +77,7 @@ trait HasTokens
      * Alias for the safety `exactly` method.
      *
      * @param  string|int  $value
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function then(string|int $value): FluentBuilder
@@ -85,6 +91,7 @@ trait HasTokens
      *
      * @param  string  $first
      * @param  string  $last
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function letter(string $first = 'a', string $last = 'z'): FluentBuilder
@@ -98,6 +105,7 @@ trait HasTokens
      *
      * @param  string  $first
      * @param  string  $last
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function lowerLetter(string $first = 'a', string $last = 'z'): FluentBuilder
@@ -106,11 +114,12 @@ trait HasTokens
     }
 
     /**
-     * Adds a numbers.
+     * Adds a number.
      * Matches any character between 0 and 9.
      *
      * @param  int  $min
      * @param  int  $max
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function number(int $min = 0, int $max = 9): FluentBuilder
@@ -236,6 +245,7 @@ trait HasTokens
      * Match any of the listed characters or tokens.
      *
      * @param  string|int|callable  $value
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function anyOf(string|int|callable $value): FluentBuilder

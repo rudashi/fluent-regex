@@ -54,11 +54,11 @@ class Tokens
 
     protected function checkLetters(string $first, string $last): void
     {
-        if (!in_array($first, range('a', 'y'), true)) {
+        if (! in_array($first, range('a', 'y'), true)) {
             $this->throwLogicException('The first letter must be between [a-y].');
         }
 
-        if (!in_array($last, range('b', 'z'), true)) {
+        if (! in_array($last, range('b', 'z'), true)) {
             $this->throwLogicException('The last letter must be between [b-z].');
         }
     }

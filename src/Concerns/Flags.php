@@ -76,6 +76,7 @@ trait Flags
      * Insert flag into pattern.
      *
      * @param  \Rudashi\Flag  $flag
+     *
      * @return \Rudashi\FluentBuilder
      */
     private function addFlag(Flag $flag): FluentBuilder

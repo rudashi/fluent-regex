@@ -58,9 +58,37 @@ class Negate
     }
 
     /**
+     * Dynamically calls methods on the class or creates a new higher order fluent builder.
+     *
+     * @param  string  $method
+     * @param  array<int|string, string|int|callable>  $arguments
+     *
+     * @return \Rudashi\FluentBuilder
+     */
+    public function __call(string $method, array $arguments): FluentBuilder
+    {
+        if (in_array($method, static::$guardedMethods, true)) {
+            $this->throwNegationException($method);
+        }
+
+        $this->builder->pushToPattern('[^');
+
+        $result = $this->builder->{$method}(...$arguments);
+
+        if ($result instanceof FluentBuilder) {
+            $this->builder->pushToPattern(']');
+
+            return $this->builder;
+        }
+
+        $this->throwNegationException($method);
+    }
+
+    /**
      * Match anything other than the listed characters or tokens.
      *
      * @param  string|int|callable  $value
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function anyOf(string|int|callable $value): FluentBuilder
@@ -82,6 +110,7 @@ class Negate
      * @param  callable  $callback
      * @param  bool  $lookbehind
      * @param  bool  $lookahead
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function capture(callable $callback, bool $lookbehind = false, bool $lookahead = false): FluentBuilder
@@ -93,7 +122,7 @@ class Negate
         $behind = $lookbehind ? '?<!' : '';
         $ahead = $lookahead ? '?!' : '';
 
-        $this->builder->pushToPattern('(' . (!$behind && !$ahead ? '?:' : '') . $behind . $ahead);
+        $this->builder->pushToPattern('(' . (! $behind && ! $ahead ? '?:' : '') . $behind . $ahead);
 
         $callback($this->builder);
 
@@ -108,6 +137,7 @@ class Negate
      * @param  callable  $callback
      * @param  bool  $lookbehind
      * @param  bool  $lookahead
+     *
      * @return \Rudashi\FluentBuilder
      */
     public function group(callable $callback, bool $lookbehind = false, bool $lookahead = false): FluentBuilder
@@ -164,35 +194,10 @@ class Negate
     }
 
     /**
-     * Dynamically calls methods on the class or creates a new higher order fluent builder.
-     *
-     * @param  string  $method
-     * @param  array<int|string, mixed>  $arguments
-     * @return \Rudashi\FluentBuilder
-     */
-    public function __call(string $method, array $arguments): FluentBuilder
-    {
-        if (in_array($method, static::$guardedMethods, true)) {
-            $this->throwNegationException($method);
-        }
-
-        $this->builder->pushToPattern('[^');
-
-        $result = $this->builder->{$method}(...$arguments);
-
-        if ($result instanceof FluentBuilder) {
-            $this->builder->pushToPattern(']');
-
-            return $this->builder;
-        }
-
-        $this->throwNegationException($method);
-    }
-
-    /**
      * Throws a logical exception when a method is unavailable.
      *
      * @param  string  $method
+     *
      * @return never
      *
      * @throws \BadMethodCallException

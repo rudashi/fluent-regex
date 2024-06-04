@@ -7,18 +7,14 @@ namespace Rudashi;
 abstract class Pattern
 {
     /**
-     * The base regex pattern.
-     *
-     * @var string
-     */
-    protected string $pattern;
-
-    /**
      * A shortened name identifying the pattern.
-     *
-     * @var string
      */
     public static string $name;
+
+    /**
+     * The base regex pattern.
+     */
+    protected string $pattern;
 
     /**
      * Get the pattern alias name.
@@ -45,8 +41,6 @@ abstract class Pattern
 
     /**
      * Returns the current regular expression pattern.
-     *
-     * @return string
      */
     public function getPattern(): string
     {
