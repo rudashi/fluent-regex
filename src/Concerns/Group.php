@@ -51,11 +51,16 @@ trait Group
     /**
      * Adds optional captures to the pattern array.
      *
-     * @param  callable  $callback
+     * @param  callable|string|int  $callback
+     *
      * @return \Rudashi\FluentBuilder
      */
-    public function maybe(callable $callback): FluentBuilder
+    public function maybe(callable|string|int $callback): FluentBuilder
     {
-        return $this->capture($callback)->zeroOrOne();
+        if (is_callable($callback)) {
+            return $this->capture($callback)->zeroOrOne();
+        }
+
+        return $this->character($callback)->zeroOrOne();
     }
 }

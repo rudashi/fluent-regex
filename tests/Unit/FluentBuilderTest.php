@@ -102,16 +102,6 @@ describe('capture', function () {
             ->toBe('/\-(\.[a-zA-Z])$/');
     });
 
-    it('can use the `maybe` method to group tokens', function () {
-        $regex = fluentBuilder()
-            ->exactly('-')
-            ->maybe(fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter())
-            ->end();
-
-        expect($regex->get())
-            ->toBe('/\-(\.[a-zA-Z])?$/');
-    });
-
     it('can use the lookbehind parameter in the `capture` method', function () {
         $regex = fluentBuilder()
             ->exactly('-')
@@ -138,6 +128,34 @@ describe('capture', function () {
                 exception: LogicException::class,
                 exceptionMessage: 'Unable to look behind and ahead at the same time.',
             );
+    });
+});
+
+describe('maybe', function () {
+    it('can use the `maybe` method to group tokens', function () {
+        $regex = fluentBuilder()
+            ->exactly('-')
+            ->maybe(fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter())
+            ->end();
+
+        expect($regex->get())
+            ->toBe('/\-(\.[a-zA-Z])?$/');
+    });
+
+    it('can use the `maybe` method for string character', function () {
+        $regex = fluentBuilder()
+            ->maybe('a');
+
+        expect($regex->get())
+            ->toBe('/a?/');
+    });
+
+    it('can use the `maybe` method for integer character', function () {
+        $regex = fluentBuilder()
+            ->maybe(0);
+
+        expect($regex->get())
+            ->toBe('/0?/');
     });
 });
 
