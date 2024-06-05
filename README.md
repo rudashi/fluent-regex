@@ -12,7 +12,12 @@
 
 This package provides a simple way to create regular expression in a fluent way.
 
-If you thought that finding a `needle` in a `haystack` was impossible, this repository is for you.
+**Fluent Regex** is a library in PHP that simplifies the creation and management of regular expressions through 
+the use of fluent syntax. Traditional regular expressions can be difficult to read and understand, especially when 
+they become complex. **Fluent Regex** solves this problem by allowing you to build regular expressions using 
+a readable and intuitive object-oriented interface.
+
+> If you thought that finding a `needle` in a `haystack` was impossible, this repository is for you.
 
 ## Requirements
 
@@ -44,7 +49,7 @@ $match = Regex::for('https://100commitow.pl/')->find('100commitow')->check();
 
 ## Documentation
 
-The [FluentRegex documentation](https://rudashi.github.io/fluent-regex/) is extensive and complete, making getting started with regular expression syntax a breeze.
+The [Fluent Regex documentation](https://rudashi.github.io/fluent-regex/) is extensive and complete, making getting started with regular expression syntax a breeze.
 
 ## Changelog
 
