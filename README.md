@@ -1,8 +1,9 @@
 # Fluent Regex
 
 ![Codacy Badge](https://app.codacy.com/project/badge/Grade/f54e6ee0b3a64876b466cc46b93fac33)
+![codecov](https://codecov.io/gh/rudashi/fluent-regex/graph/badge.svg?token=0D3GQBHV1Y)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/rudashi/fluent-regex/tests.yml)
-![GitHub last commit](https://img.shields.io/github/last-commit/rudashi/fluent-regex)
+![GitHub last commit](https://img.shields.io/github/last-commit/rudashi/fluent-regex)  
 ![GitHub repo size](https://img.shields.io/github/repo-size/rudashi/fluent-regex)
 ![Total Downloads](https://img.shields.io/packagist/dt/rudashi/fluent-regex)
 ![GitHub License](https://img.shields.io/github/license/rudashi/fluent-regex)
@@ -22,6 +23,7 @@ a readable and intuitive object-oriented interface.
 ## Requirements
 
 - PHP 8.1+
+- Composer
 
 ## Installation
 
@@ -34,7 +36,7 @@ composer require rudashi/fluent-regex
 ## Usage
 
 ```php
-$regex = \Rudashi\Regex::build()
+$regex = Rudashi\Regex::build()
     ->startOfLine()
     ->capture(fn (FluentBuilder $fluent) => $fluent->find('http')->or->find('https'))
     ->then('://')
