@@ -187,7 +187,7 @@ describe('FluentBuilder', function () {
         $regex = fluentBuilder()->anyOf('abc.@-_');
 
         expect($regex->get())
-            ->toBe('/[abc\.@\-_]/');
+            ->toBe('/[abc.@-_]/');
     });
 
     it('can chain pattern inside `anyOf', function () {
