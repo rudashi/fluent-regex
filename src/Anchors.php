@@ -24,9 +24,6 @@ class Anchors
 
     /**
      * Create an instance of Anchors.
-     *
-     * @param  \Rudashi\FluentBuilder  $builder
-     * @param  string  $delimiter
      */
     public function __construct(
         private readonly FluentBuilder $builder,
@@ -36,8 +33,6 @@ class Anchors
 
     /**
      * Adds a starting anchor.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function start(): FluentBuilder
     {
@@ -52,8 +47,6 @@ class Anchors
 
     /**
      * Adds an end anchor.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function end(): FluentBuilder
     {
@@ -94,10 +87,6 @@ class Anchors
 
     /**
      * Throws a logical exception when the same flag is reused.
-     *
-     * @param  string  $method
-     *
-     * @return never
      *
      * @throws \LogicException
      */

@@ -12,8 +12,6 @@ trait Quantifiers
 {
     /**
      * Adds a quantifier that matches once or never.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function zeroOrOne(): FluentBuilder
     {
@@ -24,8 +22,6 @@ trait Quantifiers
 
     /**
      * Adds a quantifier that matches an infinitely many times or not at all.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function zeroOrMore(): FluentBuilder
     {
@@ -36,8 +32,6 @@ trait Quantifiers
 
     /**
      * Adds a quantifier that matches once or infinitely many times.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function oneOrMore(): FluentBuilder
     {
@@ -48,10 +42,6 @@ trait Quantifiers
 
     /**
      * Adds a quantifier that matches the given value times.
-     *
-     * @param  int  $number
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function times(int $number): FluentBuilder
     {
@@ -66,10 +56,6 @@ trait Quantifiers
 
     /**
      * Adds a quantifier that matches a minimum of times.
-     *
-     * @param  int  $number
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function min(int $number): FluentBuilder
     {
@@ -84,11 +70,6 @@ trait Quantifiers
 
     /**
      * Adds a quantifier that matches between two given values.
-     *
-     * @param  int  $min
-     * @param  int|null  $max
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function between(int $min, int|null $max = null): FluentBuilder
     {
@@ -107,10 +88,6 @@ trait Quantifiers
 
     /**
      * Throws a logical exception when used negative integer.
-     *
-     * @param  string  $parameter
-     *
-     * @return void
      *
      * @throws \LogicException
      */

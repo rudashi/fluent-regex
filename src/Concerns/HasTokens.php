@@ -11,10 +11,6 @@ trait HasTokens
 {
     /**
      * Adds a character.
-     *
-     * @param  string|int  $value
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function character(string|int $value): FluentBuilder
     {
@@ -25,10 +21,6 @@ trait HasTokens
 
     /**
      * Alias for the `character` method.
-     *
-     * @param  string|int  $value
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function and(string|int $value): FluentBuilder
     {
@@ -37,10 +29,6 @@ trait HasTokens
 
     /**
      * Alias for the `character` method.
-     *
-     * @param  string|int  $value
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function raw(string|int $value): FluentBuilder
     {
@@ -49,10 +37,6 @@ trait HasTokens
 
     /**
      * Adds sanitized string to the pattern.
-     *
-     * @param  string|int  $value
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function exactly(string|int $value): FluentBuilder
     {
@@ -63,10 +47,6 @@ trait HasTokens
 
     /**
      * Alias for the safety `exactly` method.
-     *
-     * @param  string|int  $value
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function find(string|int $value): FluentBuilder
     {
@@ -75,10 +55,6 @@ trait HasTokens
 
     /**
      * Alias for the safety `exactly` method.
-     *
-     * @param  string|int  $value
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function then(string|int $value): FluentBuilder
     {
@@ -88,11 +64,6 @@ trait HasTokens
     /**
      * Adds a letter.
      * Matches any character, ignoring case, between a and z.
-     *
-     * @param  string  $first
-     * @param  string  $last
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function letter(string $first = 'a', string $last = 'z'): FluentBuilder
     {
@@ -102,11 +73,6 @@ trait HasTokens
     /**
      * Adds a lowercase letter.
      * Matches any character between a and z.
-     *
-     * @param  string  $first
-     * @param  string  $last
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function lowerLetter(string $first = 'a', string $last = 'z'): FluentBuilder
     {
@@ -116,11 +82,6 @@ trait HasTokens
     /**
      * Adds a number.
      * Matches any character between 0 and 9.
-     *
-     * @param  int  $min
-     * @param  int  $max
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function number(int $min = 0, int $max = 9): FluentBuilder
     {
@@ -129,8 +90,6 @@ trait HasTokens
 
     /**
      * Adds a numbers.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function numbers(): FluentBuilder
     {
@@ -141,8 +100,6 @@ trait HasTokens
 
     /**
      * Adds a whitespace token.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function whitespace(): FluentBuilder
     {
@@ -153,8 +110,6 @@ trait HasTokens
 
     /**
      * Adds a non-whitespace token.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function nonWhitespace(): FluentBuilder
     {
@@ -166,8 +121,6 @@ trait HasTokens
     /**
      * Adds a digit token.
      * Equivalent to `[0-9]`.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function digit(): FluentBuilder
     {
@@ -179,8 +132,6 @@ trait HasTokens
     /**
      * Adds a digits token.
      * Equivalent to `[0-9]+`.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function digits(): FluentBuilder
     {
@@ -192,8 +143,6 @@ trait HasTokens
     /**
      * Adds a non-digit token.
      * Matches anything other than a digit.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function nonDigit(): FluentBuilder
     {
@@ -205,8 +154,6 @@ trait HasTokens
     /**
      * Adds a non-digits token.
      * Matches anything other than a digits.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function nonDigits(): FluentBuilder
     {
@@ -218,8 +165,6 @@ trait HasTokens
     /**
      * Adds a word character token.
      * Equivalent to `[a-zA-Z0-9_]`.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function word(): FluentBuilder
     {
@@ -231,8 +176,6 @@ trait HasTokens
     /**
      * Adds a word characters token.
      * Equivalent to `[a-zA-Z0-9_]+`.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function words(): FluentBuilder
     {
@@ -243,10 +186,6 @@ trait HasTokens
 
     /**
      * Match any of the listed characters or tokens.
-     *
-     * @param  string|int|callable  $value
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function anyOf(string|int|callable $value): FluentBuilder
     {
@@ -263,8 +202,6 @@ trait HasTokens
 
     /**
      * Adds a tab token.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function tab(): FluentBuilder
     {
@@ -275,8 +212,6 @@ trait HasTokens
 
     /**
      * Adds a carriage return token.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function carriageReturn(): FluentBuilder
     {
@@ -287,8 +222,6 @@ trait HasTokens
 
     /**
      * Adds a newline token.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function newline(): FluentBuilder
     {
@@ -299,8 +232,6 @@ trait HasTokens
 
     /**
      * Adds a line break token.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function linebreak(): FluentBuilder
     {
@@ -311,8 +242,6 @@ trait HasTokens
 
     /**
      * Adds a word boundary token.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function boundary(): FluentBuilder
     {
@@ -323,8 +252,6 @@ trait HasTokens
 
     /**
      * Adds a non-word boundary token.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function nonBoundary(): FluentBuilder
     {
@@ -335,8 +262,6 @@ trait HasTokens
 
     /**
      * Adds a token to the pattern.
-     *
-     * @return \Rudashi\Tokens
      */
     private function addToken(): Tokens
     {

@@ -49,8 +49,6 @@ class Negate
 
     /**
      * Creates a new negation of the token.
-     *
-     * @param  \Rudashi\FluentBuilder  $builder
      */
     public function __construct(
         private readonly FluentBuilder $builder,
@@ -60,10 +58,7 @@ class Negate
     /**
      * Dynamically calls methods on the class or creates a new higher order fluent builder.
      *
-     * @param  string  $method
      * @param  array<int|string, string|int|callable>  $arguments
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function __call(string $method, array $arguments): FluentBuilder
     {
@@ -86,10 +81,6 @@ class Negate
 
     /**
      * Match anything other than the listed characters or tokens.
-     *
-     * @param  string|int|callable  $value
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function anyOf(string|int|callable $value): FluentBuilder
     {
@@ -107,11 +98,7 @@ class Negate
     /**
      * Adds a non-capturing group to the pattern array
      *
-     * @param  callable  $callback
-     * @param  bool  $lookbehind
-     * @param  bool  $lookahead
-     *
-     * @return \Rudashi\FluentBuilder
+     * @param  callable(\Rudashi\FluentBuilder): \Rudashi\FluentBuilder  $callback
      */
     public function capture(callable $callback, bool $lookbehind = false, bool $lookahead = false): FluentBuilder
     {
@@ -134,11 +121,7 @@ class Negate
     /**
      * Adds a non-capture alternative to the pattern array.
      *
-     * @param  callable  $callback
-     * @param  bool  $lookbehind
-     * @param  bool  $lookahead
-     *
-     * @return \Rudashi\FluentBuilder
+     * @param  callable(\Rudashi\FluentBuilder): \Rudashi\FluentBuilder  $callback
      */
     public function group(callable $callback, bool $lookbehind = false, bool $lookahead = false): FluentBuilder
     {
@@ -147,8 +130,6 @@ class Negate
 
     /**
      * Adds a match to anything other than letter.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function letter(): FluentBuilder
     {
@@ -159,8 +140,6 @@ class Negate
 
     /**
      * Adds a match to anything other than lower letter.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function lowerLetter(): FluentBuilder
     {
@@ -171,8 +150,6 @@ class Negate
 
     /**
      * Adds a match to anything other than number.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function number(): FluentBuilder
     {
@@ -183,8 +160,6 @@ class Negate
 
     /**
      * Adds a match to anything other than numbers.
-     *
-     * @return \Rudashi\FluentBuilder
      */
     public function numbers(): FluentBuilder
     {
@@ -195,10 +170,6 @@ class Negate
 
     /**
      * Throws a logical exception when a method is unavailable.
-     *
-     * @param  string  $method
-     *
-     * @return never
      *
      * @throws \BadMethodCallException
      */

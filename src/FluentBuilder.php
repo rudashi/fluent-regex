@@ -37,8 +37,6 @@ class FluentBuilder
 
     /**
      * The underlying string value.
-     *
-     * @var string
      */
     protected string $context = '';
 
@@ -72,7 +70,6 @@ class FluentBuilder
      * Create a new instance of the class.
      *
      * @param  array<int, class-string<\Rudashi\Contracts\PatternContract>>  $patterns
-     * @param  bool  $isSub
      */
     public function __construct(
         array $patterns = [],
@@ -88,14 +85,10 @@ class FluentBuilder
     /**
      * Dynamically access builder proxies.
      *
-     * @param  string  $name
-     *
-     * @return mixed
-     *
      * @throws \LogicException
      * @throws \BadMethodCallException
      */
-    public function __get(string $name)
+    public function __get(string $name): mixed
     {
         if (method_exists($this, $name) === false) {
             $this->throwBadMethodException($name);
@@ -113,10 +106,7 @@ class FluentBuilder
     /**
      * Dynamically handle call into builder instance.
      *
-     * @param  string  $name
      * @param  array<int, mixed>  $arguments
-     *
-     * @return static
      *
      * @throws \BadMethodCallException
      */
@@ -136,11 +126,6 @@ class FluentBuilder
     /**
      * Throws a logical exception when assigning a property.
      *
-     * @param  string  $name
-     * @param  mixed  $value
-     *
-     * @return void
-     *
      * @throws \LogicException
      */
     public function __set(string $name, mixed $value): void
@@ -150,10 +135,6 @@ class FluentBuilder
 
     /**
      * Sanitize the given expression value.
-     *
-     * @param  string|int  $value
-     *
-     * @return string
      */
     public static function sanitize(string|int $value): string
     {
@@ -164,8 +145,6 @@ class FluentBuilder
 
     /**
      * Get the full regular expression pattern.
-     *
-     * @return string
      */
     public function get(): string
     {
@@ -183,8 +162,6 @@ class FluentBuilder
 
     /**
      * Determines whether the context matches a given pattern.
-     *
-     * @return bool
      */
     public function check(): bool
     {
@@ -209,10 +186,6 @@ class FluentBuilder
 
     /**
      * Adds a new value to the pattern array.
-     *
-     * @param  string|\BackedEnum  $value
-     *
-     * @return $this
      */
     public function pushToPattern(string|BackedEnum $value): static
     {
@@ -223,10 +196,6 @@ class FluentBuilder
 
     /**
      * Sets the context to the builder instance.
-     *
-     * @param  string  $string
-     *
-     * @return $this
      */
     public function setContext(string $string): static
     {
@@ -243,8 +212,6 @@ class FluentBuilder
 
     /**
      * Creates negation to next token.
-     *
-     * @return \Rudashi\Negate
      */
     public function not(): Negate
     {
@@ -255,10 +222,6 @@ class FluentBuilder
 
     /**
      * Adds a match to what comes before or after.
-     *
-     * @param  string  ...$value
-     *
-     * @return static
      */
     public function oneOf(string ...$value): static
     {
@@ -271,8 +234,6 @@ class FluentBuilder
 
     /**
      * Adds an alternative to the pattern.
-     *
-     * @return $this
      */
     public function or(): static
     {
@@ -283,8 +244,6 @@ class FluentBuilder
 
     /**
      * Adds a match of any character to the pattern.
-     *
-     * @return $this
      */
     public function anything(): static
     {
@@ -295,10 +254,6 @@ class FluentBuilder
 
     /**
      * Dynamically call the registered pattern.
-     *
-     * @param  string  $string
-     *
-     * @return static
      */
     public function pattern(string $string): static
     {
@@ -307,10 +262,6 @@ class FluentBuilder
 
     /**
      * Throws a bad method call exception for the given method.
-     *
-     * @param  string  $method
-     *
-     * @return void
      *
      * @throws \BadMethodCallException
      */
@@ -323,8 +274,6 @@ class FluentBuilder
      * Register the given Patterns with the builder.
      *
      * @param  array<int, class-string<\Rudashi\Contracts\PatternContract>>  $patterns
-     *
-     * @return static
      */
     private function registerPatterns(array $patterns): static
     {

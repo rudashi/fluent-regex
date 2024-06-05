@@ -18,8 +18,6 @@ abstract class Pattern
 
     /**
      * Get the pattern alias name.
-     *
-     * @return string
      */
     public function alias(): string
     {
@@ -31,8 +29,6 @@ abstract class Pattern
 
     /**
      * Get the name of the pattern.
-     *
-     * @return string
      */
     public function getName(): string
     {
