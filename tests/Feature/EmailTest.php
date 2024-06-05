@@ -44,7 +44,7 @@ it('validate email', function (string $context, bool $expectation) {
 
     expect($regex)
         ->toBeInstanceOf(FluentBuilder::class)
-        ->get()->toBe('/^\w+(?:[\.\-]\w+)*@([\w-]+\.)+[\w-]{2,}$/')
+        ->get()->toBe('/^\w+(?:[.-]\w+)*@([\w-]+\.)+[\w-]{2,}$/')
         ->check()->toBe($expectation);
 })->with('emails');
 
@@ -85,5 +85,5 @@ it('check EmailPattern', function () {
     expect($pattern)
         ->toBeInstanceOf(EmailPattern::class)
         ->getName()->toBe('email')
-        ->getPattern()->toBe('\w+(?:[\.\-]\w+)*@([\w-]+\.)+[\w-]{2,}');
+        ->getPattern()->toBe('\w+(?:[.-]\w+)*@([\w-]+\.)+[\w-]{2,}');
 });
