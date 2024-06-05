@@ -215,7 +215,7 @@ describe('patterns call', function () {
     it('can call `pattern`', function () {
         $regex = fluentPattern(EmailPattern::class);
 
-        expect($regex->pattern(EmailPattern::$name))
+        expect($regex->pattern('email'))
             ->toBeInstanceOf(FluentBuilder::class)
             ->get()->toBe('/\w+(?:[.-]\w+)*@([\w-]+\.)+[\w-]{2,}/');
     });

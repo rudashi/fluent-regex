@@ -9,7 +9,7 @@ use Rudashi\Pattern;
 
 final class UrlPattern extends Pattern implements PatternContract
 {
-    public static string $name = 'url';
+    protected static string $name = 'url';
 
     protected string $pattern = 'https?\:\/\/[^-][a-z\d.-]+[^-]\.[a-z]{2,}(\/[a-z\d\/-]*)?';
 }

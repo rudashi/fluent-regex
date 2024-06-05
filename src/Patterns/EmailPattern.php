@@ -9,7 +9,7 @@ use Rudashi\Pattern;
 
 final class EmailPattern extends Pattern implements PatternContract
 {
-    public static string $name = 'email';
+    protected static string $name = 'email';
 
     protected string $pattern = '\w+(?:[.-]\w+)*@([\w-]+\.)+[\w-]{2,}';
 }

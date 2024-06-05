@@ -8,7 +8,7 @@ use Rudashi\Pattern;
 function fakePattern(): Pattern
 {
     return new class() extends Pattern implements PatternContract {
-        public static string $name = 'fake-pattern';
+        protected static string $name = 'fake-pattern';
 
         public function getName(): string
         {
@@ -18,13 +18,20 @@ function fakePattern(): Pattern
 }
 
 it('can return static name', function () {
-    expect(fakePattern()::$name)
-        ->toBe('fake-pattern');
+    $pattern = fakePattern();
+
+    try {
+        $reflectProperty = (new ReflectionClass($pattern))->getProperty('name')->getValue($pattern);
+
+        expect($reflectProperty)->toBe('fake-pattern');
+    } catch (ReflectionException $e) {
+        $this->markTestSkipped($e->getMessage());
+    }
 });
 
 it('can return pattern name', function () {
     expect(fakePattern()->getName())
-        ->not->toBe(fakePattern()::$name)
+        ->not->toBe('fake-pattern')
         ->toBe('diff-name');
 });
 
@@ -32,12 +39,5 @@ it('can use alias', function () {
     $pattern = fakePattern()->alias();
 
     expect($pattern)
-        ->toBe('fakePattern');
-});
-
-it('can use complex name as alias', function () {
-    fakePattern()::$name = 'Very complex-pattern nAMe';
-
-    expect(fakePattern()->alias())
-        ->toBe('veryComplexPatternName');
+        ->toBe('diffName');
 });

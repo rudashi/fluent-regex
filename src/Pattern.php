@@ -9,7 +9,7 @@ abstract class Pattern
     /**
      * A shortened name identifying the pattern.
      */
-    public static string $name;
+    protected static string $name;
 
     /**
      * The base regex pattern.
@@ -23,7 +23,7 @@ abstract class Pattern
     {
         return lcfirst(implode('', array_map(
             callback: static fn ($word) => ucfirst(strtolower($word)),
-            array: explode(' ', str_replace(['-', '_'], ' ', static::$name))
+            array: explode(' ', str_replace(['-', '_'], ' ', $this->getName()))
         )));
     }
 
