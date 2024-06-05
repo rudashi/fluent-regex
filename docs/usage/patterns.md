@@ -34,6 +34,21 @@ new \Rudashi\FluentBuilder([
 ]);
 ```
 
+### `Date`
+
+To identify whether a given text contains IP version 4 addresses, you can use the predefined `IPAddressPattern` pattern. The pattern only identifies **IPv4**-compliant addresses
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build([Rudashi\Patterns\DatePattern::class])
+    ->start()
+    ->date()
+    ->end();
+ 
+// /^$/
+```
+
 ### `IPv4 address`
 
 To identify whether a given text contains IP version 4 addresses, you can use the predefined `IPAddressPattern` pattern. The pattern only identifies **IPv4**-compliant addresses
