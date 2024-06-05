@@ -25,6 +25,19 @@ $pattern = Regex::build()->capture(
 // /(\.[a-zA-Z])/
 ```
 
+Using the `lookbehind` or `lookahead` arguments you can control whether to match a subpattern without consuming characters.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->capture(
+    callback: fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter(),
+    lookbehind: true,
+);
+ 
+// /(?<=\.[a-zA-Z])/
+```
+
 ### `maybe`
 
 The `maybe` method matches a pattern within a group zero or one time.
@@ -37,6 +50,16 @@ $pattern = Regex::build()->maybe(
 );
  
 // /(\.[a-zA-Z])?/
+```
+
+Alternatively, you can use it to search for individual characters
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->maybe(0);
+ 
+// /(0?/
 ```
 
 ### `oneOf`
