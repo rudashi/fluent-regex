@@ -256,7 +256,7 @@ trait HasTokens
             return $this;
         }
 
-        $this->pushToPattern('[' . static::sanitize($value) . ']');
+        $this->pushToPattern('[' . addcslashes((string) $value, '/') . ']');
 
         return $this;
     }

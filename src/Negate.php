@@ -99,7 +99,7 @@ class Negate
             return $this->builder;
         }
 
-        $this->builder->pushToPattern('[^' . FluentBuilder::sanitize($value) . ']');
+        $this->builder->pushToPattern('[^' . addcslashes((string) $value, '/') . ']');
 
         return $this->builder;
     }
