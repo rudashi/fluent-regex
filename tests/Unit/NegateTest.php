@@ -22,8 +22,35 @@ it('thrown an exception if the property has no method assigned', function (strin
             exceptionMessage: 'Method "' . $method . '" is not extendable by "Negation".'
         );
 })->with([
+    // FluentBuilder
     'get',
-    ...Negate::$guardedMethods,
+    'check',
+    'match',
+    'setContext',
+    'oneOf',
+    'or',
+    'anything',
+
+    // Anchors
+    'start',
+    'startOfLine',
+    'end',
+    'endOfLine',
+
+    // Flags
+    'ignoreCase',
+    'multiline',
+    'matchNewLine',
+    'ignoreWhitespace',
+    'utf8',
+
+    // Quantifiers
+    'zeroOrOne',
+    'zeroOrMore',
+    'oneOrMore',
+    'times',
+    'min',
+    'between',
 ]);
 
 /**

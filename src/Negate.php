@@ -16,7 +16,7 @@ class Negate
      *
      * @var array<int, string>
      */
-    public static array $guardedMethods = [
+    protected static array $guardedMethods = [
         // FluentBuilder
         'check',
         'match',
