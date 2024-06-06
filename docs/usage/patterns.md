@@ -64,6 +64,21 @@ $pattern = Regex::build([\Rudashi\Patterns\IPAddressPattern::class])
 // /^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$/
 ```
 
+### `IPv6 address`
+
+You can use the predefined `IPv6AddressPattern` pattern to find whether a given text contains IP addresses. This pattern can only find addresses that match **IPv6**.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build([Rudashi\Patterns\IPv6AddressPattern::class])
+    ->start()
+    ->ipv6()
+    ->end();
+ 
+// /^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|...|:((:[0-9a-fA-F]{1,4}){1,7}|:))$/
+```
+
 ### `MAC address`
 
 To find whether a given text contains MAC addresses, you can use the predefined `MACAddressPattern` pattern. 

@@ -67,7 +67,7 @@ You can start creating your regex by using `Regex::build()`. The `build()` metho
 - [`date`](usage/patterns#date)
 - time
 - [`IPv4 address`](usage/patterns#ipv4-address)
-- IPv6 address
+- [`IPv6 address`](usage/patterns#ipv6-address)
 - [`mac address`](usage/patterns#mac-address)
 - [`email`](usage/patterns#email)
 - [`url`](usage/patterns#url)
