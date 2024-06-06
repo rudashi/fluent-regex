@@ -7,9 +7,9 @@ use Rudashi\Patterns\DatePattern;
 use Rudashi\Regex;
 
 dataset('dates', [
-    ['12/05/2023', true],
-    ['12-05-2023', true],
-    ['12.05.2023', true],
+    ['12/31/2023', true],
+    ['12-31-2023', true],
+    ['12.31.2023', true],
     ['30/01/2024', true],
     ['30-01-2024', true],
     ['05.12.2023', true],
