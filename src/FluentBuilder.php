@@ -21,7 +21,7 @@ use Rudashi\Contracts\PatternContract;
  * @property Negate $not Creates the negative pattern
  * @property static $or Adds alternative
  */
-class FluentBuilder
+final class FluentBuilder
 {
     use HasAnchors;
     use HasTokens;
@@ -106,11 +106,11 @@ class FluentBuilder
     /**
      * Dynamically handle call into builder instance.
      *
-     * @param  array<int, mixed>  $arguments
+     * @param  array<int, callable|string|int>  $arguments
      *
      * @throws \BadMethodCallException
      */
-    public function __call(string $name, array $arguments): static
+    public function __call(string $name, array $arguments): self
     {
         foreach ($this->patterns as $pattern) {
             if ($pattern->getName() === $name || $pattern->alias() === $name) {
@@ -187,7 +187,7 @@ class FluentBuilder
     /**
      * Adds a new value to the pattern array.
      */
-    public function pushToPattern(string|BackedEnum $value): static
+    public function pushToPattern(string|BackedEnum $value): self
     {
         $this->pattern[] = $value instanceof BackedEnum ? (string) $value->value : $value;
 
@@ -223,7 +223,7 @@ class FluentBuilder
     /**
      * Adds a match to what comes before or after.
      */
-    public function oneOf(string ...$value): static
+    public function oneOf(string ...$value): self
     {
         $this->pushToPattern(
             implode('|', array_map([$this, 'sanitize'], $value))
@@ -235,7 +235,7 @@ class FluentBuilder
     /**
      * Adds an alternative to the pattern.
      */
-    public function or(): static
+    public function or(): self
     {
         $this->pushToPattern('|');
 
@@ -245,7 +245,7 @@ class FluentBuilder
     /**
      * Adds a match of any character to the pattern.
      */
-    public function anything(): static
+    public function anything(): self
     {
         $this->pushToPattern('.*');
 
@@ -255,7 +255,7 @@ class FluentBuilder
     /**
      * Dynamically call the registered pattern.
      */
-    public function pattern(string $string): static
+    public function pattern(string $string): self
     {
         return $this->__call($string, []);
     }
@@ -275,7 +275,7 @@ class FluentBuilder
      *
      * @param  array<int, class-string<\Rudashi\Contracts\PatternContract>>  $patterns
      */
-    private function registerPatterns(array $patterns): static
+    private function registerPatterns(array $patterns): self
     {
         foreach ($patterns as $pattern) {
             if (! is_subclass_of($pattern, PatternContract::class)) {

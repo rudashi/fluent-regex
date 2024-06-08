@@ -6,21 +6,21 @@ namespace Rudashi;
 
 use LogicException;
 
-class Anchors
+final class Anchors
 {
     /**
      * List of assigned starting anchors.
      *
      * @var array<int, string>
      */
-    protected array $prefix = [];
+    private array $prefix = [];
 
     /**
      * List of assigned ending anchors.
      *
      * @var array<int, string>
      */
-    protected array $suffix = [];
+    private array $suffix = [];
 
     /**
      * Create an instance of Anchors.
@@ -90,7 +90,7 @@ class Anchors
      *
      * @throws \LogicException
      */
-    protected function throwAnchorException(string $method): never
+    private function throwAnchorException(string $method): never
     {
         throw new LogicException(sprintf('The "%s" anchor has already been called.', $method));
     }

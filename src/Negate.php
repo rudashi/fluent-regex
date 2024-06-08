@@ -9,14 +9,14 @@ use LogicException;
 /**
  * @mixin \Rudashi\FluentBuilder
  */
-class Negate
+final class Negate
 {
     /**
      * The methods that cannot be negated.
      *
      * @var array<int, string>
      */
-    protected static array $guardedMethods = [
+    private static array $guardedMethods = [
         // FluentBuilder
         'check',
         'match',
@@ -62,7 +62,7 @@ class Negate
      */
     public function __call(string $method, array $arguments): FluentBuilder
     {
-        if (in_array($method, static::$guardedMethods, true)) {
+        if (in_array($method, self::$guardedMethods, true)) {
             $this->throwNegationException($method);
         }
 
@@ -173,7 +173,7 @@ class Negate
      *
      * @throws \BadMethodCallException
      */
-    protected function throwNegationException(string $method): never
+    private function throwNegationException(string $method): never
     {
         throw new LogicException(sprintf(
             'Method "%s" is not extendable by "Negation".',

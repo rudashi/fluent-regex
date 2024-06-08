@@ -6,7 +6,7 @@ namespace Rudashi;
 
 use LogicException;
 
-class Tokens
+final class Tokens
 {
     public function __construct(
         private readonly FluentBuilder $builder,
@@ -47,12 +47,12 @@ class Tokens
         return $this->addToken($first . '-' . $last);
     }
 
-    protected function throwLogicException(string $message): never
+    private function throwLogicException(string $message): never
     {
         throw new LogicException($message);
     }
 
-    protected function checkLetters(string $first, string $last): void
+    private function checkLetters(string $first, string $last): void
     {
         if (! in_array($first, range('a', 'y'), true)) {
             $this->throwLogicException('The first letter must be between [a-y].');
