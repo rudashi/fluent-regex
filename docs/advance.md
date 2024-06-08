@@ -8,7 +8,8 @@ previous-link: usage/patterns
 ---
 
 ## Advance
-Apart from basic tokens, the regular expression can be extended with appropriate modifiers or anchors. 
+
+Apart from basic tokens, the regular expression can be extended with appropriate modifiers or anchors.
 Additionally, some methods can be called by a property representative.
 
 ### Modifier flags
@@ -43,6 +44,7 @@ Additionally, some methods can be called by a property representative.
 ### Properties
 
 #### Tokens
+
 - letter
 - lowerLetter
 - number
