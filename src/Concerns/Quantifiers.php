@@ -8,6 +8,11 @@ use LogicException;
 use Rudashi\FluentBuilder;
 use Rudashi\Quantifier;
 
+/**
+ * @property static $zeroOrOne Adds a quantifier that matches once or never
+ * @property static $zeroOrMore Adds a quantifier that matches an infinitely many times or not at all
+ * @property static $oneOrMore Adds a quantifier that matches once or infinitely many times
+ */
 trait Quantifiers
 {
     /**

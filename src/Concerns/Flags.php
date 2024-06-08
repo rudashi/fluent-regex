@@ -7,6 +7,14 @@ namespace Rudashi\Concerns;
 use Rudashi\Flag;
 use Rudashi\FluentBuilder;
 
+/**
+ * @property static $ignoreCase Adds an ignore-case flag
+ * @property static $multiline Adds a multiline flag
+ * @property static $matchNewLine Adds a new line flag
+ * @property static $ignoreWhitespace Adds an ignore whitespace flag
+ * @property static $utf8 Adds a unicode flag
+ * @property static $unicode Adds a unicode flag
+ */
 trait Flags
 {
     /**

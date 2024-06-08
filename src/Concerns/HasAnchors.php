@@ -6,6 +6,12 @@ namespace Rudashi\Concerns;
 
 use Rudashi\FluentBuilder;
 
+/**
+ * @property static $start Adds the beginning of a string anchor
+ * @property static $startOfLine Adds the beginning of a string anchor
+ * @property static $end Adds the end of a string anchor
+ * @property static $endOfLine Adds the end of a string anchor
+ */
 trait HasAnchors
 {
     /**

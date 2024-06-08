@@ -215,6 +215,153 @@ describe('FluentBuilder', function () {
 });
 
 /**
+ * Built-in properties
+ */
+describe('Properties', function () {
+    it('allows property `letter` to be accessed', function () {
+        $regex = fluentBuilder()->letter;
+
+        expect($regex->get())
+            ->toBe('/[a-zA-Z]/');
+    });
+
+    it('allows property `lowerLetter` to be accessed', function () {
+        $regex = fluentBuilder()->lowerLetter;
+
+        expect($regex->get())
+            ->toBe('/[a-z]/');
+    });
+
+    it('allows property `number` to be accessed', function () {
+        $regex = fluentBuilder()->number;
+
+        expect($regex->get())
+            ->toBe('/[0-9]/');
+    });
+
+    it('allows property `numbers` to be accessed', function () {
+        $regex = fluentBuilder()->numbers;
+
+        expect($regex->get())
+            ->toBe('/[0-9]+/');
+    });
+
+    it('allows property `whitespace` to be accessed', function () {
+        $regex = fluentBuilder()->whitespace;
+
+        expect($regex->get())
+            ->toBe('/\s/');
+    });
+
+    it('allows property `nonWhitespace` to be accessed', function () {
+        $regex = fluentBuilder()->nonWhitespace;
+
+        expect($regex->get())
+            ->toBe('/\S/');
+    });
+
+    it('allows property `digit` to be accessed', function () {
+        $regex = fluentBuilder()->digit;
+
+        expect($regex->get())
+            ->toBe('/\d/');
+    });
+
+    it('allows property `digits` to be accessed', function () {
+        $regex = fluentBuilder()->digits;
+
+        expect($regex->get())
+            ->toBe('/\d+/');
+    });
+
+    it('allows property `nonDigit` to be accessed`', function () {
+        $regex = fluentBuilder()->nonDigit;
+
+        expect($regex->get())
+            ->toBe('/\D/');
+    });
+
+    it('allows property `nonDigits` to be accessed`', function () {
+        $regex = fluentBuilder()->nonDigits;
+
+        expect($regex->get())
+            ->toBe('/\D+/');
+    });
+
+    it('allows property `word` to be accessed`', function () {
+        $regex = fluentBuilder()->word;
+
+        expect($regex->get())
+            ->toBe('/\w/');
+    });
+
+    it('allows property `words` to be accessed`', function () {
+        $regex = fluentBuilder()->words;
+
+        expect($regex->get())
+            ->toBe('/\w+/');
+    });
+
+    it('allows property `tab` to be accessed`', function () {
+        $regex = fluentBuilder()->tab;
+
+        expect($regex->get())
+            ->toBe('/\t/');
+    });
+
+    it('allows property `carriageReturn` to be accessed`', function () {
+        $regex = fluentBuilder()->carriageReturn;
+
+        expect($regex->get())
+            ->toBe('/\r/');
+    });
+
+    it('allows property `newline` to be accessed`', function () {
+        $regex = fluentBuilder()->newline;
+
+        expect($regex->get())
+            ->toBe('/\n/');
+    });
+
+    it('allows property `linebreak` to be accessed`', function () {
+        $regex = fluentBuilder()->linebreak;
+
+        expect($regex->get())
+            ->toBe('/\r|\n/');
+    });
+
+    it('allows property `boundary` to be accessed`', function () {
+        $regex = fluentBuilder()->boundary;
+
+        expect($regex->get())
+            ->toBe('/\b/');
+    });
+
+    it('allows property `nonBoundary` to be accessed`', function () {
+        $regex = fluentBuilder()->nonBoundary;
+
+        expect($regex->get())
+            ->toBe('/\B/');
+    });
+
+    it('throw an exception when trying to access a token property', function (string $method) {
+        expect(fn () => fluentBuilder()->$method)
+            ->toThrow(
+                exception: LogicException::class,
+                exceptionMessage: 'Cannot access property "' . $method . '". Use the "' . $method . '()" method instead'
+            );
+    })->with([
+        'character',
+        'and',
+        'raw',
+        'exactly',
+        'find',
+        'then',
+        'anyOf',
+    ]);
+});
+
+/**
  * Delegate methods
  */
 describe('Tokens', function () {

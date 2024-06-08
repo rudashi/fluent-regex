@@ -62,3 +62,33 @@ it('thrown an exception when trying to invoke anchor twice', function (string $m
     ['end', 'end'],
     ['endOfLine', 'end'],
 ]);
+
+describe('Properties', function () {
+    it('allows property `start` to be accessed', function () {
+        $regex = fluentBuilder()->start;
+
+        expect($regex->get())
+            ->toBe('/^/');
+    });
+
+    it('allows property `startOfLine` to be accessed', function () {
+        $regex = fluentBuilder()->startOfLine;
+
+        expect($regex->get())
+            ->toBe('/^/');
+    });
+
+    it('allows property `end` to be accessed', function () {
+        $regex = fluentBuilder()->end;
+
+        expect($regex->get())
+            ->toBe('/$/');
+    });
+
+    it('allows property `endOfLine` to be accessed', function () {
+        $regex = fluentBuilder()->endOfLine;
+
+        expect($regex->get())
+            ->toBe('/$/');
+    });
+});

@@ -105,3 +105,38 @@ it('thrown an exception when trying to negate the quantifier', function (string 
     'min',
     'between',
 ]);
+
+describe('Properties', function () {
+    it('allows property `zeroOrOne` to be accessed', function () {
+        $regex = fluentBuilder()->word->zeroOrOne;
+
+        expect($regex->get())
+            ->toBe('/\w?/');
+    });
+
+    it('allows property `zeroOrMore` to be accessed', function () {
+        $regex = fluentBuilder()->word->zeroOrMore;
+
+        expect($regex->get())
+            ->toBe('/\w*/');
+    });
+
+    it('allows property `oneOrMore` to be accessed', function () {
+        $regex = fluentBuilder()->word->oneOrMore;
+
+        expect($regex->get())
+            ->toBe('/\w+/');
+    });
+
+    it('throw an exception when trying to access a quantifier property', function (string $method) {
+        expect(fn () => fluentBuilder()->$method)
+            ->toThrow(
+                exception: LogicException::class,
+                exceptionMessage: 'Cannot access property "' . $method . '". Use the "' . $method . '()" method instead'
+            );
+    })->with([
+        'times',
+        'min',
+        'between',
+    ]);
+});

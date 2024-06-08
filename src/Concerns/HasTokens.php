@@ -7,6 +7,16 @@ namespace Rudashi\Concerns;
 use Rudashi\FluentBuilder;
 use Rudashi\Tokens;
 
+/**
+ * @property static $letter Adds a letter
+ * @property static $lowerLetter Adds a lowercase letter
+ * @property static $whitespace Adds a whitespace token
+ * @property static $nonWhitespace Adds a non-whitespace token
+ * @property static $word Adds a word character token
+ * @property static $words Adds a word characters token
+ * @property static $boundary Adds a word boundary token
+ * @property static $nonBoundary Adds a non-word boundary token
+ */
 trait HasTokens
 {
     use HasGeneralTokens;

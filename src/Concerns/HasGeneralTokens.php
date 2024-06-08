@@ -6,6 +6,12 @@ namespace Rudashi\Concerns;
 
 use Rudashi\FluentBuilder;
 
+/**
+ * @property static $tab Adds a tab token
+ * @property static $carriageReturn Adds a carriage return token
+ * @property static $newline Adds a newline token
+ * @property static $linebreak Adds a line break token
+ */
 trait HasGeneralTokens
 {
     /**

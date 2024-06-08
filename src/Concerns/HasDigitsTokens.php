@@ -6,6 +6,14 @@ namespace Rudashi\Concerns;
 
 use Rudashi\FluentBuilder;
 
+/**
+ * @property static $number Adds a number
+ * @property static $numbers Adds a numbers
+ * @property static $digit Adds a digit token
+ * @property static $digits Adds a digits token
+ * @property static $nonDigit Adds a non-digit token
+ * @property static $nonDigits Adds a non-digits token
+ */
 trait HasDigitsTokens
 {
     /**
