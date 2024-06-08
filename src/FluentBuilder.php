@@ -15,6 +15,7 @@ use Rudashi\Concerns\Group;
 use Rudashi\Concerns\HasAnchors;
 use Rudashi\Concerns\HasTokens;
 use Rudashi\Concerns\Quantifiers;
+use Rudashi\Concerns\Returnable;
 use Rudashi\Contracts\PatternContract;
 
 /**
@@ -29,6 +30,7 @@ final class FluentBuilder
     use Dumpable;
     use Quantifiers;
     use Group;
+    use Returnable;
 
     /**
      * Regex delimiter value.
@@ -141,47 +143,6 @@ final class FluentBuilder
         $value = (string) $value;
 
         return $value !== '' ? preg_quote($value, '/') : $value;
-    }
-
-    /**
-     * Get the full regular expression pattern.
-     */
-    public function get(): string
-    {
-        if ($this->isSub) {
-            return implode('', $this->pattern);
-        }
-
-        return implode('', [
-            ...$this->anchors->getPrefix(),
-            ...$this->pattern,
-            ...$this->anchors->getSuffix(),
-            ...$this->modifiers,
-        ]);
-    }
-
-    /**
-     * Determines whether the context matches a given pattern.
-     */
-    public function check(): bool
-    {
-        if (implode('', $this->pattern) === '') {
-            return false;
-        }
-
-        return preg_match($this->get(), $this->context) > 0;
-    }
-
-    /**
-     * Returns an array of strings matching the given pattern.
-     *
-     * @return array<int, string>
-     */
-    public function match(): array
-    {
-        preg_match_all($this->get(), $this->context, $matches);
-
-        return $matches[0] ?? [];
     }
 
     /**
