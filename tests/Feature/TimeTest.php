@@ -80,7 +80,7 @@ describe('predefined TIME pattern', function () {
     });
 
     it('validates', function (string $context, bool $expectation) {
-        $regex = $this->builder->setContext($context)->start()->time()->end();
+        $regex = $this->builder->addContext($context)->start()->time()->end();
 
         expect($regex->check())
             ->toBe($expectation);
@@ -90,7 +90,7 @@ describe('predefined TIME pattern', function () {
         $context = "Meetings are set for 08:30 and 14:45:15. Lunch break at 12:00 PM. Early risers can join \n
         the 06:00 workout. Dinner is scheduled for 17:00PM. Conference calls at 11:00AM, 16:00, and 18:30.";
 
-        $regex = $this->builder->setContext($context)->time();
+        $regex = $this->builder->addContext($context)->time();
 
         expect($regex->match())
             ->toHaveCount(7)

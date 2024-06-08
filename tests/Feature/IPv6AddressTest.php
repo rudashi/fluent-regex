@@ -68,7 +68,7 @@ describe('predefined IP ADDRESS pattern', function () {
     });
 
     it('validates', function (string $context, bool $expectation) {
-        $regex = $this->builder->setContext($context)->start()->ipv6()->end();
+        $regex = $this->builder->addContext($context)->start()->ipv6()->end();
 
         expect($regex->check())
             ->toBe($expectation);
@@ -80,7 +80,7 @@ describe('predefined IP ADDRESS pattern', function () {
         I found while browsing tech news. My friend uses a server with the address fe80:0000:0000:0000:1ff:fe23:4567:890a in \n
         his home network. On my laptop, I configured the IPv6 address: 2001:0db8:1234:0000:0000:0000:0000:0001.";
 
-        $regex = $this->builder->setContext($context)->ipv6();
+        $regex = $this->builder->addContext($context)->ipv6();
 
         expect($regex->match())
             ->toHaveCount(3)

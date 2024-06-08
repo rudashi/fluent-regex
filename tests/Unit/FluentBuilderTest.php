@@ -7,7 +7,7 @@ use Rudashi\Negate;
 use Rudashi\Patterns\EmailPattern;
 
 it('can add context to the builder', function () {
-    $regex = fluentBuilder()->setContext('test');
+    $regex = fluentBuilder()->addContext('test');
 
     try {
         $reflectProperty = (new ReflectionClass($regex))->getProperty('context')->getValue($regex);
@@ -19,10 +19,10 @@ it('can add context to the builder', function () {
 });
 
 it('threw an exception when use `context` on sub pattern', function () {
-    expect(fn () => fluentBuilder(true)->setContext('test'))
+    expect(fn () => fluentBuilder(true)->addContext('test'))
         ->toThrow(
             exception: LogicException::class,
-            exceptionMessage: 'Method "setContext" is not acceptable in sub patterns.'
+            exceptionMessage: 'Method "addContext" is not acceptable in sub patterns.'
         );
 });
 
@@ -263,7 +263,7 @@ describe('returning results', function () {
     });
 
     it('can validate context against pattern', function (string $value, bool $expectation) {
-        $regex = fluentBuilder()->setContext('abc')->exactly($value);
+        $regex = fluentBuilder()->addContext('abc')->exactly($value);
 
         expect($regex->check())
             ->toBe($expectation);
@@ -275,7 +275,7 @@ describe('returning results', function () {
     ]);
 
     it('returns a string matching from the context', function () {
-        $regex = fluentBuilder()->setContext('abca')->exactly('a');
+        $regex = fluentBuilder()->addContext('abca')->exactly('a');
 
         expect($regex->match())
             ->toHaveCount(2)

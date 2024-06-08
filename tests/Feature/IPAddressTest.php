@@ -55,7 +55,7 @@ describe('predefined IP ADDRESS pattern', function () {
     });
 
     it('validates', function (string $context, bool $expectation) {
-        $regex = $this->builder->setContext($context)->start()->ipAddress()->end();
+        $regex = $this->builder->addContext($context)->start()->ipAddress()->end();
 
         expect($regex->check())
             ->toBe($expectation);
@@ -66,7 +66,7 @@ describe('predefined IP ADDRESS pattern', function () {
         traffic from 198.51.100.23 was unusual. Our firewall recorded an attempt to connect to the address 192.0.2.16. 
         Finally, the device with the address 172.20.10.5 exhibited unknown behavior!";
 
-        $regex = $this->builder->setContext($context)->ipAddress();
+        $regex = $this->builder->addContext($context)->ipAddress();
 
         expect($regex->match())
             ->toHaveCount(4)

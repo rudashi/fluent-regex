@@ -26,7 +26,7 @@ it('thrown an exception if the property has no method assigned', function (strin
     'get',
     'check',
     'match',
-    'setContext',
+    'addContext',
     'oneOf',
     'or',
     'anything',

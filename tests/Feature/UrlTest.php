@@ -63,7 +63,7 @@ describe('predefined URL pattern', function () {
     });
 
     it('validates', function (string $context, bool $expectation) {
-        $regex = $this->builder->setContext($context)->start()->url()->end();
+        $regex = $this->builder->addContext($context)->start()->url()->end();
 
         expect($regex->check())
             ->toBe($expectation);
@@ -73,7 +73,7 @@ describe('predefined URL pattern', function () {
         $context = "Find the best business solutions at http://develop-yourself.com. Need some inspiration? Visit \n
         www.creative-business.com. And if you're looking for entertainment, check out https://creative-hobbies.com!";
 
-        $regex = $this->builder->setContext($context)->url();
+        $regex = $this->builder->addContext($context)->url();
 
         expect($regex->match())
             ->toHaveCount(2)

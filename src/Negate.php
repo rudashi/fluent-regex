@@ -20,7 +20,7 @@ final class Negate
         // FluentBuilder
         'check',
         'match',
-        'setContext',
+        'addContext',
         'oneOf',
         'or',
         'anything',

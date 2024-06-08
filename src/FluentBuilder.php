@@ -197,7 +197,7 @@ final class FluentBuilder
     /**
      * Sets the context to the builder instance.
      */
-    public function setContext(string $string): static
+    public function addContext(string $string): self
     {
         if ($this->isSub) {
             throw new LogicException(

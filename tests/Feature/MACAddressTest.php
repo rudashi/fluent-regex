@@ -60,7 +60,7 @@ describe('predefined MAC ADDRESS pattern', function () {
     });
 
     it('validates', function (string $context, bool $expectation) {
-        $regex = $this->builder->setContext($context)->start()->macAddress()->end();
+        $regex = $this->builder->addContext($context)->start()->macAddress()->end();
 
         expect($regex->check())
             ->toBe($expectation);
@@ -74,7 +74,7 @@ describe('predefined MAC ADDRESS pattern', function () {
         The last example of a MAC address is CC-DD-EE-FF-00-11-aa.";
 
         $regex = $this->builder
-            ->setContext($context)
+            ->addContext($context)
             ->boundary()
             ->macAddress()
             ->boundary();

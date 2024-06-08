@@ -66,7 +66,7 @@ describe('predefined DATE pattern', function () {
     });
 
     it('validates', function (string $context, bool $expectation) {
-        $regex = $this->builder->setContext($context)->start()->date()->end();
+        $regex = $this->builder->addContext($context)->start()->date()->end();
 
         expect($regex->check())
             ->toBe($expectation);
@@ -77,7 +77,7 @@ describe('predefined DATE pattern', function () {
         07/14/2005. My parents got married on 1985/03/29. Our vacation starts on 6-15-2023. The project deadline \n
         is 03:10:2024.";
 
-        $regex = $this->builder->setContext($context)->date();
+        $regex = $this->builder->addContext($context)->date();
 
         expect($regex->match())
             ->toHaveCount(5)

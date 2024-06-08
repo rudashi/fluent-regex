@@ -54,7 +54,7 @@ describe('predefined EMAIL pattern', function () {
     });
 
     it('validates', function (string $context, bool $expectation) {
-        $regex = $this->builder->setContext($context)->start()->email()->end();
+        $regex = $this->builder->addContext($context)->start()->email()->end();
 
         expect($regex->check())
             ->toBe($expectation);
@@ -67,7 +67,7 @@ describe('predefined EMAIL pattern', function () {
         addressed promptly and with the utmost care. Thank you for your trust, and we look forward to \n
         collaborating with you.";
 
-        $regex = $this->builder->setContext($context)->email();
+        $regex = $this->builder->addContext($context)->email();
 
         expect($regex->match())
             ->toHaveCount(3)

@@ -57,14 +57,14 @@ describe('predefined CARDS pattern', function () {
     });
 
     it('validates', function (string $context, bool $expectation) {
-        $regex = $this->builder->setContext($context)->start()->{'credit-card'}()->end();
+        $regex = $this->builder->addContext($context)->start()->{'credit-card'}()->end();
 
         expect($regex->check())
             ->toBe($expectation);
     })->with('cards');
 
     it('use alias', function (string $context, bool $expectation) {
-        $regex = $this->builder->setContext($context)->start()->creditCard()->end();
+        $regex = $this->builder->addContext($context)->start()->creditCard()->end();
 
         expect($regex->check())
             ->toBe($expectation);
@@ -75,7 +75,7 @@ describe('predefined CARDS pattern', function () {
         card number 4482483806051485 and 5306940803297966 need immediate attention to avoid any disruption \n
         to your services. Thank you for your cooperation.";
 
-        $regex = $this->builder->setContext($context)->creditCard();
+        $regex = $this->builder->addContext($context)->creditCard();
 
         expect($regex->match())
             ->toHaveCount(2)
