@@ -4,7 +4,6 @@ parameters:
     - tests
   level: 9
   ignoreErrors:
-    - '#Unsafe usage of new static#'
     - '#Call to an undefined method Pest\\Mixins\\Expectation#'
     -
         message: '#Undefined variable: \$this.*#'
