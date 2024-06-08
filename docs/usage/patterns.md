@@ -21,7 +21,7 @@ Each pattern must be registered before use. There are several ways to do this.
 Use `Regex::build()`:
 
 ```php
-\Rudashi\Regex::build([
+Rudashi\Regex::build([
     PredefinedPattern::class,
 ]);
 ```
@@ -29,14 +29,15 @@ Use `Regex::build()`:
 Create new `FluentBuilder` instance:
 
 ```php
-new \Rudashi\FluentBuilder([
+new Rudashi\FluentBuilder([
     PredefinedPattern::class,
 ]);
 ```
 
 ### `Date`
 
-To identify whether a given text contains IP version 4 addresses, you can use the predefined `IPAddressPattern` pattern. The pattern only identifies **IPv4**-compliant addresses
+If you need to find a date in text, you can use the predefined `DatePattern` pattern. The pattern identifies dates in the 
+formats `mm-dd-yyyy`, `dd-mm-yyyy`, `yyyy-mm-dd`, regardless of whether a backslash `/`, dot `.`, or dash `-` is used.
 
 ```php
 use Rudashi\Regex;
@@ -45,18 +46,31 @@ $pattern = Regex::build([Rudashi\Patterns\DatePattern::class])
     ->start()
     ->date()
     ->end();
- 
-// /^$/
-```
+ ```
 
-### `IPv4 address`
+### `Time`
 
-To identify whether a given text contains IP version 4 addresses, you can use the predefined `IPAddressPattern` pattern. The pattern only identifies **IPv4**-compliant addresses
+When you need to check whether a given text contains timestamps, you can use the predefined `TimePattern` pattern. This pattern identifies 12-hour and 24-hour time.
 
 ```php
 use Rudashi\Regex;
  
-$pattern = Regex::build([\Rudashi\Patterns\IPAddressPattern::class])
+$pattern = Regex::build([Rudashi\Patterns\TimePattern::class])
+    ->start()
+    ->time()
+    ->end();
+ 
+// /^(?<!\d)(?:(?:[01]?\d|2[0-3]):(?:[0-5]\d)(?::(?:[0-5]\d))?(?! ?[AaPp][Mm])|(?:0?[1-9]|1[0-2]):(?:[0-5]\d)(?: ?[AaPp][Mm])?)$/
+```
+
+### `IPv4 address`
+
+To identify whether a given text contains IP version 4 addresses, you can use the predefined `IPAddressPattern` pattern. The pattern only identifies **IPv4**-compliant addresses.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build([Rudashi\Patterns\IPAddressPattern::class])
     ->start()
     ->ipAddress()
     ->end();
@@ -87,7 +101,7 @@ The pattern can distinguish addresses that use not only the default colon `:`, b
 ```php
 use Rudashi\Regex;
  
-$pattern = Regex::build([\Rudashi\Patterns\MACAddressPattern::class])
+$pattern = Regex::build([Rudashi\Patterns\MACAddressPattern::class])
     ->start()
     ->macAddress()
     ->end();
@@ -102,7 +116,7 @@ To verify whether an e-mail address is included in a given text, you can use the
 ```php
 use Rudashi\Regex;
  
-$pattern = Regex::build([\Rudashi\Patterns\EmailPattern::class])
+$pattern = Regex::build([Rudashi\Patterns\EmailPattern::class])
     ->start()
     ->email()
     ->end();
@@ -117,7 +131,7 @@ To check whether a given text contains a website, you can use the predefined `Ur
 ```php
 use Rudashi\Regex;
  
-$pattern = Regex::build([\Rudashi\Patterns\UrlPattern::class])
+$pattern = Regex::build([Rudashi\Patterns\UrlPattern::class])
     ->start()
     ->url()
     ->end();
@@ -132,7 +146,7 @@ To find if there is any credit card number in a given text, you can use the pred
 ```php
 use Rudashi\Regex;
  
-$pattern = Regex::build([\Rudashi\Patterns\CreditCardPattern::class])
+$pattern = Regex::build([Rudashi\Patterns\CreditCardPattern::class])
     ->start()
     ->creditCard()
     ->end();

@@ -59,7 +59,7 @@ use Rudashi\Regex;
  
 $pattern = Regex::build()->maybe(0);
  
-// /(0?/
+// /(0?)/
 ```
 
 ### `oneOf`

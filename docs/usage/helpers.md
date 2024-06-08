@@ -30,7 +30,7 @@ You may also pass an array of predefined patterns to use in a given context stri
 use Rudashi\Regex;
  
 $builder = Regex::build([
-    \Rudashi\Patterns\EmailPattern::class,
+    Rudashi\Patterns\EmailPattern::class,
 ]);
 ```
 

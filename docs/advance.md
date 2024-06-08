@@ -8,6 +8,8 @@ previous-link: usage/patterns
 ---
 
 ## Advance
+Apart from basic tokens, the regular expression can be extended with appropriate modifiers or anchors. 
+Additionally, some methods can be called by a property representative.
 
 ### Modifier flags
 
@@ -37,3 +39,50 @@ previous-link: usage/patterns
 ### Negation
 
 - [`not`](advance/negation#not)
+
+### Properties
+
+#### Tokens
+- letter
+- lowerLetter
+- number
+- numbers
+- whitespace
+- nonWhitespace
+- digit
+- digits
+- nonDigit
+- nonDigits
+- word
+- words
+- tab
+- carriageReturn
+- newline
+- linebreak
+- boundary
+- nonBoundary
+- or
+- anything
+- not
+
+#### Quantifiers
+
+- zeroOrOne
+- zeroOrMore
+- oneOrMore
+
+#### Anchors
+
+- start
+- startOfLine
+- end
+- endOfLine
+
+#### Flags
+
+- ignoreCase
+- multiline
+- matchNewLine
+- ignoreWhitespace
+- utf8
+- unicode
