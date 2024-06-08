@@ -9,6 +9,9 @@ use Rudashi\Tokens;
 
 trait HasTokens
 {
+    use HasGeneralTokens;
+    use HasDigitsTokens;
+
     /**
      * Adds a character.
      */
@@ -80,25 +83,6 @@ trait HasTokens
     }
 
     /**
-     * Adds a number.
-     * Matches any character between 0 and 9.
-     */
-    public function number(int $min = 0, int $max = 9): FluentBuilder
-    {
-        return $this->addToken()->number($min, $max);
-    }
-
-    /**
-     * Adds a numbers.
-     */
-    public function numbers(): FluentBuilder
-    {
-        $this->pushToPattern('[0-9]+');
-
-        return $this;
-    }
-
-    /**
      * Adds a whitespace token.
      */
     public function whitespace(): FluentBuilder
@@ -114,50 +98,6 @@ trait HasTokens
     public function nonWhitespace(): FluentBuilder
     {
         $this->pushToPattern('\S');
-
-        return $this;
-    }
-
-    /**
-     * Adds a digit token.
-     * Equivalent to `[0-9]`.
-     */
-    public function digit(): FluentBuilder
-    {
-        $this->pushToPattern('\d');
-
-        return $this;
-    }
-
-    /**
-     * Adds a digits token.
-     * Equivalent to `[0-9]+`.
-     */
-    public function digits(): FluentBuilder
-    {
-        $this->pushToPattern('\d+');
-
-        return $this;
-    }
-
-    /**
-     * Adds a non-digit token.
-     * Matches anything other than a digit.
-     */
-    public function nonDigit(): FluentBuilder
-    {
-        $this->pushToPattern('\D');
-
-        return $this;
-    }
-
-    /**
-     * Adds a non-digits token.
-     * Matches anything other than a digits.
-     */
-    public function nonDigits(): FluentBuilder
-    {
-        $this->pushToPattern('\D+');
 
         return $this;
     }
@@ -196,46 +136,6 @@ trait HasTokens
         }
 
         $this->pushToPattern('[' . addcslashes((string) $value, '/') . ']');
-
-        return $this;
-    }
-
-    /**
-     * Adds a tab token.
-     */
-    public function tab(): FluentBuilder
-    {
-        $this->pushToPattern('\t');
-
-        return $this;
-    }
-
-    /**
-     * Adds a carriage return token.
-     */
-    public function carriageReturn(): FluentBuilder
-    {
-        $this->pushToPattern('\r');
-
-        return $this;
-    }
-
-    /**
-     * Adds a newline token.
-     */
-    public function newline(): FluentBuilder
-    {
-        $this->pushToPattern('\n');
-
-        return $this;
-    }
-
-    /**
-     * Adds a line break token.
-     */
-    public function linebreak(): FluentBuilder
-    {
-        $this->carriageReturn()->or->newline();
 
         return $this;
     }
