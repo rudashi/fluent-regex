@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenTraits;
+use PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff;
+use SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff;
+
 return [
 
     /*
@@ -61,15 +65,15 @@ return [
     ],
 
     'remove' => [
-        \NunoMaduro\PhpInsights\Domain\Insights\ForbiddenTraits::class,
+        ForbiddenTraits::class,
     ],
 
     'config' => [
-        \PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff::class => [
+        LineLengthSniff::class => [
             'lineLimit' => 120,
             'absoluteLineLimit' => 160,
         ],
-        \SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff::class => [
+        UnusedParameterSniff::class => [
             'exclude' => [
                 'src/FluentBuilder.php',
             ],
