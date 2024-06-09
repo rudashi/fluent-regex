@@ -41,18 +41,4 @@ trait Group
     {
         return $this->capture($callback);
     }
-
-    /**
-     * Adds optional captures to the pattern array.
-     *
-     * @param  callable(\Rudashi\FluentBuilder):\Rudashi\FluentBuilder|string|int  $callback
-     */
-    public function maybe(callable|string|int $callback): FluentBuilder
-    {
-        if (is_callable($callback)) {
-            return $this->capture($callback)->zeroOrOne();
-        }
-
-        return $this->character($callback)->zeroOrOne();
-    }
 }

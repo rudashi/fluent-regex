@@ -171,6 +171,18 @@ trait HasTokens
     }
 
     /**
+     * Adds optional captures to the pattern array.
+     *
+     * @param  callable(\Rudashi\FluentBuilder):\Rudashi\FluentBuilder|string|int  $callback
+     */
+    public function maybe(callable|string|int $callback): FluentBuilder
+    {
+        is_callable($callback) ? $this->capture($callback) : $this->character($callback);
+
+        return $this->zeroOrOne();
+    }
+
+    /**
      * Adds a token to the pattern.
      */
     private function addToken(): Tokens
