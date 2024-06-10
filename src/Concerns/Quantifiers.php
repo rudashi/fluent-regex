@@ -20,9 +20,7 @@ trait Quantifiers
      */
     public function zeroOrOne(): FluentBuilder
     {
-        $this->pushToPattern(Quantifier::ZERO_OR_ONE);
-
-        return $this;
+        return $this->pushToPattern(Quantifier::ZERO_OR_ONE);
     }
 
     /**
@@ -30,9 +28,7 @@ trait Quantifiers
      */
     public function zeroOrMore(): FluentBuilder
     {
-        $this->pushToPattern(Quantifier::ZERO_OR_MORE);
-
-        return $this;
+        return $this->pushToPattern(Quantifier::ZERO_OR_MORE);
     }
 
     /**
@@ -40,9 +36,7 @@ trait Quantifiers
      */
     public function oneOrMore(): FluentBuilder
     {
-        $this->pushToPattern(Quantifier::ONE_OR_MORE);
-
-        return $this;
+        return $this->pushToPattern(Quantifier::ONE_OR_MORE);
     }
 
     /**
@@ -54,9 +48,7 @@ trait Quantifiers
             $this->throwNegativeIntegerException('number');
         }
 
-        $this->pushToPattern('{' . $number . '}');
-
-        return $this;
+        return $this->pushToPattern('{' . $number . '}');
     }
 
     /**
@@ -64,31 +56,23 @@ trait Quantifiers
      */
     public function min(int $number): FluentBuilder
     {
-        if ($number < 0) {
-            $this->throwNegativeIntegerException('number');
-        }
-
-        $this->between($number);
-
-        return $this;
+        return $this->between($number);
     }
 
     /**
      * Adds a quantifier that matches between two given values.
      */
-    public function between(int $min, int|null $max = null): FluentBuilder
+    public function between(int $min, int $max = 0): FluentBuilder
     {
         if ($min < 0) {
             $this->throwNegativeIntegerException('min');
         }
 
-        if ($max !== null && $max < 0) {
+        if ($max < 0) {
             $this->throwNegativeIntegerException('max');
         }
 
-        $this->pushToPattern('{' . $min . ',' . $max . '}');
-
-        return $this;
+        return $this->pushToPattern('{' . $min . ',' . ($max > 0 ? $max : '') . '}');
     }
 
     /**
