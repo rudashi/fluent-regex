@@ -63,7 +63,7 @@ it('threw an exception when the parameter is a negative number for the `min` qua
     expect(fn () => fluentBuilder()->word()->min(-1))
         ->toThrow(
             exception: LogicException::class,
-            exceptionMessage: 'The "number" parameter must be a positive integer.'
+            exceptionMessage: 'The "min" parameter must be a positive integer.'
         );
 });
 
