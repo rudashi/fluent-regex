@@ -9,8 +9,9 @@ previous-link: usage/others
 
 ## Patterns
 
-**`Fluent Regex`** contains a set of predefined patterns for standard validation tasks. These patterns are designed to be simple and easy to use, just use them.  
-Ready-to-use patterns can be invoked by calling the appropriate method in the FluentBuilder class.
+**`Fluent Regex`** contains a set of predefined patterns for standard validation tasks. 
+These patterns are designed to be simple and easy to use, just use them.  
+Ready-to-use patterns can be invoked by calling the appropriate method in the `FluentBuilder` class.
 
 > **Remember:** Before using ready-made patterns, they must be registered.
 
@@ -50,7 +51,8 @@ $pattern = Regex::build([Rudashi\Patterns\DatePattern::class])
 
 ### `Time`
 
-When you need to check whether a given text contains timestamps, you can use the predefined `TimePattern` pattern. This pattern identifies 12-hour and 24-hour time.
+When you need to check whether a given text contains timestamps, you can use the predefined `TimePattern` pattern. 
+This pattern identifies 12-hour and 24-hour time.
 
 ```php
 use Rudashi\Regex;
@@ -65,7 +67,8 @@ $pattern = Regex::build([Rudashi\Patterns\TimePattern::class])
 
 ### `IPv4 address`
 
-To identify whether a given text contains IP version 4 addresses, you can use the predefined `IPAddressPattern` pattern. The pattern only identifies **IPv4**-compliant addresses.
+To identify whether a given text contains IP version 4 addresses, you can use the predefined `IPAddressPattern` pattern. 
+The pattern only identifies **IPv4**-compliant addresses.
 
 ```php
 use Rudashi\Regex;
@@ -80,7 +83,8 @@ $pattern = Regex::build([Rudashi\Patterns\IPAddressPattern::class])
 
 ### `IPv6 address`
 
-You can use the predefined `IPv6AddressPattern` pattern to find whether a given text contains IP addresses. This pattern can only find addresses that match **IPv6**.
+You can use the predefined `IPv6AddressPattern` pattern to find whether a given text contains IP addresses. 
+This pattern can only find addresses that match **IPv6**.
 
 ```php
 use Rudashi\Regex;
@@ -111,7 +115,8 @@ $pattern = Regex::build([Rudashi\Patterns\MACAddressPattern::class])
 
 ### `Email`
 
-To verify whether an e-mail address is included in a given text, you can use the predefined `EmailPattern` pattern. It will allow you not only to check whether the e-mail is correct but also to isolate it.
+To verify whether an e-mail address is included in a given text, you can use the predefined `EmailPattern` pattern. 
+It will allow you not only to check whether the e-mail is correct but also to isolate it.
 
 ```php
 use Rudashi\Regex;
@@ -126,7 +131,8 @@ $pattern = Regex::build([Rudashi\Patterns\EmailPattern::class])
 
 ### `Url`
 
-To check whether a given text contains a website, you can use the predefined `UrlPattern` pattern. It only accepts addresses with the **http** or https **protocol** entered.
+To check whether a given text contains a website, you can use the predefined `UrlPattern` pattern. 
+It only accepts addresses with the **http** or https **protocol** entered.
 
 ```php
 use Rudashi\Regex;
@@ -141,7 +147,8 @@ $pattern = Regex::build([Rudashi\Patterns\UrlPattern::class])
 
 ### `Credit card`
 
-To find if there is any credit card number in a given text, you can use the predefined `CreditCardPattern` pattern. The pattern identifies **Visa** and **MasterCard** cards.
+To find if there is any credit card number in a given text, you can use the predefined `CreditCardPattern` pattern. 
+The pattern identifies **Visa** and **MasterCard** cards.
 
 ```php
 use Rudashi\Regex;

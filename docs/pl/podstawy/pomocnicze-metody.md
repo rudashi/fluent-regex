@@ -24,10 +24,19 @@ $builder = Regex::build();
 // Rudashi\FluentBuilder
 ```
 
+Można również przekazać tablicę predefiniowanych wzorców do użycia w danym ciągu kontekstowym:
+
+```php
+use Rudashi\Regex;
+ 
+$builder = Regex::build([
+    Rudashi\Patterns\EmailPattern::class,
+]);
+```
+
 ### `for`
 
-Metoda `for` dodaje kontekst dla instancji `Rudashi\FluentBuilder`. Będzie to tekst, na którym chcesz, żeby wyrażenie
-regularne zadziałało.
+Metoda `for` dodaje kontekst dla instancji `Rudashi\FluentBuilder`. Będzie to tekst, na którym chcesz, żeby wyrażenie regularne zadziałało.
 
 ```php
 use Rudashi\Regex;

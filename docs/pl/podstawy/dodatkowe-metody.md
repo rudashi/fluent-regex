@@ -9,11 +9,11 @@ previous-link: podstawy/pomocnicze-metody
 
 ## Dodatkowe metody
 
-The `FluentBuilder` must be initialized before using tokens. Use one of the above [helper](pomocnicze-metody.md) methods to do this.  Tokens can be chained to create increasingly complex regular expressions.
+Przed użyciem tokenów należy zainicjować `FluentBuilder`. W tym celu należy użyć jednej z [metod pomocnicznych](pomocnicze-metody.md).  Tokeny mogą być łączone w łańcuchy, tworząc coraz bardziej złożone wyrażenia regularne.
 
 ### `anything`
 
-The `anything` method matches any characters.
+Metoda `anything` dopasowuje dowolne znaki.
 
 ```php
 use Rudashi\Regex;
@@ -25,7 +25,7 @@ $pattern = Regex::build()->anything();
 
 ### `character`
 
-The `character` method literally matches the given character.
+Metoda `character` dosłownie dopasowuje podany znak.
 
 ```php
 use Rudashi\Regex;
@@ -37,7 +37,7 @@ $pattern = Regex::build()->character('-');
 
 ### `and`
 
-The `and` method is an alias for the `character` method.
+Metoda `and` jest aliasem dla metody `character`.
 
 ```php
 use Rudashi\Regex;
@@ -49,7 +49,7 @@ $pattern = Regex::build()->and('-');
 
 ### `raw`
 
-The `raw` method is an alias for the `character` method.
+Metoda `raw` jest aliasem dla metody `character`.
 
 ```php
 use Rudashi\Regex;
@@ -61,7 +61,7 @@ $pattern = Regex::build()->raw('-');
 
 ### `exactly`
 
-The `exactly` method literally matches the given string.
+Metoda `exactly` dosłownie dopasowuje podany ciąg znaków.
 
 ```php
 use Rudashi\Regex;
@@ -71,7 +71,7 @@ $pattern = Regex::build()->exactly('foo');
 // /foo/
 ```
 
-Special characters are additionally escaped.
+Znaki specjalne są dodatkowo unikane.
 
 ```php
 use Rudashi\Regex;
@@ -83,7 +83,7 @@ $pattern = Regex::build()->exactly('._%+-[]');
 
 ### `find`
 
-The `find` method is an alias for the `exactly` method.
+Metoda `find` jest aliasem dla metody `exactly`.
 
 ```php
 use Rudashi\Regex;
@@ -95,7 +95,7 @@ $pattern = Regex::build()->find('foo');
 
 ### `then`
 
-The `then` method is an alias for the `exactly` method.
+Metoda `then` jest aliasem dla metody `exactly`.
 
 ```php
 use Rudashi\Regex;
@@ -107,7 +107,7 @@ $pattern = Regex::build()->then('foo');
 
 ### `letter`
 
-The `letter` method matches any single letter, regardless of whether it is lowercase or uppercase.
+Metoda `letter` dopasowuje każdą pojedynczą literę, niezależnie od tego czy jest ona mała czy wielka.
 
 ```php
 use Rudashi\Regex;
@@ -119,7 +119,7 @@ $pattern = Regex::build()->letter();
 
 ### `lowerLetter`
 
-The `lowerLetter` method matches any single lowercase letter.
+Metoda `lowerLetter` dopasowuje każdą pojedynczą małą literę.
 
 ```php
 use Rudashi\Regex;
@@ -131,7 +131,7 @@ $pattern = Regex::build()->lowerLetter();
 
 ### `number`
 
-The `number` method matches any single number (equivalent to `\d`).
+Metoda `number` dopasowuje dowolną pojedynczą liczbę (odpowiednik `\d`).
 
 ```php
 use Rudashi\Regex;
@@ -143,7 +143,7 @@ $pattern = Regex::build()->number();
 
 ### `numbers`
 
-The `numbers` method matches all numbers.
+Metoda `numbers` dopasowuje wszystkie liczby.
 
 ```php
 use Rudashi\Regex;
@@ -155,7 +155,7 @@ $pattern = Regex::build()->numbers();
 
 ### `whitespace`
 
-The `whitespace` method matches any whitespace character (equivalent to [\r\n\t\f\v ]).
+Metoda `whitespace` dopasowuje dowolny biały znak (odpowiednik [\r\n\t\f\v ]).
 
 ```php
 use Rudashi\Regex;
@@ -167,7 +167,7 @@ $pattern = Regex::build()->whitespace();
 
 ### `nonWhitespace`
 
-The `nonWhitespace` method matches any non-whitespace character.
+Metoda `nonWhitespace` dopasowuje każdy znak niebędący białym znakiem.
 
 ```php
 use Rudashi\Regex;
@@ -179,7 +179,7 @@ $pattern = Regex::build()->nonWhitespace();
 
 ### `digit`
 
-The `digit` method matches any single digit (equivalent to [0-9]).
+Metoda `digit` dopasowuje dowolną pojedynczą cyfrę (odpowiednik [0-9]).
 
 ```php
 use Rudashi\Regex;
@@ -191,7 +191,7 @@ $pattern = Regex::build()->digit();
 
 ### `digits`
 
-The `digits` method matches all digits.
+Metoda `digits` dopasowuje wszystkie cyfry.
 
 ```php
 use Rudashi\Regex;
@@ -203,7 +203,7 @@ $pattern = Regex::build()->digits();
 
 ### `nonDigit`
 
-The `nonDigit` method matches any single character that is not a digit (equivalent to [^0-9]).
+Metoda `nonDigit` dopasowuje każdy pojedynczy znak, który nie jest cyfrą (odpowiednik [^0-9]).
 
 ```php
 use Rudashi\Regex;
@@ -215,7 +215,7 @@ $pattern = Regex::build()->nonDigit();
 
 ### `nonDigits`
 
-The `nonDigits` method matches all non-digit characters.
+Metoda `nonDigits` dopasowuje wszystkie znaki nie będące cyfra.
 
 ```php
 use Rudashi\Regex;
@@ -227,7 +227,7 @@ $pattern = Regex::build()->nonDigits();
 
 ### `word`
 
-The `word` method matches any word character (equivalent to [a-zA-Z0-9_]).
+Metoda `word` dopasowuje dowolny znak słowa (odpowiednik [a-zA-Z0-9_]).
 
 ```php
 use Rudashi\Regex;
@@ -239,7 +239,7 @@ $pattern = Regex::build()->word();
 
 ### `words`
 
-The `words` method matches all words characters.
+Metoda `words` dopasowuje wszystkie znaki słów.
 
 ```php
 use Rudashi\Regex;
@@ -249,9 +249,33 @@ $pattern = Regex::build()->words();
 // /\w+/
 ```
 
+### `boundary`
+
+Metoda `boundary` pozwala na dopasowanie tylko całych słów bez zużywania żadnego znaku (odpowiednik (^\w|\w$|\W\w|\w\W)).
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->boundary();
+ 
+// /\b/
+```
+
+### `nonBoundary`
+
+Metoda `nonBoundary` pasuje do każdej pozycji, gdzie `boundary` nie pasuje.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->nonBoundary();
+ 
+// /\B/
+```
+
 ### `anyOf`
 
-The `anyOf` method matches any single characters present in the given string.
+Metoda `anyOf` dopasowuje dowolne pojedyncze znaki obecne w podanym ciągu znaków.
 
 ```php
 use Rudashi\Regex;
@@ -263,7 +287,7 @@ $pattern = Regex::build()->anyOf('abc');
 
 ### `tab`
 
-The `tab` method matches a tab character.
+Metoda `tab` dopasowuje znak tabulatora.
 
 ```php
 use Rudashi\Regex;
@@ -275,7 +299,7 @@ $pattern = Regex::build()->tab();
 
 ### `carriageReturn`
 
-The `carriageReturn` method matches a carriage return.
+Metoda `carriageReturn` dopasowuje powrót karetki (carriage).
 
 ```php
 use Rudashi\Regex;
@@ -287,7 +311,7 @@ $pattern = Regex::build()->carriageReturn();
 
 ### `newline`
 
-The `newline` method matches a line-feed character (newline).
+Metoda `newline` dopasowuje znak końca linii (newline).
 
 ```php
 use Rudashi\Regex;
@@ -299,7 +323,7 @@ $pattern = Regex::build()->newline();
 
 ### `linebreak`
 
-The `linebreak` method matches a carriage return or newline.
+Metoda `linebreak` dopasowuje powrót karetki lub nową linię.
 
 ```php
 use Rudashi\Regex;

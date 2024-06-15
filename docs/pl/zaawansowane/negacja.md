@@ -11,7 +11,7 @@ previous-link: zaawansowane/wyniki
 
 ### `not`
 
-The `not` method negates the next expression.
+Metoda `not` neguje następne wyrażenie.
 
 ```php
 use Rudashi\Regex;
@@ -21,7 +21,7 @@ $pattern = Regex::build()->not()->word();
 // /[^\w]/
 ```
 
-Alternatively, you can use the `not` property, which works identically.
+Alternatywnie, można użyć właściwości `not`, która zadziała identycznie.
 
 ```php
 use Rudashi\Regex;

@@ -5,6 +5,6 @@ layout: pl-page
 
 ## Lista zmian
 
-All changes to `fluent-regex` are available in the changelog file in the main repository.
+Wszystkie zmiany w `fluent-regex` są dostępne w pliku dziennika zmian w głównym repozytorium.
 
 <https://github.com/rudashi/fluent-regex/blob/main/CHANGELOG.md>

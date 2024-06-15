@@ -9,6 +9,9 @@ previous-link: podstawy/wzorce
 
 ## Zaawansowane
 
+Oprócz podstawowych tokenów, wyrażenie regularne można rozszerzyć o odpowiednie modyfikatory lub kotwice.
+Dodatkowo niektóre metody mogą być wywoływane poprzez właściwości.
+
 ### Flagi
 
 - [`ignoreCase`](zaawansowane/flagi#ignorecase)
@@ -37,3 +40,51 @@ previous-link: podstawy/wzorce
 ### Negacja
 
 - [`not`](zaawansowane/negacja#not)
+
+### Properties
+
+#### Tokens
+
+- letter
+- lowerLetter
+- number
+- numbers
+- whitespace
+- nonWhitespace
+- digit
+- digits
+- nonDigit
+- nonDigits
+- word
+- words
+- tab
+- carriageReturn
+- newline
+- linebreak
+- boundary
+- nonBoundary
+- or
+- anything
+- not
+
+#### Quantifiers
+
+- zeroOrOne
+- zeroOrMore
+- oneOrMore
+
+#### Anchors
+
+- start
+- startOfLine
+- end
+- endOfLine
+
+#### Flags
+
+- ignoreCase
+- multiline
+- matchNewLine
+- ignoreWhitespace
+- utf8
+- unicode

@@ -11,21 +11,21 @@ previous-link: zaawansowane
 
 ### `ignoreCase`
 
-The `ignoreCase` method adds flags _PCRE_CASELESS_ to the pattern.  
-If this flag is set, the letters in the pattern match both uppercase and lower case letters.
+Metoda `ignoreCase` dodaje flagę _PCRE_CASELESS_ do wzorca.  
+Jeśli ta flaga jest ustawiona, litery we wzorcu pasują zarówno do wielkich, jak i małych liter.
 
 ```php
 use Rudashi\Regex;
- 
+
 $regex = Regex::build()->ignoreCase();
- 
+
 // /i
 ```
 
 ### `multiline`
 
-The `multiline` method adds flags _PCRE_MULTILINE_ to the pattern.  
-When this flag is set, the `start` and `end` anchors match immediately following or before any newline in the context string.
+Metoda `multiline` dodaje flagę _PCRE_MULTILINE_ do wzorca.  
+Gdy ta flaga jest ustawiona, kotwice `start` i `end` pasują bezpośrednio po lub przed każdą nową linią w łańcuchu kontekstowym.
 
 ```php
 use Rudashi\Regex;
@@ -37,21 +37,21 @@ $regex = Regex::build()->multiline();
 
 ### `matchNewLine`
 
-The `matchNewLine` method adds flags _PCRE_DOTALL_ to the pattern.  
-If this flag is set, `.` in the pattern matches additionally with newlines.
+Metoda `matchNewLine` dodaje flagę _PCRE_DOTALL_ do wzorca.  
+Jeśli ta flaga jest ustawiona, `.` we wzorcu dopasowuje się dodatkowo z nowymi liniami.
 
 ```php
 use Rudashi\Regex;
- 
+
 $regex = Regex::build()->matchNewLine();
- 
+
 // /s
 ```
 
 ### `ignoreWhitespace`
 
-The `ignoreWhitespace` method adds flags _PCRE_EXTENDED_ to the pattern.  
-If this flag is set, whitespace in the pattern is completely ignored, except when escaped or with characters between an unescaped `#`.
+Metoda `ignoreWhitespace` dodaje flagę _PCRE_EXTENDED_ do wzorca.  
+Jeśli ta flaga jest ustawiona, białe znaki we wzorcu są całkowicie ignorowane, z wyjątkiem znaków escaped lub znaków pomiędzy nieescaped `#`.
 
 ```php
 use Rudashi\Regex;
@@ -63,20 +63,20 @@ $regex = Regex::build()->ignoreWhitespace();
 
 ### `utf8`
 
-The `utf8` method adds flags _PCRE_UTF8_ to the pattern.  
-If this flag is set, the pattern and context string are treated as UTF-8.
+Metoda `utf8` dodaje flagę _PCRE_UTF8_ do wzorca.  
+Jeśli ta flaga jest ustawiona, wzorzec i ciąg kontekstu są traktowane jako UTF-8.
 
 ```php
 use Rudashi\Regex;
- 
+
 $regex = Regex::build()->utf8();
- 
+
 // /u
 ```
 
 ### `unicode`
 
-The `unicode` method is an alias for the `utf8` method.
+Metoda `unicode` jest aliasem dla metody `utf8`.
 
 ```php
 use Rudashi\Regex;

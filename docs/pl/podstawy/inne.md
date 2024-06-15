@@ -9,11 +9,11 @@ previous-link: podstawy/kwantyfikatory
 
 ## Inne
 
-Each method described in this section allows for unique manipulation of the pattern.
+Każda metoda opisana w tej sekcji pozwala na unikalną manipulację wzorcem.
 
 ### `capture`
 
-The `capture` method matches a pattern within a group and remembers the match.
+Metoda `capture` dopasowuje wzorzec wewnątrz grupy i zapamiętuje to dopasowanie.
 
 ```php
 use Rudashi\Regex;
@@ -25,9 +25,22 @@ $pattern = Regex::build()->capture(
 // /(\.[a-zA-Z])/
 ```
 
+Używając argumentów `lookbehind` lub `lookahead` można kontrolować, czy pod wzorzec ma być dopasowywany bez zużywania znaków.
+
+```php
+use Rudashi\Regex;
+ 
+$pattern = Regex::build()->capture(
+    callback: fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter(),
+    lookbehind: true,
+);
+ 
+// /(?<=\.[a-zA-Z])/
+```
+
 ### `maybe`
 
-The `maybe` method matches a pattern within a group zero or one time.
+Metoda `maybe` dopasowuje wzorzec w grupie zero lub jeden raz.
 
 ```php
 use Rudashi\Regex;
@@ -39,21 +52,31 @@ $pattern = Regex::build()->maybe(
 // /(\.[a-zA-Z])?/
 ```
 
-### `oneOf`
-
-The `oneOf` method alternatively matches any of the given characters.
+Alternatywnie można go użyć do wyszukiwania pojedynczych znaków
 
 ```php
 use Rudashi\Regex;
  
-$pattern = Regex::build()->oneOf('a', 'b', '.');
+$pattern = Regex::build()->maybe(0);
  
+// /(0?)/
+```
+
+### `oneOf`
+
+Metoda `oneOf` alternatywnie dopasowuje dowolny z podanych znaków.
+
+```php
+use Rudashi\Regex;
+
+$pattern = Regex::build()->oneOf('a', 'b', '.');
+
 // /a|b|\./
 ```
 
 ### `or`
 
-The `or` method alternatively matches the pattern before and after using the method.
+Metoda `or` alternatywnie dopasowuje wzorzec przed i po użyciu metody.
 
 ```php
 use Rudashi\Regex;
@@ -63,12 +86,12 @@ $pattern = Regex::build()->exactly('a')->or()->exactly('b');
 // /a|b/
 ```
 
-Alternatively, you can use the `or` property, which works identically.
+Alternatywnie można użyć właściwości `or`, która działa identycznie.
 
 ```php
 use Rudashi\Regex;
- 
+
 $pattern = Regex::build()->exactly('a')->or->exactly('b');
- 
+
 // /a|b/
 ```

@@ -40,6 +40,8 @@ Metoda `build()` jest niezbędna podczas tworzenia wzorca.
 - [`nonDigits`](podstawy/dodatkowe-metody#nondigits)
 - [`word`](podstawy/dodatkowe-metody#word)
 - [`words`](podstawy/dodatkowe-metody#words)
+- [`boundary`](podstawy/dodatkowe-metody#boundary)
+- [`nonBoundary`](podstawy/dodatkowe-metody#nonboundary)
 - [`anyOf`](podstawy/dodatkowe-metody#anyof)
 - [`tab`](podstawy/dodatkowe-metody#tab)
 - [`carriageReturn`](podstawy/dodatkowe-metody#carriagereturn)
@@ -64,11 +66,11 @@ Metoda `build()` jest niezbędna podczas tworzenia wzorca.
 
 ### Gotowe wzorce
 
-- date
-- time
-- IPv4 address
-- IPv6 address
-- mac address
-- email
-- url
-- credit card
+- [`date`](podstawy/wzorce#date)
+- [`time`](podstawy/wzorce#time)
+- [`IPv4 address`](podstawy/wzorce#ipv4-address)
+- [`IPv6 address`](podstawy/wzorce#ipv6-address)
+- [`mac address`](podstawy/wzorce#mac-address)
+- [`email`](podstawy/wzorce#email)
+- [`url`](podstawy/wzorce#url)
+- [`credit card`](podstawy/wzorce#credit-card)

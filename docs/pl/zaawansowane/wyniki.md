@@ -11,7 +11,7 @@ previous-link: zaawansowane/kotwica-koniec
 
 ### `check`
 
-The `check` method checks whether the pattern matches the context.
+Metoda `check` sprawdza, czy wzorzec pasuje do kontekstu.
 
 ```php
 use Rudashi\Regex;
@@ -23,7 +23,7 @@ $pattern = Regex::for('hannah')->exactly('a')->check();
 
 ### `get`
 
-The `get` method returns the entire pattern as a string.
+Metoda `get` zwraca cały wzorzec jako ciąg znaków.
 
 ```php
 use Rudashi\Regex;
@@ -35,7 +35,7 @@ $pattern = Regex::build()->get();
 
 ### `match`
 
-The `match` method returns all pattern matches in the context.
+Metoda `match` zwraca wszystkie dopasowania wzorca w kontekście.
 
 ```php
 use Rudashi\Regex;

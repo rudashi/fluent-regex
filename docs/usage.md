@@ -9,7 +9,8 @@ previous-link: installation
 
 ## Usage
 
-You can start creating your regex by using `Regex::build()`. The `build()` method is used every time you want to create a pattern.
+You can start creating your regex by using `Regex::build()`. 
+The `build()` method is used every time you want to create a pattern.
 
 ### Helpers methods
 

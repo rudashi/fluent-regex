@@ -9,11 +9,11 @@ previous-link: podstawy/dodatkowe-metody
 
 ## Kwantyfikatory
 
-Quantifiers specify how many instances of a character, group or character must be present in the subject for a match to be found.
+Kwantyfikatory określają, ile wystąpień znaku, grupy lub znaku musi być obecnych w podanym tekście, aby znaleźć dopasowanie.
 
 ### `zeroOrOne`
 
-The `zeroOrOne` method matches the previous token zero or one time.
+Metoda `zeroOrOne` dopasowuje poprzedni token zero lub jeden raz.
 
 ```php
 use Rudashi\Regex;
@@ -25,7 +25,7 @@ $pattern = Regex::build()->exactly('a')->zeroOrOne();
 
 ### `zeroOrMore`
 
-The `zeroOrMore` method matches the previous token between zero and an unlimited number of times.
+Metoda `zeroOrMore` dopasowuje poprzedni token od zera do nieograniczonej liczby razy.
 
 ```php
 use Rudashi\Regex;
@@ -37,7 +37,7 @@ $pattern = Regex::build()->exactly('a')->zeroOrMore();
 
 ### `oneOrMore`
 
-The `oneOrMore` method matches the previous token once or an unlimited number of times.
+Metoda `oneOrMore` dopasowuje poprzedni token raz lub nieograniczoną liczbę razy.
 
 ```php
 use Rudashi\Regex;
@@ -49,7 +49,7 @@ $pattern = Regex::build()->exactly('a')->oneOrMore();
 
 ### `times`
 
-The `times` method matches the previous token a specified number of times.
+Metoda `times` dopasowuje poprzedni token określoną liczbę razy.
 
 ```php
 use Rudashi\Regex;
@@ -61,7 +61,7 @@ $pattern = Regex::build()->exactly('a')->times(1);
 
 ### `min`
 
-The `min` method matches the previous token between a specified number to an unlimited number of times.
+Metoda `min` dopasowuje poprzedni token od określonej liczby do nieograniczonej liczby razy.
 
 ```php
 use Rudashi\Regex;
@@ -73,7 +73,7 @@ $pattern = Regex::build()->exactly('a')->min(1);
 
 ### `between`
 
-The `between` method matches the previous token between a specified numbers of times.
+Metoda `between` dopasowuje poprzedni token w podanym zakresie.
 
 ```php
 use Rudashi\Regex;
@@ -83,7 +83,7 @@ $pattern = Regex::build()->exactly('a')->between(1, 3);
 // /a{1,3}/
 ```
 
-Additionally, if you omit the second argument, the method behaves identically to `min`.
+Dodatkowo, jeśli pominiesz drugi argument, metoda zachowuje się identycznie jak `min`.
 
 ```php
 use Rudashi\Regex;

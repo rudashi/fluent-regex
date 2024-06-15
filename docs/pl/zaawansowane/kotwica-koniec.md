@@ -11,8 +11,8 @@ previous-link: zaawansowane/kotwica-start
 
 ### `end`
 
-The `end` method adds an end anchor. Matches the position immediately after the last character in the context.
-Ensures that the specified pattern occurs just before the end of the line.
+Metoda `end` dodaje kotwicę końcową. Dopasowuje pozycję bezpośrednio po ostatnim znaku w kontekście.
+Zapewnia, że określony wzorzec występuje tuż przed końcem linii.
 
 ```php
 use Rudashi\Regex;
@@ -24,7 +24,7 @@ $pattern = Regex::build()->end();
 
 ### `endOfLine`
 
-The `endOfLine` method is equivalent to the `end` method.
+Metoda `endOfLine` jest aliasem dla metody `end`.
 
 ```php
 use Rudashi\Regex;
