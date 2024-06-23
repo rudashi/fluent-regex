@@ -28,11 +28,9 @@ trait HasDigitsTokens
     /**
      * Adds a numbers.
      */
-    public function numbers(): FluentBuilder
+    public function numbers(int $min = 0, int $max = 9): FluentBuilder
     {
-        $this->pushToPattern('[0-9]+');
-
-        return $this;
+        return $this->number($min, $max)->oneOrMore();
     }
 
     /**
