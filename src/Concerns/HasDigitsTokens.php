@@ -39,9 +39,7 @@ trait HasDigitsTokens
      */
     public function digit(): FluentBuilder
     {
-        $this->pushToPattern('\d');
-
-        return $this;
+        return $this->pushToPattern('\d');
     }
 
     /**
@@ -50,9 +48,7 @@ trait HasDigitsTokens
      */
     public function digits(): FluentBuilder
     {
-        $this->pushToPattern('\d+');
-
-        return $this;
+        return $this->pushToPattern('\d+');
     }
 
     /**
@@ -61,9 +57,7 @@ trait HasDigitsTokens
      */
     public function nonDigit(): FluentBuilder
     {
-        $this->pushToPattern('\D');
-
-        return $this;
+        return $this->pushToPattern('\D');
     }
 
     /**
@@ -72,8 +66,6 @@ trait HasDigitsTokens
      */
     public function nonDigits(): FluentBuilder
     {
-        $this->pushToPattern('\D+');
-
-        return $this;
+        return $this->pushToPattern('\D+');
     }
 }

@@ -27,9 +27,7 @@ trait HasTokens
      */
     public function character(string|int $value): FluentBuilder
     {
-        $this->pushToPattern((string) $value);
-
-        return $this;
+        return $this->pushToPattern((string) $value);
     }
 
     /**
@@ -53,9 +51,7 @@ trait HasTokens
      */
     public function exactly(string|int $value): FluentBuilder
     {
-        $this->pushToPattern(static::sanitize($value));
-
-        return $this;
+        return $this->pushToPattern(static::sanitize($value));
     }
 
     /**
@@ -97,9 +93,7 @@ trait HasTokens
      */
     public function whitespace(): FluentBuilder
     {
-        $this->pushToPattern('\s');
-
-        return $this;
+        return $this->pushToPattern('\s');
     }
 
     /**
@@ -107,9 +101,7 @@ trait HasTokens
      */
     public function nonWhitespace(): FluentBuilder
     {
-        $this->pushToPattern('\S');
-
-        return $this;
+        return $this->pushToPattern('\S');
     }
 
     /**
@@ -118,9 +110,7 @@ trait HasTokens
      */
     public function word(): FluentBuilder
     {
-        $this->pushToPattern('\w');
-
-        return $this;
+        return $this->pushToPattern('\w');
     }
 
     /**
@@ -129,9 +119,7 @@ trait HasTokens
      */
     public function words(): FluentBuilder
     {
-        $this->pushToPattern('\w+');
-
-        return $this;
+        return $this->pushToPattern('\w+');
     }
 
     /**
@@ -155,9 +143,7 @@ trait HasTokens
      */
     public function boundary(): FluentBuilder
     {
-        $this->pushToPattern('\b');
-
-        return $this;
+        return $this->pushToPattern('\b');
     }
 
     /**
@@ -165,9 +151,7 @@ trait HasTokens
      */
     public function nonBoundary(): FluentBuilder
     {
-        $this->pushToPattern('\B');
-
-        return $this;
+        return $this->pushToPattern('\B');
     }
 
     /**

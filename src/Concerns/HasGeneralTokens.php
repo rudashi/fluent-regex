@@ -19,9 +19,7 @@ trait HasGeneralTokens
      */
     public function tab(): FluentBuilder
     {
-        $this->pushToPattern('\t');
-
-        return $this;
+        return $this->pushToPattern('\t');
     }
 
     /**
@@ -29,9 +27,7 @@ trait HasGeneralTokens
      */
     public function carriageReturn(): FluentBuilder
     {
-        $this->pushToPattern('\r');
-
-        return $this;
+        return $this->pushToPattern('\r');
     }
 
     /**
@@ -39,9 +35,7 @@ trait HasGeneralTokens
      */
     public function newline(): FluentBuilder
     {
-        $this->pushToPattern('\n');
-
-        return $this;
+        return $this->pushToPattern('\n');
     }
 
     /**
@@ -49,8 +43,6 @@ trait HasGeneralTokens
      */
     public function linebreak(): FluentBuilder
     {
-        $this->carriageReturn()->or->newline();
-
-        return $this;
+        return $this->carriageReturn()->or->newline();
     }
 }
