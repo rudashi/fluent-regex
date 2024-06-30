@@ -129,6 +129,16 @@ final class Negate
     }
 
     /**
+     * Adds optional captures to the pattern array.
+     *
+     * @param  callable(\Rudashi\FluentBuilder):\Rudashi\FluentBuilder|string|int  $callback
+     */
+    public function maybe(callable|string|int $callback): FluentBuilder
+    {
+        return is_callable($callback) ? $this->capture($callback)->zeroOrOne() : $this->builder->character($callback)->zeroOrOne();
+    }
+
+    /**
      * Adds a match to anything other than letter.
      */
     public function letter(): FluentBuilder

@@ -106,7 +106,7 @@ describe('Built-in methods', function () {
             ->toBe('/\-(?:\.[a-zA-Z])$/');
     });
 
-    it('returns the negation of capture alias - `group', function () {
+    it('returns the negation of capture alias - `group`', function () {
         $regex = fluentBuilder()
             ->exactly('-')
             ->not->group(fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter())
@@ -136,6 +136,26 @@ describe('Built-in methods', function () {
                 exception: LogicException::class,
                 exceptionMessage: 'Unable to look behind and ahead at the same time.',
             );
+    });
+
+    it('returns the negation of maybe', function () {
+        $regex = fluentBuilder()
+            ->exactly('-')
+            ->not->maybe('a')
+            ->end();
+
+        expect($regex->get())
+            ->toBe('/\-a?$/');
+    });
+
+    it('returns the negation of callable maybe', function () {
+        $regex = fluentBuilder()
+            ->exactly('-')
+            ->not->maybe(fn (FluentBuilder $fluent) => $fluent->exactly('.')->letter())
+            ->end();
+
+        expect($regex->get())
+            ->toBe('/\-(?:\.[a-zA-Z])?$/');
     });
 });
 
