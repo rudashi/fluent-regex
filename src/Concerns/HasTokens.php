@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Rudashi\Concerns;
 
 use Rudashi\FluentBuilder;
-use Rudashi\Tokens;
+use Rudashi\Token;
 
 /**
  * @property static $letter Adds a letter
@@ -169,8 +169,8 @@ trait HasTokens
     /**
      * Adds a token to the pattern.
      */
-    private function addToken(): Tokens
+    private function addToken(): Token
     {
-        return new Tokens($this, $this->isSub);
+        return new Token($this, $this->isSub);
     }
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Rudashi\FluentBuilder;
 use Rudashi\Negate;
-use Rudashi\Tokens;
+use Rudashi\Token;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,7 +61,7 @@ function fluentPattern(string $pattern): FluentBuilder
     return new FluentBuilder(patterns: [$pattern]);
 }
 
-function token(bool $asSub = false): Tokens
+function token(bool $asSub = false): Token
 {
-    return new Tokens(fluentBuilder(), $asSub);
+    return new Token(fluentBuilder(), $asSub);
 }
