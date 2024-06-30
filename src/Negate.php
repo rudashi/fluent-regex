@@ -90,9 +90,7 @@ final class Negate
             return $this->builder;
         }
 
-        $this->builder->pushToPattern('[^' . addcslashes((string) $value, '/') . ']');
-
-        return $this->builder;
+        return $this->builder->pushToPattern('[^' . addcslashes((string) $value, '/') . ']');
     }
 
     /**
@@ -135,7 +133,9 @@ final class Negate
      */
     public function maybe(callable|string|int $callback): FluentBuilder
     {
-        return is_callable($callback) ? $this->capture($callback)->zeroOrOne() : $this->builder->character($callback)->zeroOrOne();
+        return is_callable($callback)
+            ? $this->capture($callback)->zeroOrOne()
+            : $this->builder->character($callback)->zeroOrOne();
     }
 
     /**
@@ -185,9 +185,6 @@ final class Negate
      */
     private function throwNegationException(string $method): never
     {
-        throw new LogicException(sprintf(
-            'Method "%s" is not extendable by "Negation".',
-            $method
-        ));
+        throw new LogicException(sprintf('Method "%s" is not extendable by "Negation".', $method));
     }
 }
