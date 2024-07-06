@@ -1,7 +1,7 @@
 # Fluent Regex
 
-![Codacy Badge](https://app.codacy.com/project/badge/Grade/f54e6ee0b3a64876b466cc46b93fac33)
-![codecov](https://codecov.io/gh/rudashi/fluent-regex/graph/badge.svg?token=0D3GQBHV1Y)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/f54e6ee0b3a64876b466cc46b93fac33)](https://app.codacy.com/gh/rudashi/fluent-regex/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![codecov](https://codecov.io/gh/rudashi/fluent-regex/graph/badge.svg?token=0D3GQBHV1Y)](https://codecov.io/gh/rudashi/fluent-regex)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/rudashi/fluent-regex/tests.yml)
 ![GitHub last commit](https://img.shields.io/github/last-commit/rudashi/fluent-regex)  
 ![GitHub repo size](https://img.shields.io/github/repo-size/rudashi/fluent-regex)
