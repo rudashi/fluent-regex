@@ -5,6 +5,7 @@ declare(strict_types=1);
 use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenTraits;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff;
 use SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff;
+use SlevomatCodingStandard\Sniffs\TypeHints\DeclareStrictTypesSniff;
 
 return [
 
@@ -72,11 +73,19 @@ return [
         LineLengthSniff::class => [
             'lineLimit' => 120,
             'absoluteLineLimit' => 160,
+            'exclude' => [
+                'src/Patterns/DatePattern.php',
+                'src/Patterns/IPv6AddressPattern.php',
+                'src/Patterns/TimePattern.php',
+            ],
         ],
         UnusedParameterSniff::class => [
             'exclude' => [
                 'src/FluentBuilder.php',
             ],
+        ],
+        DeclareStrictTypesSniff::class => [
+            'linesCountBeforeDeclare' => 1,
         ],
     ],
 
