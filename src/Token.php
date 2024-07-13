@@ -16,6 +16,17 @@ final class Token
     ) {
     }
 
+    public function capture(callable $callback, TokenContract $group): FluentBuilder
+    {
+        $this->builder->pushToPattern('(' . $group->getToken());
+
+        $callback($this->builder);
+
+        $this->builder->pushToPattern(')');
+
+        return $this->builder;
+    }
+
     public function letter(string $first = 'a', string $last = 'z'): FluentBuilder
     {
         return $this->addToken(Letter::for($first, $last));

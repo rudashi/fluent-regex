@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rudashi;
 
 use LogicException;
+use Rudashi\Tokens\Group;
 
 /**
  * @mixin \Rudashi\FluentBuilder
@@ -18,6 +19,7 @@ final class Negate
      */
     private static array $guardedMethods = [
         // FluentBuilder
+        'get',
         'check',
         'match',
         'addContext',
@@ -66,17 +68,7 @@ final class Negate
             $this->throwNegationException($method);
         }
 
-        $this->builder->pushToPattern('[^');
-
-        $result = $this->builder->{$method}(...$arguments);
-
-        if ($result instanceof FluentBuilder) {
-            $this->builder->pushToPattern(']');
-
-            return $this->builder;
-        }
-
-        $this->throwNegationException($method);
+        return $this->builder->anyOf(static fn (FluentBuilder $fluent) => $fluent->raw('^')->{$method}(...$arguments));
     }
 
     /**
@@ -100,20 +92,7 @@ final class Negate
      */
     public function capture(callable $callback, bool $lookbehind = false, bool $lookahead = false): FluentBuilder
     {
-        if ($lookbehind && $lookahead) {
-            throw new LogicException('Unable to look behind and ahead at the same time.');
-        }
-
-        $behind = $lookbehind ? '?<!' : '';
-        $ahead = $lookahead ? '?!' : '';
-
-        $this->builder->pushToPattern('(' . (! $behind && ! $ahead ? '?:' : '') . $behind . $ahead);
-
-        $callback($this->builder);
-
-        $this->builder->pushToPattern(')');
-
-        return $this->builder;
+        return $this->builder->addToken()->capture($callback, Group::make($lookbehind, $lookahead, true));
     }
 
     /**
@@ -129,43 +108,11 @@ final class Negate
     /**
      * Adds optional captures to the pattern array.
      *
-     * @param  callable(\Rudashi\FluentBuilder):\Rudashi\FluentBuilder|string|int  $callback
+     * @param  callable(\Rudashi\FluentBuilder): \Rudashi\FluentBuilder|string|int  $callback
      */
     public function maybe(callable|string|int $callback): FluentBuilder
     {
-        return is_callable($callback)
-            ? $this->capture($callback)->zeroOrOne()
-            : $this->builder->character($callback)->zeroOrOne();
-    }
-
-    /**
-     * Adds a match to anything other than letter.
-     */
-    public function letter(): FluentBuilder
-    {
-        $this->builder->pushToPattern('[^a-zA-Z]');
-
-        return $this->builder;
-    }
-
-    /**
-     * Adds a match to anything other than lower letter.
-     */
-    public function lowerLetter(): FluentBuilder
-    {
-        $this->builder->pushToPattern('[^a-z]');
-
-        return $this->builder;
-    }
-
-    /**
-     * Adds a match to anything other than number.
-     */
-    public function number(): FluentBuilder
-    {
-        $this->builder->pushToPattern('[^0-9]');
-
-        return $this->builder;
+        return (is_callable($callback) ? $this->capture($callback) : $this->builder->character($callback))->zeroOrOne();
     }
 
     /**
@@ -173,9 +120,7 @@ final class Negate
      */
     public function numbers(): FluentBuilder
     {
-        $this->builder->pushToPattern('[^0-9]+');
-
-        return $this->builder;
+        return $this->number()->oneOrMore();
     }
 
     /**

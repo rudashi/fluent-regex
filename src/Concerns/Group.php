@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rudashi\Concerns;
 
-use LogicException;
 use Rudashi\FluentBuilder;
 
 trait Group
@@ -16,20 +15,7 @@ trait Group
      */
     public function capture(callable $callback, bool $lookbehind = false, bool $lookahead = false): FluentBuilder
     {
-        if ($lookbehind && $lookahead) {
-            throw new LogicException('Unable to look behind and ahead at the same time.');
-        }
-
-        $behind = $lookbehind ? '?<=' : '';
-        $ahead = $lookahead ? '?=' : '';
-
-        $this->pushToPattern('(' . $behind . $ahead);
-
-        $callback($this);
-
-        $this->pushToPattern(')');
-
-        return $this;
+        return $this->addToken()->capture($callback, \Rudashi\Tokens\Group::make($lookbehind, $lookahead));
     }
 
     /**

@@ -169,7 +169,7 @@ trait HasTokens
     /**
      * Adds a token to the pattern.
      */
-    private function addToken(): Token
+    public function addToken(): Token
     {
         return new Token($this, $this->isSub);
     }
