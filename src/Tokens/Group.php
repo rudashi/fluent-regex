@@ -19,11 +19,8 @@ final class Group implements TokenContract
         return $this->group->getToken();
     }
 
-    public static function make(
-        bool $lookbehind = false,
-        bool $lookahead = false,
-        bool $negative = false
-    ): self {
+    public static function make(bool $lookbehind = false, bool $lookahead = false, bool $negative = false): self
+    {
         if ($lookbehind && $lookahead) {
             throw new LogicException('Unable to look behind and ahead at the same time.');
         }
