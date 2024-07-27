@@ -82,6 +82,7 @@ return [
         UnusedParameterSniff::class => [
             'exclude' => [
                 'src/FluentBuilder.php',
+                'src/Concerns/HasPatterns.php',
             ],
         ],
         DeclareStrictTypesSniff::class => [
