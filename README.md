@@ -7,7 +7,6 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/rudashi/fluent-regex)
 [![Total Downloads](https://img.shields.io/packagist/dt/rudashi/fluent-regex)](https://packagist.org/packages/rudashi/fluent-regex)
 ![GitHub License](https://img.shields.io/github/license/rudashi/fluent-regex)
-[![Twitter Follow](https://img.shields.io/twitter/follow/BorysZmuda?style=social)](https://x.com/BorysZmuda)
 
 ------
 
