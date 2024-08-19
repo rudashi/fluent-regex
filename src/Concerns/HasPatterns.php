@@ -11,7 +11,7 @@ trait HasPatterns
     /**
      * Dynamically handle call into builder instance.
      *
-     * @param  array<int, callable|string|int>  $arguments
+     * @param  array<int, \Closure|string|int>  $arguments
      *
      * @throws \BadMethodCallException
      */

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rudashi\Concerns;
 
+use Closure;
 use Rudashi\FluentBuilder;
 use Rudashi\Token;
 
@@ -125,7 +126,7 @@ trait HasTokens
     /**
      * Match any of the listed characters or tokens.
      */
-    public function anyOf(string|int|callable $value): FluentBuilder
+    public function anyOf(string|int|Closure $value): FluentBuilder
     {
         if (is_callable($value)) {
             $this->pushToPattern('[' . $value(new static(patterns: [], isSub: true))->get() . ']');
@@ -157,11 +158,11 @@ trait HasTokens
     /**
      * Adds optional captures to the pattern array.
      *
-     * @param  callable(\Rudashi\FluentBuilder):\Rudashi\FluentBuilder|string|int  $callback
+     * @param  \Closure(\Rudashi\FluentBuilder):\Rudashi\FluentBuilder|string|int  $callback
      */
-    public function maybe(callable|string|int $callback): FluentBuilder
+    public function maybe(Closure|string|int $callback): FluentBuilder
     {
-        is_callable($callback) ? $this->capture($callback) : $this->character($callback);
+        $callback instanceof Closure ? $this->capture($callback) : $this->character($callback);
 
         return $this->zeroOrOne();
     }

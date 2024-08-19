@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rudashi;
 
+use Closure;
 use Rudashi\Contracts\TokenContract;
 use Rudashi\Tokens\Letter;
 use Rudashi\Tokens\Number;
@@ -16,7 +17,7 @@ final class Token
     ) {
     }
 
-    public function capture(callable $callback, TokenContract $group): FluentBuilder
+    public function capture(Closure $callback, TokenContract $group): FluentBuilder
     {
         $this->builder->pushToPattern('(' . $group->getToken());
 

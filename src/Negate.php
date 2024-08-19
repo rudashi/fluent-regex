@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rudashi;
 
+use Closure;
 use LogicException;
 use Rudashi\Tokens\Group;
 
@@ -60,7 +61,7 @@ final class Negate
     /**
      * Dynamically calls methods on the class or creates a new higher order fluent builder.
      *
-     * @param  array<int|string, string|int|callable>  $arguments
+     * @param  array<int|string, string|int|\Closure>  $arguments
      */
     public function __call(string $method, array $arguments): FluentBuilder
     {
@@ -74,7 +75,7 @@ final class Negate
     /**
      * Match anything other than the listed characters or tokens.
      */
-    public function anyOf(string|int|callable $value): FluentBuilder
+    public function anyOf(string|int|Closure $value): FluentBuilder
     {
         if (is_callable($value)) {
             $this->pushToPattern($value(new FluentBuilder(patterns: [], isSub: true))->get());
@@ -88,9 +89,9 @@ final class Negate
     /**
      * Adds a non-capturing group to the pattern array
      *
-     * @param  callable(\Rudashi\FluentBuilder): \Rudashi\FluentBuilder  $callback
+     * @param  \Closure(\Rudashi\FluentBuilder): \Rudashi\FluentBuilder  $callback
      */
-    public function capture(callable $callback, bool $lookbehind = false, bool $lookahead = false): FluentBuilder
+    public function capture(Closure $callback, bool $lookbehind = false, bool $lookahead = false): FluentBuilder
     {
         return $this->builder->addToken()->capture($callback, Group::make($lookbehind, $lookahead, true));
     }
@@ -98,9 +99,9 @@ final class Negate
     /**
      * Adds a non-capture alternative to the pattern array.
      *
-     * @param  callable(\Rudashi\FluentBuilder): \Rudashi\FluentBuilder  $callback
+     * @param  \Closure(\Rudashi\FluentBuilder): \Rudashi\FluentBuilder  $callback
      */
-    public function group(callable $callback, bool $lookbehind = false, bool $lookahead = false): FluentBuilder
+    public function group(Closure $callback, bool $lookbehind = false, bool $lookahead = false): FluentBuilder
     {
         return $this->capture($callback, $lookbehind, $lookahead);
     }
@@ -108,11 +109,13 @@ final class Negate
     /**
      * Adds optional captures to the pattern array.
      *
-     * @param  callable(\Rudashi\FluentBuilder): \Rudashi\FluentBuilder|string|int  $callback
+     * @param  \Closure(\Rudashi\FluentBuilder): \Rudashi\FluentBuilder|string|int  $callback
      */
-    public function maybe(callable|string|int $callback): FluentBuilder
+    public function maybe(Closure|string|int $callback): FluentBuilder
     {
-        return (is_callable($callback) ? $this->capture($callback) : $this->builder->character($callback))->zeroOrOne();
+        $callback instanceof Closure ? $this->capture($callback) : $this->builder->character($callback);
+
+        return $this->builder->zeroOrOne();
     }
 
     /**
