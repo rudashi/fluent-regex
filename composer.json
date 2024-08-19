@@ -47,6 +47,11 @@
         "coverage": "vendor/bin/pest --coverage --testsuite=unit",
         "analyse": "vendor/bin/phpstan analyse src tests",
         "pint": "vendor/bin/php-cs-fixer check src --show-progress=dots -vvv",
-        "insights": "vendor/bin/phpinsights analyse"
+        "insights": "vendor/bin/phpinsights analyse",
+        "cs": [
+            "@analyse",
+            "@pint",
+            "@insights"
+        ]
     }
 }
