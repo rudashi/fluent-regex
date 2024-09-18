@@ -45,8 +45,6 @@ final class Token
 
     private function addToken(TokenContract $token): FluentBuilder
     {
-        return $this->sub
-            ? $this->builder->character($token->getToken())
-            : $this->builder->anyOf($token->getToken());
+        return $this->sub ? $this->builder->character($token->getToken()) : $this->builder->anyOf($token->getToken());
     }
 }
