@@ -2,7 +2,7 @@
 
 ## 1.0.1 (2024-08-19)
 
-* Replaced all callable to Closure instance - https://github.com/rudashi/fluent-regex/issues/5
+* Replaced all callable to Closure instance - [#5](https://github.com/rudashi/fluent-regex/issues/5)
 
 ## 1.0.0 (2024-06-08)
 
