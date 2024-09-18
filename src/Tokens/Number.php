@@ -30,7 +30,7 @@ final class Number implements TokenContract
         return $this->min . '-' . $this->max;
     }
 
-    public static function for(int $min = self::MIN, int $max = self::MAX): self
+    public static function make(int $min = self::MIN, int $max = self::MAX): self
     {
         return new self($min, $max);
     }

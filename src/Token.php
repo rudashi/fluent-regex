@@ -30,17 +30,17 @@ final class Token
 
     public function letter(string $first = 'a', string $last = 'z'): FluentBuilder
     {
-        return $this->addToken(Letter::for($first, $last));
+        return $this->addToken(Letter::make($first, $last));
     }
 
     public function lowerLetter(string $first = 'a', string $last = 'z'): FluentBuilder
     {
-        return $this->addToken(Letter::lower($first, $last));
+        return $this->addToken(Letter::make($first, $last, true));
     }
 
     public function number(int $min = 0, int $max = 9): FluentBuilder
     {
-        return $this->addToken(Number::for($min, $max));
+        return $this->addToken(Number::make($min, $max));
     }
 
     private function addToken(TokenContract $token): FluentBuilder

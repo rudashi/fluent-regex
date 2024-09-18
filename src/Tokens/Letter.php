@@ -34,14 +34,9 @@ final class Letter implements TokenContract
         ]);
     }
 
-    public static function for(string $first = self::FIRST, string $last = self::LAST): self
+    public static function make(string $first = self::FIRST, string $last = self::LAST, bool $lower = false): self
     {
-        return new self(strtolower($first), strtolower($last));
-    }
-
-    public static function lower(string $first = self::FIRST, string $last = self::LAST): self
-    {
-        return new self(strtolower($first), strtolower($last), true);
+        return new self(strtolower($first), strtolower($last), $lower);
     }
 
     public function getToken(): string
