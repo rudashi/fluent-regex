@@ -2,16 +2,19 @@ name: tests
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
+      - '*.x'
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 permissions:
   contents: read
 
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     strategy:
       fail-fast: true
@@ -28,4 +31,6 @@ jobs:
         run: composer install --prefer-dist --no-interaction --no-progress
 
       - name: Run test suite
-        run: composer run-script test
+        env:
+          XDEBUG_MODE: coverage
+        run: composer test
