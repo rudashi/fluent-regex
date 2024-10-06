@@ -19,11 +19,6 @@ a readable and intuitive object-oriented interface.
 
 > If you thought that finding a `needle` in a `haystack` was impossible, this repository is for you.
 
-## Requirements
-
-- PHP 8.1+
-- Composer
-
 ## Installation
 
 Install the [package](https://packagist.org/packages/rudashi/fluent-regex) via [Composer](https://getcomposer.org/)
@@ -31,6 +26,13 @@ Install the [package](https://packagist.org/packages/rudashi/fluent-regex) via [
 ```shell
 composer require rudashi/fluent-regex
 ```
+
+## Version Guidance
+
+| Version | Branch                                                  | PHP Version |
+|---------|---------------------------------------------------------|-------------|
+| v1.x    | [1.x](https://github.com/rudashi/fluent-regex/tree/1.x) | ^8.1        |
+| v2.x    | [2.x](https://github.com/rudashi/fluent-regex/tree/2.x) | ^8.2        |
 
 ## Usage
 
