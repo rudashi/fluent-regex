@@ -22,7 +22,7 @@ abstract class Pattern
     public function alias(): string
     {
         return lcfirst(implode('', array_map(
-            callback: static fn ($word) => ucfirst(strtolower($word)),
+            callback: static fn ($word): string => ucfirst(strtolower($word)),
             array: explode(' ', str_replace(['-', '_'], ' ', $this->getName()))
         )));
     }

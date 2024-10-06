@@ -20,7 +20,7 @@ final class Number implements TokenContract
             $this->throwLogicException();
         }
 
-        if ($this->max < self::MIN + 1 || $this->max > self::MAX) {
+        if ($this->max < 1 || $this->max > self::MAX) {
             $this->throwLogicException();
         }
     }

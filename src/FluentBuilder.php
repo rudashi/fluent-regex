@@ -160,7 +160,7 @@ final class FluentBuilder
     public function oneOf(string ...$value): self
     {
         return $this->pushToPattern(
-            implode('|', array_map([$this, 'sanitize'], $value))
+            implode('|', array_map($this->sanitize(...), $value))
         );
     }
 
