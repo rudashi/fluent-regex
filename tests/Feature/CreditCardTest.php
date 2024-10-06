@@ -38,16 +38,16 @@ it('validate credit card', function (string $context, bool $expectation) {
         ->start()
         ->not->capture(
             fn (FluentBuilder $fluent) => $fluent->find(4)
-                ->number()
+                ->digit()
                 ->times(12)
-                ->not->capture(fn (FluentBuilder $fluent) => $fluent->number()->times(3))->zeroOrOne()
-                ->or->find(5)->number(1, 5)->number()->times(14)
+                ->not->capture(fn (FluentBuilder $fluent) => $fluent->digit()->times(3))->zeroOrOne()
+                ->or->find(5)->number(1, 5)->digit()->times(14)
         )
         ->end();
 
     expect($regex)
         ->toBeInstanceOf(FluentBuilder::class)
-        ->get()->toBe('/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$/')
+        ->get()->toBe('/^(?:4\d{12}(?:\d{3})?|5[1-5]\d{14})$/')
         ->check()->toBe($expectation);
 })->with('cards');
 
@@ -92,5 +92,5 @@ it('check CreditCardPattern', function () {
     expect($pattern)
         ->toBeInstanceOf(CreditCardPattern::class)
         ->getName()->toBe('credit-card')
-        ->getPattern()->toBe('(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})');
+        ->getPattern()->toBe('(?:4\d{12}(?:\d{3})?|5[1-5]\d{14})');
 });

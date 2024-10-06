@@ -11,5 +11,5 @@ final class CreditCardPattern extends Pattern implements PatternContract
 {
     protected static string $name = 'credit-card';
 
-    protected string $pattern = '(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})';
+    protected string $pattern = '(?:4\d{12}(?:\d{3})?|5[1-5]\d{14})';
 }
