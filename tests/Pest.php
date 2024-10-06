@@ -17,8 +17,6 @@ use Rudashi\Token;
 |
 */
 
-uses(Tests\TestCase::class)->in('Feature');
-
 /*
 |--------------------------------------------------------------------------
 | Expectations
