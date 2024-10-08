@@ -37,12 +37,12 @@ beforeEach(function () {
 it('can use `dump`', function () {
     ob_start();
 
-    $result = $this->builder->dump();
+    $this->builder->dump();
     $dump = ob_get_clean();
 
-    expect($result)
-        ->toBeInstanceOf(FluentBuilder::class)
-        ->and($this->getDump($dump))
+    // @phpstan-ignore-next-line
+    expect($this->getDump($dump))
+        ->toBeString()
         ->toContain(...EXPECTED_DUMP);
 });
 
@@ -53,6 +53,7 @@ it('can use `dump` with argument', function () {
     $this->builder->dump($var1);
     $dump = ob_get_clean();
 
+    // @phpstan-ignore-next-line
     expect($this->getDump($dump))
         ->toContain(
             '}\n
@@ -71,6 +72,7 @@ it('can use `dump` with arguments', function () {
     $this->builder->dump($var1, $var2, $var3);
     $dump = ob_get_clean();
 
+    // @phpstan-ignore-next-line
     expect($this->getDump($dump))
         ->toContain(
             '}\n

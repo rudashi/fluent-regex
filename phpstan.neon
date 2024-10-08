@@ -1,13 +1,15 @@
+includes:
+    - vendor/pestphp/pest/extension.neon
+
 parameters:
   paths:
     - src
     - tests
-  level: 9
+  level: max
   ignoreErrors:
     - '#Call to an undefined method Pest\\Mixins\\Expectation#'
-    -
-        message: '#Undefined variable: \$this.*#'
-        path: tests/**
+  universalObjectCratesClasses:
+      - PHPUnit\Framework\TestCase
   earlyTerminatingMethodCalls:
       Rudashi\FluentBuilder:
           - throwBadMethodException
