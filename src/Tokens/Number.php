@@ -7,14 +7,14 @@ namespace Rudashi\Tokens;
 use LogicException;
 use Rudashi\Contracts\TokenContract;
 
-final class Number implements TokenContract
+final readonly class Number implements TokenContract
 {
     private const MIN = 0;
     private const MAX = 9;
 
     public function __construct(
-        private readonly int $min,
-        private readonly int $max,
+        private int $min,
+        private int $max,
     ) {
         if ($this->min < self::MIN || $this->min > self::MAX - 1) {
             $this->throwLogicException();

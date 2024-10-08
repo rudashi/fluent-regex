@@ -7,15 +7,15 @@ namespace Rudashi\Tokens;
 use LogicException;
 use Rudashi\Contracts\TokenContract;
 
-final class Letter implements TokenContract
+final readonly class Letter implements TokenContract
 {
     private const FIRST = 'a';
     private const LAST = 'z';
 
     public function __construct(
-        private readonly string $first,
-        private readonly string $last,
-        private readonly bool $onlyLower = false,
+        private string $first,
+        private string $last,
+        private bool $onlyLower = false,
     ) {
         if (! in_array($this->first, range('a', 'y'), true)) {
             $this->throwLogicException('The first letter must be between [a-y].');
