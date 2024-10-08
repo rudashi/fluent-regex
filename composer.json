@@ -52,11 +52,6 @@
         "test:unit": "pest --testsuite=unit",
         "test:integration": "pest --testsuite=integration",
         "insights": "phpinsights analyse",
-        "cs": [
-            "@test:types",
-            "@test:pint",
-            "@insights"
-        ],
         "test": [
             "@test:pint",
             "@test:refactor",
