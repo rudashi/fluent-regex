@@ -2,9 +2,17 @@ services:
   php:
     build:
       dockerfile: Dockerfile
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      VAR_DUMPER_FORMAT: server
     volumes:
       - '.:/var/www/html'
   composer:
     image: composer
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      VAR_DUMPER_SERVER: host.docker.internal:9912
     volumes:
       - '.:/var/www/html'
