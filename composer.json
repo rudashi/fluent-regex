@@ -1,6 +1,7 @@
 {
     "name": "rudashi/fluent-regex",
     "description": "Elegant way for PHP regex",
+    "version": "1.0.0",
     "license": "MIT",
     "keywords": [
         "php",
@@ -46,7 +47,7 @@
         "coverage": "pest --coverage --testsuite=unit",
         "test:pint": "php-cs-fixer check src --show-progress=dots -vvv",
         "test:refactor": "rector --dry-run",
-        "test:types": "phpstan analyse src tests",
+        "test:types": "phpstan analyse",
         "test:arch": "pest --filter=arch",
         "test:unit": "pest --testsuite=unit",
         "test:integration": "pest --testsuite=integration",
