@@ -7,7 +7,7 @@ parameters:
     - tests
   level: max
   ignoreErrors:
-    - '#Call to an undefined method Pest\\Mixins\\Expectation#'
+    - '#Call to an undefined method Pest#'
   universalObjectCratesClasses:
       - PHPUnit\Framework\TestCase
   earlyTerminatingMethodCalls:
