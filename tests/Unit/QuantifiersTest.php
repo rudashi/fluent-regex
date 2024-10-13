@@ -23,6 +23,13 @@ it('can add `oneOrMore` quantifier', function () {
         ->toBe('/\w+/');
 });
 
+it('can add zero `times` quantifier causes token to be ignored', function () {
+    $regex = fluentBuilder()->word()->times(0);
+
+    expect($regex->get())
+        ->toBe('/\w{0}/');
+});
+
 it('can add `times` quantifier', function () {
     $regex = fluentBuilder()->word()->times(1);
 
