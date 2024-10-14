@@ -90,7 +90,7 @@ describe('between', function () {
     });
 
     it('threw an exception when the second parameter is a negative number for the `between` quantifier', function () {
-        expect(fn () => fluentBuilder()->word()->between(1, -2))
+        expect(fn () => fluentBuilder()->word()->between(1, -1))
             ->toThrow(
                 exception: LogicException::class,
                 exceptionMessage: 'The "max" parameter must be a positive integer.'
