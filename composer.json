@@ -51,13 +51,15 @@
         "test:arch": "pest --filter=arch",
         "test:unit": "pest --testsuite=unit",
         "test:integration": "pest --testsuite=integration",
+        "test:mutate": "pest --mutate",
         "test": [
             "@test:pint",
             "@test:refactor",
             "@test:types",
             "@test:arch",
             "@test:unit",
-            "@test:integration"
+            "@test:integration",
+            "@test:mutate"
         ]
     }
 }
