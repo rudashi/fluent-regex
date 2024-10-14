@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+use Rudashi\Concerns\Flags;
+
+mutates(Flags::class);
+
 it('can add `insensitive` flag', function () {
     $regex = fluentBuilder()->ignoreCase();
 

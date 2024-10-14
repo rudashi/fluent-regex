@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+use Rudashi\Concerns\Quantifiers;
+
+mutates(Quantifiers::class);
+
 it('can add `zeroOrOne` quantifier', function () {
     $regex = fluentBuilder()->word()->zeroOrOne();
 
