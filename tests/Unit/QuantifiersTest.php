@@ -52,11 +52,25 @@ describe('between', function () {
             ->toBe('/\w{1,3}/');
     });
 
+    test('the same value in the `between` quantifier causes the token to behave like `times(n)`', function () {
+        $regex = fluentBuilder()->word()->between(1, 1);
+
+        expect($regex->get())
+            ->toBe('/\w{1,1}/');
+    });
+
     it('can add the quantifier `between` to act like `min`', function () {
         $regex = fluentBuilder()->word()->between(1);
 
         expect($regex->get())
             ->toBe('/\w{1,}/');
+    });
+
+    test('a [0] value in the `between` quantifier causes the token to behave like `zeroOrMore`', function () {
+        $regex = fluentBuilder()->word()->between(0);
+
+        expect($regex->get())
+            ->toBe('/\w{0,}/');
     });
 
     it('threw an exception when the parameters are a negative number for the `between` quantifier', function () {
