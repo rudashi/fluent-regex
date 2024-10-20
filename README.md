@@ -12,9 +12,9 @@
 
 This package provides a simple way to create regular expression in a fluent way.
 
-**Fluent Regex** is a library in PHP that simplifies the creation and management of regular expressions through 
-the use of fluent syntax. Traditional regular expressions can be difficult to read and understand, especially when 
-they become complex. **Fluent Regex** solves this problem by allowing you to build regular expressions using 
+**Fluent Regex** is a library in PHP that simplifies the creation and management of regular expressions through
+the use of fluent syntax. Traditional regular expressions can be difficult to read and understand, especially when
+they become complex. **Fluent Regex** solves this problem by allowing you to build regular expressions using
 a readable and intuitive object-oriented interface.
 
 > If you thought that finding a `needle` in a `haystack` was impossible, this repository is for you.
@@ -29,10 +29,10 @@ composer require rudashi/fluent-regex
 
 ## Version Guidance
 
-| Version | Branch                                                  | PHP Version |
-|---------|---------------------------------------------------------|-------------|
-| v1.x    | [1.x](https://github.com/rudashi/fluent-regex/tree/1.x) | ^8.1        |
-| v2.x    | [2.x](https://github.com/rudashi/fluent-regex/tree/2.x) | ^8.2        |
+| Version | Branch                                                  | PHP Version | Composer Install                             |
+|---------|---------------------------------------------------------|-------------|----------------------------------------------|
+| v2.x    | [2.x](https://github.com/rudashi/fluent-regex/tree/2.x) | ^8.2        | `composer require rudashi/fluent-regex:^2.0` |
+| v1.x    | [1.x](https://github.com/rudashi/fluent-regex/tree/1.x) | ^8.1        | `composer require rudashi/fluent-regex:^1.0` |
 
 ## Usage
 
@@ -52,11 +52,13 @@ $match = Regex::for('https://100commitow.pl/')->find('100commitow')->check();
 
 ## Documentation
 
-The [Fluent Regex documentation](https://rudashi.github.io/fluent-regex/) is extensive and complete, making getting started with regular expression syntax a breeze.
+The [Fluent Regex documentation](https://rudashi.github.io/fluent-regex/) is extensive and complete, making getting
+started with regular expression syntax a breeze.
 
 ## Changelog
 
-Detailed changes for each release are documented in the [CHANGELOG.md](https://github.com/rudashi/fluent-regex/blob/master/CHANGELOG.md).
+Detailed changes for each release are documented in
+the [CHANGELOG.md](https://github.com/rudashi/fluent-regex/blob/master/CHANGELOG.md).
 
 ## Credits
 
