@@ -2,21 +2,6 @@
 
 declare(strict_types=1);
 
-use Rudashi\Contracts\PatternContract;
-use Rudashi\Pattern;
-
-function fakePattern(): Pattern
-{
-    return new class() extends Pattern implements PatternContract {
-        protected static string $name = 'fake-pattern';
-
-        public function getName(): string
-        {
-            return 'diff-name';
-        }
-    };
-}
-
 it('can return static name', function () {
     $pattern = fakePattern();
 

@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
+use Rudashi\Contracts\PatternContract;
 use Rudashi\FluentBuilder;
 use Rudashi\Negate;
+use Rudashi\Pattern;
 use Rudashi\Token;
 
 /*
@@ -62,4 +64,16 @@ function fluentPattern(string $pattern): FluentBuilder
 function token(bool $asSub = false): Token
 {
     return new Token(fluentBuilder(), $asSub);
+}
+
+function fakePattern(): Pattern
+{
+    return new class() extends Pattern implements PatternContract {
+        protected static string $name = 'fake-pattern';
+
+        public function getName(): string
+        {
+            return 'diff-name';
+        }
+    };
 }
