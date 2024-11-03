@@ -7,10 +7,10 @@ namespace Rudashi\Tokens;
 use LogicException;
 use Rudashi\Contracts\TokenContract;
 
-final class Group implements TokenContract
+final readonly class Group implements TokenContract
 {
     public function __construct(
-        private readonly TokenContract $group,
+        private TokenContract $group,
     ) {
     }
 

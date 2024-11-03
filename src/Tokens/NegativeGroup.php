@@ -6,11 +6,11 @@ namespace Rudashi\Tokens;
 
 use Rudashi\Contracts\TokenContract;
 
-final class NegativeGroup implements TokenContract
+final readonly class NegativeGroup implements TokenContract
 {
     public function __construct(
-        private readonly bool $lookbehind = false,
-        private readonly bool $lookahead = false,
+        private bool $lookbehind = false,
+        private bool $lookahead = false,
     ) {
     }
 

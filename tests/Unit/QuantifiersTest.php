@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+use Rudashi\Concerns\Quantifiers;
+
+mutates(Quantifiers::class);
+
 it('can add `zeroOrOne` quantifier', function () {
     $regex = fluentBuilder()->word()->zeroOrOne();
 
@@ -23,6 +27,13 @@ it('can add `oneOrMore` quantifier', function () {
         ->toBe('/\w+/');
 });
 
+it('can add zero `times` quantifier causes token to be ignored', function () {
+    $regex = fluentBuilder()->word()->times(0);
+
+    expect($regex->get())
+        ->toBe('/\w{0}/');
+});
+
 it('can add `times` quantifier', function () {
     $regex = fluentBuilder()->word()->times(1);
 
@@ -37,18 +48,58 @@ it('can add `min` quantifier', function () {
         ->toBe('/\w{2,}/');
 });
 
-it('can add `between` quantifier', function () {
-    $regex = fluentBuilder()->word()->between(1, 3);
+describe('between', function () {
+    it('can add `between` quantifier', function () {
+        $regex = fluentBuilder()->word()->between(1, 3);
 
-    expect($regex->get())
-        ->toBe('/\w{1,3}/');
-});
+        expect($regex->get())
+            ->toBe('/\w{1,3}/');
+    });
 
-it('can add the quantifier `between` to act like `min`', function () {
-    $regex = fluentBuilder()->word()->between(1);
+    test('the same value in the `between` quantifier causes the token to behave like `times(n)`', function () {
+        $regex = fluentBuilder()->word()->between(1, 1);
 
-    expect($regex->get())
-        ->toBe('/\w{1,}/');
+        expect($regex->get())
+            ->toBe('/\w{1,1}/');
+    });
+
+    it('can add the quantifier `between` to act like `min`', function () {
+        $regex = fluentBuilder()->word()->between(1);
+
+        expect($regex->get())
+            ->toBe('/\w{1,}/');
+    });
+
+    test('a [0] value in the `between` quantifier causes the token to behave like `zeroOrMore`', function () {
+        $regex = fluentBuilder()->word()->between(0);
+
+        expect($regex->get())
+            ->toBe('/\w{0,}/');
+    });
+
+    it('threw an exception when the parameters are a negative number for the `between` quantifier', function () {
+        expect(fn () => fluentBuilder()->word()->between(-1, -3))
+            ->toThrow(
+                exception: LogicException::class,
+                exceptionMessage: 'The "min" parameter must be a positive integer.'
+            );
+    });
+
+    it('threw an exception when the first parameter is a negative number for the `between` quantifier', function () {
+        expect(fn () => fluentBuilder()->word()->between(-1))
+            ->toThrow(
+                exception: LogicException::class,
+                exceptionMessage: 'The "min" parameter must be a positive integer.'
+            );
+    });
+
+    it('threw an exception when the second parameter is a negative number for the `between` quantifier', function () {
+        expect(fn () => fluentBuilder()->word()->between(1, -1))
+            ->toThrow(
+                exception: LogicException::class,
+                exceptionMessage: 'The "max" parameter must be a positive integer.'
+            );
+    });
 });
 
 it('threw an exception when the parameter is a negative number for the `times` quantifier', function () {
@@ -64,30 +115,6 @@ it('threw an exception when the parameter is a negative number for the `min` qua
         ->toThrow(
             exception: LogicException::class,
             exceptionMessage: 'The "min" parameter must be a positive integer.'
-        );
-});
-
-it('threw an exception when the parameters are a negative number for the `between` quantifier', function () {
-    expect(fn () => fluentBuilder()->word()->between(-1, -3))
-        ->toThrow(
-            exception: LogicException::class,
-            exceptionMessage: 'The "min" parameter must be a positive integer.'
-        );
-});
-
-it('threw an exception when the first parameter is a negative number for the `between` quantifier', function () {
-    expect(fn () => fluentBuilder()->word()->between(-1))
-        ->toThrow(
-            exception: LogicException::class,
-            exceptionMessage: 'The "min" parameter must be a positive integer.'
-        );
-});
-
-it('threw an exception when the second parameter is a negative number for the `between` quantifier', function () {
-    expect(fn () => fluentBuilder()->word()->between(1, -2))
-        ->toThrow(
-            exception: LogicException::class,
-            exceptionMessage: 'The "max" parameter must be a positive integer.'
         );
 });
 

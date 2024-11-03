@@ -1,7 +1,7 @@
 {
     "name": "rudashi/fluent-regex",
     "description": "Elegant way for PHP regex",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "license": "MIT",
     "keywords": [
         "php",
@@ -17,15 +17,14 @@
         }
     ],
     "require": {
-        "php": ">=8.1"
+        "php": ">=8.2"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
-        "nunomaduro/phpinsights": "^2.0",
-        "pestphp/pest": "^2.0",
+        "pestphp/pest": "^3.0",
         "phpstan/phpstan": "^1.0",
         "rector/rector": "^1.0",
-        "symfony/var-dumper": "^6.0"
+        "symfony/var-dumper": "^7.0"
     },
     "autoload": {
         "psr-4": {
@@ -52,14 +51,15 @@
         "test:arch": "pest --filter=arch",
         "test:unit": "pest --testsuite=unit",
         "test:integration": "pest --testsuite=integration",
-        "insights": "phpinsights analyse",
+        "test:mutate": "pest --mutate",
         "test": [
             "@test:pint",
             "@test:refactor",
             "@test:types",
             "@test:arch",
             "@test:unit",
-            "@test:integration"
+            "@test:integration",
+            "@test:mutate"
         ]
     }
 }

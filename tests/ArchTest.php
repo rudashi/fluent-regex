@@ -8,9 +8,18 @@ use Rudashi\Concerns\Dumpable;
 use Rudashi\Contracts\PatternContract;
 use Rudashi\Flag;
 
+arch()->preset()->security();
+
+arch()->preset()->php()->ignoring(Dumpable::class);
+
 arch('strict types are everywhere', function () {
     expect('Rudashi')
         ->toUseStrictTypes();
+});
+
+arch('strict equality', function () {
+    expect('Rudashi\JavaScript')
+        ->toUseStrictEquality();
 });
 
 arch('globals', function () {

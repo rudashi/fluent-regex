@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+use Rudashi\Anchors;
+
+mutates(Anchors::class);
+
 it('can add `start of a string` anchor', function () {
     $regex = fluentBuilder()->start();
 

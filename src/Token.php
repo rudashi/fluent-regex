@@ -9,11 +9,11 @@ use Rudashi\Contracts\TokenContract;
 use Rudashi\Tokens\Letter;
 use Rudashi\Tokens\Number;
 
-final class Token
+final readonly class Token
 {
     public function __construct(
-        private readonly FluentBuilder $builder,
-        private readonly bool $sub = false,
+        private FluentBuilder $builder,
+        private bool $sub = false,
     ) {
     }
 
