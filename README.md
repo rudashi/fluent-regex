@@ -31,7 +31,7 @@ composer require rudashi/fluent-regex
 
 | Version | Branch                                                  | PHP Version | Composer Install                             |
 |---------|---------------------------------------------------------|-------------|----------------------------------------------|
-| v2.x    | [2.x](https://github.com/rudashi/fluent-regex/tree/2.x) | ^8.2        | `composer require rudashi/fluent-regex:^2.0` |
+| v2.x    | [master](https://github.com/rudashi/fluent-regex)       | ^8.2        | `composer require rudashi/fluent-regex`      |
 | v1.x    | [1.x](https://github.com/rudashi/fluent-regex/tree/1.x) | ^8.1        | `composer require rudashi/fluent-regex:^1.0` |
 
 ## Usage
