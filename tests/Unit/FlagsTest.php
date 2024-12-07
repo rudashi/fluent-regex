@@ -48,6 +48,13 @@ it('can add alias to `unicode` flag', function () {
         ->toBe('//u');
 });
 
+it('can not add multiple times the same flag', function () {
+    $regex = fluentBuilder()->ignoreCase()->ignoreCase();
+
+    expect($regex->get())
+        ->toBe('//i');
+});
+
 it('thrown an exception when trying to negate the flag', function (string $method) {
     expect(fn () => fluentBuilder()->not->{$method}())
         ->toThrow(
